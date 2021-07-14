@@ -1,7 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import stayApp from '../views/stayApp.vue'
 import signUp from '../components/stay-signup.vue'
+import stayDetails from '../views/stay-details.vue'
+import stayEdit from '../views/stay-edit.vue'
 
 Vue.use(VueRouter)
 
@@ -15,6 +18,25 @@ const routes = [
     path: '/sign-up',
     name: 'signUp',
     component: signUp
+  },
+  {
+    path: '/explore',
+    name: 'explore',
+    component: stayApp
+  },
+  {
+    path: '/explore/:id',
+    name: 'stay-details',
+    component: stayDetails
+  },
+  {
+    path: '/stay/edit/:id?',
+    name: 'stay-edit',
+    component: stayEdit
+  },
+  {
+    path: '/stay/host',
+    component: stayEdit
   },
   {
     path: '/about',
