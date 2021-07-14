@@ -110,9 +110,9 @@ export default {
   top: 70px;
   border-radius: 50px;
   background-color: #fff;
-  height: 65px;
+  height: 40px;
   box-shadow: 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -2px rgb(0 0 0 / 5%);
-  padding: 40px 0;
+  padding: 20px 0;
 }
 .filter *> {
      width: 250px;

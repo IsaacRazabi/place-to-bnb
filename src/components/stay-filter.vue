@@ -8,7 +8,7 @@
             @input="setFilter"
             v-model="filterBy.loc"
             type="text"
-            placeholder="where are you going? 🔍"
+            placeholder="where are you going? "
           />
         </span>
         <span class="cheak-in">
@@ -23,7 +23,7 @@
           <label for="guests"> add guests </label>
           <input type="number" v-model="filterBy.guests" />
         </span>
-        <button>🔎</button>
+        <!-- <button>🔎</button> -->
       </div>
     </section>
   </form>
@@ -60,6 +60,15 @@ export default {
 </script>
 
 <style scoped>
+.location{
+  text-align: left;
+}
+input{
+  color:gray;
+}
+input{
+  border: 0;
+}
 .location {
   display: flex;
   flex-direction: column;
