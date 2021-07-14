@@ -107,6 +107,9 @@ section{
     margin-inline-end: 200px;
     
 }
+.mini-card p{
+    text-align: left;
+}
 
 .main-card-container{
     display: flex;
