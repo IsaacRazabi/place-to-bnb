@@ -61,7 +61,7 @@ export default {
         .then((user) => {
           this.loggedInUser = user;
           this.credencials = { username: "", password: "" };
-          this.$router.push("/toy-app");
+          this.$router.push("/home");
         });
     },
     signup() {

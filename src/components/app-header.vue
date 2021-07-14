@@ -24,7 +24,7 @@
         </span>
         <!-- </div> -->
         <div v-bind:class="{ show: isShow }">
-          <div class="dropdownContent">
+          <div v-bind:class="{ show: isShow }" class="dropdownContent">
           <router-link to="/sign-up">Log In</router-link>
           <router-link to="/sign-up">Sign Up</router-link>
           <router-link to="/user-profile">user profile</router-link>
@@ -60,7 +60,7 @@ export default {
       interval: null,
       imgUrl: 1,
       loggedInUser: this.$store.getters.loggedinUser,
-      isShow: false,
+      isShow: true,
     };
   },
   components: {
@@ -74,6 +74,11 @@ export default {
     }, 6000);
   },
   methods: {
+        logout() {
+      this.$store
+        .dispatch({ type: "logout" })
+        .then(() => (this.loggedInUser = null));
+    },
     toogleShow() {
       this.isShow = !this.isShow;
     },
@@ -204,10 +209,6 @@ justify-content: space-between;
 
 .dropdownContent a:hover {
   background-color: #ddd;
-}
-
-.show-menu .dropdownContent {
-  display: block;
 }
 
 .filter-container{
