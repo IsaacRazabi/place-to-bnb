@@ -97,6 +97,9 @@ section{
 .main-card p{
     text-align: left;
 }
+.main-card img{
+    cursor: pointer;
+}
 .mini-card-container{
      display: flex;
      
@@ -104,11 +107,14 @@ section{
 .mini-card{
     display: flex;
     padding-bottom: 60px;
-    margin-inline-end: 200px;
-    
+    margin-inline-end: 240px;    
+}
+.mini-card img{
+    cursor: pointer;
 }
 .mini-card p{
     text-align: left;
+    padinf 
 }
 
 .main-card-container{
@@ -120,5 +126,7 @@ section{
 .main-title{
     text-align: left;
 }
-
+aside img{
+    cursor: pointer;
+}
 </style>
