@@ -27,7 +27,7 @@ export const  defaultStayes  = {
       "_id": "100065461",
       "name": "Ribeira Charming Duplex",
       "imgUrls": ["https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large", "otherImg.jpg"],
-      "price": 80.00,
+      "price": 75.00,
       "summary": "Fantastic duplex apartment with three bedrooms, located in the historic area of Porto, Ribeira (Cube)...",
       "capacity": 8,
       "amenities": [
@@ -54,7 +54,7 @@ export const  defaultStayes  = {
         {
           "id": "madeId",
           "txt": "Very helpful hosts. Cooked traditional...",
-          "rate": 4,
+          "rate": 4.7,
           "by": {
             "_id": "u102",
             "fullname": "user2",
@@ -66,9 +66,9 @@ export const  defaultStayes  = {
     },
     {
       "_id": "100065462",
-      "name": "Ribeira Charming Duplex",
-      "imgUrls": ["https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large", "otherImg.jpg"],
-      "price": 80.00,
+      "name": "Amazing private suite 10min from center",
+      "imgUrls": ["https://a0.muscache.com/im/pictures/be0cacdf-bab1-4734-b74e-b1f8c2977125.jpg?im_w=720", "otherImg.jpg"],
+      "price": 145.00,
       "summary": "Fantastic duplex apartment with three bedrooms, located in the historic area of Porto, Ribeira (Cube)...",
       "capacity": 8,
       "amenities": [
@@ -95,7 +95,7 @@ export const  defaultStayes  = {
         {
           "id": "madeId",
           "txt": "Very helpful hosts. Cooked traditional...",
-          "rate": 4,
+          "rate": 4.3,
           "by": {
             "_id": "u102",
             "fullname": "user2",
@@ -107,9 +107,9 @@ export const  defaultStayes  = {
     },
     {
       "_id": "100065463",
-      "name": "Ribeira Charming Duplex",
-      "imgUrls": ["https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large", "otherImg.jpg"],
-      "price": 80.00,
+      "name": "House in the greenest part of the city",
+      "imgUrls": ["https://a0.muscache.com/im/pictures/miso/Hosting-42081840/original/7efd2968-6a22-4836-bac4-8ae0dc824002.jpeg?im_w=720", "otherImg.jpg"],
+      "price": 96.00,
       "summary": "Fantastic duplex apartment with three bedrooms, located in the historic area of Porto, Ribeira (Cube)...",
       "capacity": 8,
       "amenities": [
@@ -136,7 +136,7 @@ export const  defaultStayes  = {
         {
           "id": "madeId",
           "txt": "Very helpful hosts. Cooked traditional...",
-          "rate": 4,
+          "rate": 4.1,
           "by": {
             "_id": "u102",
             "fullname": "user2",
@@ -148,9 +148,9 @@ export const  defaultStayes  = {
     },
     {
       "_id": "100065464",
-      "name": "Ribeira Charming Duplex",
-      "imgUrls": ["https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large", "otherImg.jpg"],
-      "price": 80.00,
+      "name": "Old Nickel is located in the city centre ",
+      "imgUrls": ["https://a0.muscache.com/im/pictures/92f3e0d1-7d10-4be3-8eba-e5ca93e28106.jpg?im_w=720", "otherImg.jpg"],
+      "price": 101.00,
       "summary": "Fantastic duplex apartment with three bedrooms, located in the historic area of Porto, Ribeira (Cube)...",
       "capacity": 8,
       "amenities": [
@@ -177,7 +177,7 @@ export const  defaultStayes  = {
         {
           "id": "madeId",
           "txt": "Very helpful hosts. Cooked traditional...",
-          "rate": 4,
+          "rate": 2.5,
           "by": {
             "_id": "u102",
             "fullname": "user2",
@@ -189,9 +189,9 @@ export const  defaultStayes  = {
     },
     {
       "_id": "100065465",
-      "name": "Ribeira Charming Duplex",
-      "imgUrls": ["https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large", "otherImg.jpg"],
-      "price": 80.00,
+      "name": "Located between the Royal Palace on Dam Square",
+      "imgUrls": ["https://a0.muscache.com/im/pictures/438d8f15-1d46-42d3-a625-23a6c7df8d61.jpg?im_w=720", "otherImg.jpg"],
+      "price": 74.00,
       "summary": "Fantastic duplex apartment with three bedrooms, located in the historic area of Porto, Ribeira (Cube)...",
       "capacity": 8,
       "amenities": [
@@ -218,7 +218,7 @@ export const  defaultStayes  = {
         {
           "id": "madeId",
           "txt": "Very helpful hosts. Cooked traditional...",
-          "rate": 4,
+          "rate": 4.0,
           "by": {
             "_id": "u102",
             "fullname": "user2",
@@ -230,9 +230,9 @@ export const  defaultStayes  = {
     },
     {
       "_id": "100065466",
-      "name": "Ribeira Charming Duplex",
-      "imgUrls": ["https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large", "otherImg.jpg"],
-      "price": 80.00,
+      "name": "In a prime location",
+      "imgUrls": ["https://a0.muscache.com/im/pictures/fd17b546-5ecf-461f-ae41-b3efd0b3ca28.jpg?im_w=720", "otherImg.jpg"],
+      "price": 256.00,
       "summary": "Fantastic duplex apartment with three bedrooms, located in the historic area of Porto, Ribeira (Cube)...",
       "capacity": 8,
       "amenities": [
@@ -259,7 +259,294 @@ export const  defaultStayes  = {
         {
           "id": "madeId",
           "txt": "Very helpful hosts. Cooked traditional...",
-          "rate": 4,
+          "rate": 3.8,
+          "by": {
+            "_id": "u102",
+            "fullname": "user2",
+            "imgUrl": "/img/img2.jpg"
+          }
+        }
+      ],
+      "likedByUserIds" : ["u101", "u102"]
+    },
+    {
+      "_id": "100065467",
+      "name": "Situated in the heart of the city centre",
+      "imgUrls": ["https://a0.muscache.com/im/pictures/miso/Hosting-47997821/original/49793977-2eff-4e82-a1ef-610832c3f526.jpeg?im_w=720", "otherImg.jpg"],
+      "price": 159.00,
+      "summary": "Fantastic duplex apartment with three bedrooms, located in the historic area of Porto, Ribeira (Cube)...",
+      "capacity": 8,
+      "amenities": [
+        "TV",
+        "Wifi",
+        "Kitchen",
+        "Smoking allowed",
+        "Pets allowed",
+        "Cooking basics"
+      ],
+      "host": {
+        "_id": "51399391",
+        "fullname": "Davit Pok",
+        "imgUrl": "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small",
+      },
+      "loc": {
+        "country": "Portugal",
+        "countryCode": "PT",
+        "address": "Porto, Portugal",
+        "lat": -8.61308,
+        "lng": 41.1413
+      },
+      "reviews": [
+        {
+          "id": "madeId",
+          "txt": "Very helpful hosts. Cooked traditional...",
+          "rate": 4.7,
+          "by": {
+            "_id": "u102",
+            "fullname": "user2",
+            "imgUrl": "/img/img2.jpg"
+          }
+        }
+      ],
+      "likedByUserIds" : ["u101", "u102"]
+    },
+    {
+      "_id": "100065461",
+      "name": "At walking distance from Central Station ",
+      "imgUrls": ["https://a0.muscache.com/im/pictures/8c94c2fd-d1a6-465a-93a4-ff989cf287ee.jpg?im_w=720", "otherImg.jpg"],
+      "price": 229.00,
+      "summary": "Fantastic duplex apartment with three bedrooms, located in the historic area of Porto, Ribeira (Cube)...",
+      "capacity": 8,
+      "amenities": [
+        "TV",
+        "Wifi",
+        "Kitchen",
+        "Smoking allowed",
+        "Pets allowed",
+        "Cooking basics"
+      ],
+      "host": {
+        "_id": "51399391",
+        "fullname": "Davit Pok",
+        "imgUrl": "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small",
+      },
+      "loc": {
+        "country": "Israel",
+        "countryCode": "IL",
+        "address": "Haifa, Israel",
+        "lat": -8.61308,
+        "lng": 41.1413
+      },
+      "reviews": [
+        {
+          "id": "madeId",
+          "txt": "Very helpful hosts. Cooked traditional...",
+          "rate": 4.5,
+          "by": {
+            "_id": "u102",
+            "fullname": "user2",
+            "imgUrl": "/img/img2.jpg"
+          }
+        }
+      ],
+      "likedByUserIds" : ["u101", "u102"]
+    },
+    {
+      "_id": "100065462",
+      "name": "The home has an adjoining restaurant and Irish pub. ",
+      "imgUrls": ["https://a0.muscache.com/im/pictures/2bda3dae-6ddc-4215-8728-c76c62bebc64.jpg?im_w=720", "otherImg.jpg"],
+      "price": 125.00,
+      "summary": "Fantastic duplex apartment with three bedrooms, located in the historic area of Porto, Ribeira (Cube)...",
+      "capacity": 8,
+      "amenities": [
+        "TV",
+        "Wifi",
+        "Kitchen",
+        "Smoking allowed",
+        "Pets allowed",
+        "Cooking basics"
+      ],
+      "host": {
+        "_id": "51399391",
+        "fullname": "Davit Pok",
+        "imgUrl": "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small",
+      },
+      "loc": {
+        "country": "France",
+        "countryCode": "FR",
+        "address": "Paris, France",
+        "lat": -8.61308,
+        "lng": 41.1413
+      },
+      "reviews": [
+        {
+          "id": "madeId",
+          "txt": "Very helpful hosts. Cooked traditional...",
+          "rate": 4.3,
+          "by": {
+            "_id": "u102",
+            "fullname": "user2",
+            "imgUrl": "/img/img2.jpg"
+          }
+        }
+      ],
+      "likedByUserIds" : ["u101", "u102"]
+    },
+    {
+      "_id": "100065463",
+      "name": "Easy access to all famous sights",
+      "imgUrls": ["https://a0.muscache.com/im/pictures/7df0697a-af3c-4b06-9ef6-73697d43981d.jpg?im_w=720", "otherImg.jpg"],
+      "price": 81.00,
+      "summary": "Fantastic duplex apartment with three bedrooms, located in the historic area of Porto, Ribeira (Cube)...",
+      "capacity": 8,
+      "amenities": [
+        "TV",
+        "Wifi",
+        "Kitchen",
+        "Smoking allowed",
+        "Pets allowed",
+        "Cooking basics"
+      ],
+      "host": {
+        "_id": "51399391",
+        "fullname": "Davit Pok",
+        "imgUrl": "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small",
+      },
+      "loc": {
+        "country": "Germany",
+        "countryCode": "GR",
+        "address": "Berlin, Germany",
+        "lat": -8.61308,
+        "lng": 41.1413
+      },
+      "reviews": [
+        {
+          "id": "madeId",
+          "txt": "Very helpful hosts. Cooked traditional...",
+          "rate": 4.2,
+          "by": {
+            "_id": "u102",
+            "fullname": "user2",
+            "imgUrl": "/img/img2.jpg"
+          }
+        }
+      ],
+      "likedByUserIds" : ["u101", "u102"]
+    },
+    {
+      "_id": "100065464",
+      "name": "On-site parking is available",
+      "imgUrls": ["https://a0.muscache.com/im/pictures/d1498446-3c89-4511-8ede-dab28ca50edb.jpg?im_w=720", "otherImg.jpg"],
+      "price": 76.00,
+      "summary": "Fantastic duplex apartment with three bedrooms, located in the historic area of Porto, Ribeira (Cube)...",
+      "capacity": 8,
+      "amenities": [
+        "TV",
+        "Wifi",
+        "Kitchen",
+        "Smoking allowed",
+        "Pets allowed",
+        "Cooking basics"
+      ],
+      "host": {
+        "_id": "51399391",
+        "fullname": "Davit Pok",
+        "imgUrl": "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small",
+      },
+      "loc": {
+        "country": "Spain",
+        "countryCode": "SP",
+        "address": "Spain, Barcelona",
+        "lat": -8.61308,
+        "lng": 41.1413
+      },
+      "reviews": [
+        {
+          "id": "madeId",
+          "txt": "Very helpful hosts. Cooked traditional...",
+          "rate": 3.2,
+          "by": {
+            "_id": "u102",
+            "fullname": "user2",
+            "imgUrl": "/img/img2.jpg"
+          }
+        }
+      ],
+      "likedByUserIds" : ["u101", "u102"]
+    },
+    {
+      "_id": "100065465",
+      "name": "Is a 5-minute walk away from main square",
+      "imgUrls": ["https://a0.muscache.com/im/pictures/miso/Hosting-47997821/original/70575592-6805-47b1-80e0-3fab545d6e23.jpeg?im_w=720", "otherImg.jpg"],
+      "price": 154.00,
+      "summary": "Fantastic duplex apartment with three bedrooms, located in the historic area of Porto, Ribeira (Cube)...",
+      "capacity": 8,
+      "amenities": [
+        "TV",
+        "Wifi",
+        "Kitchen",
+        "Smoking allowed",
+        "Pets allowed",
+        "Cooking basics"
+      ],
+      "host": {
+        "_id": "51399391",
+        "fullname": "Davit Pok",
+        "imgUrl": "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small",
+      },
+      "loc": {
+        "country": "Italy",
+        "countryCode": "IT",
+        "address": "Rome, Italy",
+        "lat": -8.61308,
+        "lng": 41.1413
+      },
+      "reviews": [
+        {
+          "id": "madeId",
+          "txt": "Very helpful hosts. Cooked traditional...",
+          "rate": 4.4,
+          "by": {
+            "_id": "u102",
+            "fullname": "user2",
+            "imgUrl": "/img/img2.jpg"
+          }
+        }
+      ],
+      "likedByUserIds" : ["u101", "u102"]
+    },
+    {
+      "_id": "100065466",
+      "name": " Situated on the most exclusive shopping street",
+      "imgUrls": ["https://a0.muscache.com/im/pictures/f2e6581c-c8f3-4c43-8b02-d095460674d5.jpg?im_w=720", "otherImg.jpg"],
+      "price": 321.00,
+      "summary": "Fantastic duplex apartment with three bedrooms, located in the historic area of Porto, Ribeira (Cube)...",
+      "capacity": 8,
+      "amenities": [
+        "TV",
+        "Wifi",
+        "Kitchen",
+        "Smoking allowed",
+        "Pets allowed",
+        "Cooking basics"
+      ],
+      "host": {
+        "_id": "51399391",
+        "fullname": "Davit Pok",
+        "imgUrl": "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small",
+      },
+      "loc": {
+        "country": "Portugal",
+        "countryCode": "PT",
+        "address": "Porto, Portugal",
+        "lat": -8.61308,
+        "lng": 41.1413
+      },
+      "reviews": [
+        {
+          "id": "madeId",
+          "txt": "Very helpful hosts. Cooked traditional...",
+          "rate": 4.8,
           "by": {
             "_id": "u102",
             "fullname": "user2",
@@ -272,8 +559,8 @@ export const  defaultStayes  = {
     {
       "_id": "100065467",
       "name": "Ribeira Charming Duplex",
-      "imgUrls": ["https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large", "otherImg.jpg"],
-      "price": 80.00,
+      "imgUrls": ["https://a0.muscache.com/im/pictures/16c5f59c-2404-4c00-a7b6-497c234ed1e0.jpg?im_w=720", "otherImg.jpg"],
+      "price": 129.00,
       "summary": "Fantastic duplex apartment with three bedrooms, located in the historic area of Porto, Ribeira (Cube)...",
       "capacity": 8,
       "amenities": [
@@ -300,7 +587,7 @@ export const  defaultStayes  = {
         {
           "id": "madeId",
           "txt": "Very helpful hosts. Cooked traditional...",
-          "rate": 4,
+          "rate": 3.7,
           "by": {
             "_id": "u102",
             "fullname": "user2",
@@ -330,7 +617,7 @@ export const  defaultStayes  = {
       "stay": {
         "_id": "h102",
         "name": "House Of Uncle My",
-        "price": 80.00
+        "price": 63.00
       },
       "status": "pending"
     }    
