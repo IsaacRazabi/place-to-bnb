@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import { stayService } from '../services/user.service.js';
+import { stayService } from '../services/stay.service.js';
 
 export default {
   data() {
@@ -47,11 +47,13 @@ export default {
   created() {
     const { stayId } = this.$route.params;
     //cheak if there is on the url an id to determend add or edit
+      console.log(stayId);
     if (stayId) {
         stayService.getById(stayId).then((stay) => {
             this.stayToEdit = stay;
       });
-    } else {
+    } 
+    else {
       this.stayToEdit = stayService.getEmptyStay();
     }
   },

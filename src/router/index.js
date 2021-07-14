@@ -30,12 +30,12 @@ const routes = [
     component: stayDetails
   },
   {
-    path: '/stay/edit/:id?',
+    path: '/stay/edit/:stayId?',
     name: 'stay-edit',
     component: stayEdit
   },
   {
-    path: '/stay/host',
+    path: '/host',
     component: stayEdit
   },
   {

@@ -5,7 +5,7 @@ import {defaultStayes } from '../data/airbnb.js';
 
 export const stayService = {
   query,
-  getStayById,
+  getById,
   getEmptyStay
 };
 
@@ -26,7 +26,7 @@ function query() {
       })
 }
 
-function getStayById(stayId) {
+function getById(stayId) {
   return storageService.get(STAY_KEY, stayId);
 }
 
