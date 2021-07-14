@@ -1,8 +1,8 @@
 <template>
 <div class="card-container">
       <div class="card">
-   <router-link  :to="'/stay/details/'+stay._id">
     <router-link  :to="'/stay/edit/'+stay._id">edit</router-link>
+   <router-link  :to="'/stay/details/'+stay._id">
               <p>{{stay.loc.country}}</p>
                 <p>{{stay.loc.address}}</p>
              <p>price per night : {{stay.price}}</p>

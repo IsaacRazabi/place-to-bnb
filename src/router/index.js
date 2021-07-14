@@ -25,7 +25,7 @@ const routes = [
     component: stayApp
   },
   {
-    path: '/explore/:id',
+    path: '/stay/details/:stayId',
     name: 'stay-details',
     component: stayDetails
   },

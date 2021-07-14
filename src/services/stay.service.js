@@ -36,7 +36,7 @@ function getEmptyStay() {
     name: "",
     summary: "",
     price: null,
-    location: '',
+    loc:'',
     type: "",
     createdAt: Date.now(),
     inStock: true,
