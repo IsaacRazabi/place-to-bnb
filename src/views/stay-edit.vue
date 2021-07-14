@@ -21,6 +21,7 @@
       <input type="file" id="input" multiple />
       <button>Save</button>
     </form>
+    {{stayToEdit}}
     <button><router-link to="/stay-app">back</router-link></button>
   </section>
 </template>
@@ -36,10 +37,9 @@ export default {
         name: "",
         summary: "",
         price: null,
-        location: "",
+        loc:'',
         type: "",
         createdAt: Date.now(),
-        inStock: true,
         imgs: [],
       },
     };
@@ -60,7 +60,7 @@ export default {
   methods: {
     saveStay() {
       this.$store
-        .dispatch({ type: "saveStay", stay: this.stayToEdit })
+        .dispatch({ type: "saveStay",  stay :this.stayToEdit })
         .then(() => this.$router.push({ path: "/explore"}));
     },
   },
