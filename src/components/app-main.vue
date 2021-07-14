@@ -113,8 +113,7 @@ section{
     cursor: pointer;
 }
 .mini-card p{
-    text-align: left;
-    padinf 
+    text-align: left; 
 }
 
 .main-card-container{
