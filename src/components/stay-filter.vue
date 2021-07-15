@@ -4,8 +4,13 @@
       <div class="filter-wrraper">
         <span class="location">
           <label> location </label>
-          <input
+              <input v-if="this.$route.name==='explore'"
             @input="setFilter"
+            v-model="filterBy.loc"
+            type="text"
+            placeholder="where are you going? "
+          />
+          <input v-else
             v-model="filterBy.loc"
             type="text"
             placeholder="where are you going? "
@@ -23,7 +28,7 @@
           <label for="guests"> add guests </label>
           <input type="number" v-model="filterBy.guests" />
         </span>
-        <!-- <button>🔎</button> -->
+        <button>🔎</button>
       </div>
     </section>
   </form>
@@ -51,6 +56,7 @@ export default {
   methods: {
     setFilter() {
       this.$emit("filter", JSON.parse(JSON.stringify(this.filterBy)));
+      this.$router.push({path: '/explore'})
     },
     // displayInput(){
     //     this.isSowen = !isSowen

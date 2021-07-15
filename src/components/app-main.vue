@@ -47,6 +47,7 @@
             <div class="main-title">
             Live anywhere
             </div>
+            <router-link to="/explore">
             <div class="main-card-container">
                 <div class="main-card">
                     <div class="main-pic">
@@ -66,6 +67,7 @@
                     </div>
                     <p>Entire homes</p>
                 </div>
+              
                 <div class="main-card">
                     <div class="main-pic">
                         <img src="../assets/examp/norm-sample4.jpg">
@@ -73,10 +75,13 @@
                     <p>Pets allowed</p>
                 </div>
             </div>
+              </router-link>
         </main> 
+         <router-link to="/host">
         <aside>
             <img src="../assets/examp/sample3.jpg">
         </aside>
+        </router-link>
     </section>
 </template>
 

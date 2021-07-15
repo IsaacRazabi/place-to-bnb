@@ -17,16 +17,19 @@ const gStayes = defaultStayes.stay;
 
 
 
-function query() {
+function query(filterBy) {
   return storageService.query(STAY_KEY)
-      .then(stayes => {
-          if (!stayes.length) { 
-              const initialstayList =  gStayes;
-              storageService.postMany(STAY_KEY, initialstayList) 
-              return initialstayList;
-          }
-          return stayes;
-      })
+  .then(stayes => {
+    if (!stayes.length) { 
+        const initialstayList =  gStayes;
+        storageService.postMany(STAY_KEY, initialstayList) 
+        return initialstayList;
+    }
+    let regex = new RegExp(filterBy.loc, 'i')
+    let filteredStayes=stayes.filter((stay) => regex.test(stay.loc.address));
+    console.log(stayes);
+    return filteredStayes;
+  })
 }
 
 function getById(stayId) {

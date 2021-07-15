@@ -1,6 +1,12 @@
 <template>
-    <section class="header-container">
-      <img class="logo-img" src="@/assets/imgs/app-logo/logo_transparent.png">
+<main>
+    <section class="header-container" v-bind:class="{ filterShow: isFilterShow }">
+
+     
+    <router-link to="/" class="home" exact>    <img class="logo-img" src="@/assets/imgs/app-logo/logo_transparent.png"> </router-link>
+       <button class="search-btn" v-if="this.$route.name==='explore'" @click="showFilter" > start your search  </button>
+
+
       <div class="side-header">
 
       <nav class="nav-menu ">
@@ -35,25 +41,39 @@
         <p>Hello {{ loggedInUser.fullname }}</p>
         <button @click="logout">Logout</button>
       </section>
-    </section>
 
+    </section>
+       <stayFilter v-if=isFilterShow   class="filter" @filter="filter"></stayFilter>
+</main>
 </template>
 
 <script>
-
+     import stayFilter from '../components/stay-filter.vue'
 export default {
   name: "nav-bar",
   data() {
     return {
       loggedInUser: this.$store.getters.loggedinUser,
       isShow: true,
+      isFilterShow:false
     };
   },
   components: {
-
+   stayFilter,
   },
-  computed: {},
+  computed: {
+    currentRouteName() {
+        return this.$route.name;
+    }
+},
   methods: {
+       filter(filterBy) {
+      this.$store.commit({ type: "filterStayes", filterBy });
+      this.$store.dispatch("loadStayes");
+    },
+    showFilter(){
+this.isFilterShow = !this.isFilterShow
+    },
         logout() {
       this.$store
         .dispatch({ type: "logout" })
@@ -158,6 +178,40 @@ justify-content: space-between;
 
 .dropdownContent a:hover {
   background-color: #ddd;
+}
+
+/* .filterShow{
+ height: 170px;
+} */
+.search-btn{
+  padding: 20px 50px;
+    background: none;
+    outline: none;
+    border-radius: 30px;
+    border: 1px solid #ddd;
+}
+.filter-wrraper {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-inline-start: 8px;
+  margin-inline-end: 8px;
+}
+
+.filter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* position: fixed;
+  top: 80px; */
+  border-radius: 50px;
+  background-color: #fff;
+  height: 40px;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -2px rgb(0 0 0 / 5%);
+  padding: 20px 0;
+}
+.filter * > {
+  width: 250px;
 }
 
 </style>

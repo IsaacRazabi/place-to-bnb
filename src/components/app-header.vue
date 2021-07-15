@@ -1,25 +1,24 @@
 <template>
-<main>
-    <navBar></navBar>
   <main>
-
-    <div class="main-display">
-      <div class="filter-container">
-      <stayFilter class="filter" @filter="filter"></stayFilter>
+    <navBar></navBar>
+    <main>
+      <div class="main-display">
+        <div class="filter-container">
+          <stayFilter class="filter" @filter="filter"></stayFilter>
+        </div>
+        <img
+          class="bgc-img"
+          src="@/assets/imgs/bgc/Airbnb-Beachfront-Greece.webp"
+          alt=""
+        />
       </div>
-      <img
-        class="bgc-img"
-        src="@/assets/imgs/bgc/Airbnb-Beachfront-Greece.webp"
-        alt=""
-      />
-    </div>
-  </main>
+    </main>
   </main>
 </template>
 
 <script>
 import stayFilter from "../components/stay-filter.vue";
-import navBar from './nav-bar.vue'
+import navBar from "./nav-bar.vue";
 export default {
   name: "app-header",
   data() {
@@ -32,7 +31,7 @@ export default {
   },
   components: {
     stayFilter,
-    navBar
+    navBar,
   },
   computed: {},
   created() {
@@ -42,7 +41,7 @@ export default {
     }, 6000);
   },
   methods: {
-        logout() {
+    logout() {
       this.$store
         .dispatch({ type: "logout" })
         .then(() => (this.loggedInUser = null));
@@ -56,7 +55,8 @@ export default {
     // 	this.$store.dispatch("loadToys")
     // },
     filter(filterBy) {
-      console.log(filterBy);
+      this.$store.commit({ type: "filterStayes", filterBy });
+      this.$store.dispatch("loadStayes");
     },
   },
   destroyed() {
@@ -65,7 +65,6 @@ export default {
 };
 </script>
 <style scoped>
-
 .main-display {
   position: relative;
 }
@@ -82,8 +81,8 @@ export default {
   box-shadow: 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -2px rgb(0 0 0 / 5%);
   padding: 20px 0;
 }
-.filter *> {
-     width: 250px;
+.filter * > {
+  width: 250px;
 }
 /* .nav-menu {
   margin-inline-start: auto;
@@ -113,7 +112,6 @@ justify-content: space-between;
   height: 25px;
   padding: 0 0 0 2px;
 } */
-
 
 .bgc-img {
   height: 100vh;
@@ -179,8 +177,8 @@ justify-content: space-between;
   background-color: #ddd;
 } */
 
-.filter-container{
+.filter-container {
   display: flex;
-    justify-content: center;
+  justify-content: center;
 }
 </style>
