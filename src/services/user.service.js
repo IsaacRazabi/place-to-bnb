@@ -89,7 +89,7 @@ function getLoggedinUser() {
 // This IIFE functions for Dev purposes 
 // It allows testing of real time updates (such as sockets) by listening to storage events
 (async () => {
-    var user = getLoggedinUser()
+    // var user = getLoggedinUser()
     // Dev Helper: Listens to when localStorage changes in OTHER browser
 
     // Here we are listening to changes for the watched user (comming from other browsers)

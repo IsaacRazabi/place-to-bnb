@@ -1,46 +1,58 @@
 <template>
-<main>
-    <navBar></navBar>
-  <main>
+    <section class="header-container">
+      <img class="logo-img" src="@/assets/imgs/app-logo/logo_transparent.png">
+      <div class="side-header">
 
-    <div class="main-display">
-      <div class="filter-container">
-      <stayFilter class="filter" @filter="filter"></stayFilter>
-      </div>
-      <img
-        class="bgc-img"
-        src="@/assets/imgs/bgc/Airbnb-Beachfront-Greece.webp"
-        alt=""
-      />
-    </div>
-  </main>
-  </main>
+      <nav class="nav-menu ">
+
+        <router-link to="/" class="home" exact>Home</router-link> 
+        <router-link to="/explore">explore</router-link> 
+        <router-link to="/host">become a host</router-link>
+
+      </nav>
+
+       <div class="dropdown">
+        <span  class=" user" @click="toogleShow">
+          <img
+            class="header-img"
+            src="@/assets/imgs/user-login/download.png"
+          /><img
+            class="header-img"
+            src="@/assets/imgs/user-login/userGuest.a58b1fc1.jpg"
+          />
+        </span>
+        <!-- </div> -->
+        <div v-bind:class="{ show: isShow }">
+          <div v-bind:class="{ show: isShow }" class="dropdownContent">
+          <router-link to="/sign-up">Log In</router-link>
+          <router-link to="/sign-up">Sign Up</router-link>
+          <router-link to="/user-profile">user profile</router-link>
+          </div>
+          </div>
+        </div>
+        </div>
+      <section v-if="loggedInUser">
+        <p>Hello {{ loggedInUser.fullname }}</p>
+        <button @click="logout">Logout</button>
+      </section>
+    </section>
+
 </template>
 
 <script>
-import stayFilter from "../components/stay-filter.vue";
-import navBar from './nav-bar.vue'
+
 export default {
-  name: "app-header",
+  name: "nav-bar",
   data() {
     return {
-      interval: null,
-      imgUrl: 1,
       loggedInUser: this.$store.getters.loggedinUser,
       isShow: true,
     };
   },
   components: {
-    stayFilter,
-    navBar
+
   },
   computed: {},
-  created() {
-    this.interval = setInterval(() => {
-      this.imgUrl++;
-      if (this.imgUrl > 3) this.imgUrl = 1;
-    }, 6000);
-  },
   methods: {
         logout() {
       this.$store
@@ -50,42 +62,14 @@ export default {
     toogleShow() {
       this.isShow = !this.isShow;
     },
-    // filter(filterBy) {
-    //     console.log(filterBy);
-    // 	this.$store.commit({ type:'filterToys', filterBy })
-    // 	this.$store.dispatch("loadToys")
-    // },
-    filter(filterBy) {
-      console.log(filterBy);
-    },
+
   },
-  destroyed() {
-    clearInterval(this.interval);
-  },
+
 };
 </script>
 <style scoped>
 
-.main-display {
-  position: relative;
-}
-
-.filter {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  top: 70px;
-  border-radius: 50px;
-  background-color: #fff;
-  height: 40px;
-  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -2px rgb(0 0 0 / 5%);
-  padding: 20px 0;
-}
-.filter *> {
-     width: 250px;
-}
-/* .nav-menu {
+.nav-menu {
   margin-inline-start: auto;
 }
 .header-container {
@@ -112,14 +96,11 @@ justify-content: space-between;
   width: 28px;
   height: 25px;
   padding: 0 0 0 2px;
-} */
-
-
-.bgc-img {
-  height: 100vh;
-  width: 100%;
 }
-/* .logo-img{
+
+
+
+.logo-img{
     width: 200px;
   height: 200px;
 }
@@ -134,10 +115,10 @@ justify-content: space-between;
             height: 100%;
     align-items: center;
     gap: 8px;
-} */
+}
 /* .drop-btn{
   } */
-/* .user{
+.user{
   cursor: pointer;
   border: 1px solid #dadada;
     border-radius: 40px;
@@ -177,10 +158,6 @@ justify-content: space-between;
 
 .dropdownContent a:hover {
   background-color: #ddd;
-} */
-
-.filter-container{
-  display: flex;
-    justify-content: center;
 }
+
 </style>

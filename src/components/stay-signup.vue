@@ -12,6 +12,7 @@
         placeholder="password"
         v-model="credencials.password"
       />
+        <button>login</button>
     </form>
     <div class="sign-up" v-if="!loggedInUser">
             <label for="">sign up</label>
@@ -61,7 +62,7 @@ export default {
         .then((user) => {
           this.loggedInUser = user;
           this.credencials = { username: "", password: "" };
-          this.$router.push("/home");
+          this.$router.push("/");
         });
     },
     signup() {

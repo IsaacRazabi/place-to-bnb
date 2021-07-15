@@ -1,5 +1,6 @@
 <template>
   <section v-if="stay">
+<navBar></navBar>
     <p>{{ stay.loc.country }}</p>
     <p>{{ stay.loc.host }}</p>
     <p>{{ stay.loc.address }}</p>
@@ -14,11 +15,15 @@
 <p>{{review.by.fullname}}</p>
 <img :src="review.by.imgUrl" >
     </div>
+        <router-link  :to="'/stay/edit/'+stay._id">
+              edit
+            </router-link>
   </section>
 </template>
 
 <script>
 import { stayService } from "../services/stay.service.js";
+import navBar from '../components/nav-bar.vue'
 export default {
   // props: {
   //   stay: {
@@ -29,6 +34,9 @@ export default {
     return {
      stay: "",
     };
+  },
+  components:{
+    navBar
   },
   methods: {
     showImage() {
