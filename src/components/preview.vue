@@ -5,7 +5,8 @@
           <img :src="showImage"/>
           <div class="card-details"> 
             <img src="../assets/examp/red-star.jpg" alt="" srcset="">
-            <span class="rating"> {{stay.reviews[0].rate}} </span><span class="voters">(63)</span>
+            <span class="rating"> {{stay.reviews[0].rate}} </span>
+            <span class="voters">({{stay.reviews[0].votes}})</span>
             <!-- <p>{{stay.loc.country}}</p> -->
             <p>Entire apartment - {{stay.loc.address}}</p>
             <p>{{stay.name}}</p>
