@@ -102,6 +102,8 @@ function getLoggedinUser() {
             console.log('Watched user score changed - localStorage updated from another browser')
             // socketService.emit(SOCKET_EVENT_USER_UPDATED, watchedUser)
         }
+
+        
         gWatchedUser = watchedUser
     })
 })();
