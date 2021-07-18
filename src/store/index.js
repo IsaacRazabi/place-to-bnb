@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import {userStore} from './user.store.js'
 import {stayStore} from './stay.store.js'
 
+
 Vue.use(Vuex)
 
 export default new Vuex.Store({
@@ -14,6 +15,7 @@ export default new Vuex.Store({
   },
   modules: {
     userStore,
-    stayStore
+    stayStore,
+    
   }
 })

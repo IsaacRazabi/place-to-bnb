@@ -47,35 +47,40 @@
             <div class="main-title">
             Live anywhere
             </div>
-            <router-link to="/explore">
             <div class="main-card-container">
+            <router-link to="/explore/barcelona">
                 <div class="main-card">
                     <div class="main-pic">
                         <img src="../assets/examp/norm-sample1.jpg">
                     </div>
-                    <p>Outdoor getaways</p>
+                    <p>barcelona</p>
                 </div>
+                </router-link>
+                <router-link to="/explore/paris">
                 <div class="main-card">
                     <div class="main-pic">
                         <img src="../assets/examp/norm-sample2.jpg">
                     </div>
-                    <p>Unique stays</p>
+                    <p>paris</p>
                 </div>
+                  </router-link>
+                    <router-link to="/explore/rome">
                 <div class="main-card">
                     <div class="main-pic">
                         <img src="../assets/examp/norm-sample3.jpg">
                     </div>
-                    <p>Entire homes</p>
+                    <p>Rome</p>
                 </div>
-              
+                </router-link>
+                      <router-link to="/explore/berlin">
                 <div class="main-card">
                     <div class="main-pic">
                         <img src="../assets/examp/norm-sample4.jpg">
                     </div>
-                    <p>Pets allowed</p>
+                    <p>Berlin</p>
                 </div>
+                 </router-link>
             </div>
-              </router-link>
         </main> 
          <router-link to="/host">
         <aside>

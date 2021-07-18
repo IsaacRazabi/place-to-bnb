@@ -2,6 +2,7 @@
 // import { storageService } from '../services/async-storage.service';
 // import { socketService, SOCKET_EMIT_USER_WATCH, SOCKET_EVENT_USER_UPDATED } from '../services/socket.service'
 import { stayService } from '../services/stay.service';
+import { reviewService } from '../services/review.service';
 
 
 export const stayStore = {
@@ -12,7 +13,17 @@ export const stayStore = {
         dateStart: new Date().toISOString().substr(0, 10),
         dateEnd: new Date().toISOString().substr(0, 10),
         guests: 0,
+        priceStart:0,
+        priceEnd: Infinity,
+        amenities:{
+            TV:false,
+    Wifi:false,
+    Kitchen:false,
+    Smokingallowed:false,
+    Petsallowed:false,
+    Cookingbasics:false,
       },
+    },
     },
     getters: {
         stayesToDisplay( state ) {
@@ -27,7 +38,11 @@ export const stayStore = {
             state.stayes.push(stay)
         },
         filterStayes(state, { filterBy }) {
-            state.filterBy = filterBy;
+console.log(filterBy);
+            // if(filterBy.loc) state.filterBy = filterBy 
+            // else {state.filterBy.amenities = filterBy}
+     
+            state.filterBy = filterBy
         },
         removeStay(state, { stayId }) {
             state.stayes = state.stayes.filter(stay => stay._id !== stayId)
@@ -43,9 +58,6 @@ export const stayStore = {
                 throw err
             }
         },        
-
- 
-
         async saveStay({commit}, { stay }){
             
             try{
@@ -60,6 +72,48 @@ export const stayStore = {
                 console.log('we have a problem');
             }
         }
+    },
+    async addReview(context, { review }){
+    try {
+        review = await reviewService.add(review)
+        context.commit({ type: 'addReview', review })
+        // context.dispatch({type: 'increaseScore'})
+
+        return review;
+    } catch (err) {
+        console.log('reviewStore: Error in addReview', err)
+        throw err
     }
+},
+async loadReviews(context) {
+    try {
+        const reviews = await reviewService.query();
+        context.commit({ type: 'setReviews', reviews })
+        // socketService.off(SOCKET_EVENT_REVIEW_ADDED)
+        // socketService.on(SOCKET_EVENT_REVIEW_ADDED, review => {
+        //     console.log('Got review from socket', review);
+        //     context.commit({ type: 'addReview', review })
+        // })
+        // socketService.off(SOCKET_EVENT_REVIEW_ABOUT_YOU)
+        // socketService.on(SOCKET_EVENT_REVIEW_ABOUT_YOU, review => {
+        //     console.log('Review about me!', review);
+            
+        // })
+
+    } catch (err) {
+        console.log('reviewStore: Error in loadReviews', err)
+        throw err
+    }
+},
+async removeReview(context, { reviewId }) {
+    try {
+        await reviewService.remove(reviewId);
+        context.commit({ type: 'removeReview', reviewId })
+    } catch (err) {
+        console.log('reviewStore: Error in removeReview', err)
+        throw err
+    }
+},
+
 }
 

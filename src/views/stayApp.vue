@@ -16,7 +16,22 @@ export default {
   props: {},
   data() {
     return {
-    
+   filterBy: {
+        loc: "",
+        dateStart: new Date().toISOString().substr(0, 10),
+        dateEnd: new Date().toISOString().substr(0, 10),
+        guests: 0,
+              priceStart: 0,
+      priceEnd: 1000,
+      amenities:{
+        TV:false,
+Wifi:false,
+Kitchen:false,
+Smokingallowed:false,
+Petsallowed:false,
+Cookingbasics:false,
+      }
+      },
     };
   },
   methods: {
@@ -35,7 +50,11 @@ export default {
     stayList,
   },
   created() {
-    this.$store.dispatch({ type: "loadStayes" });
+    const { place } = this.$route.params;
+    this.filterBy.loc=place
+    this.$store.commit({ type: "filterStayes",  filterBy : this.filterBy});
+    this.$store.dispatch("loadStayes");
+
   },
 };
 </script>

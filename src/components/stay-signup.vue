@@ -1,38 +1,43 @@
     <template>
-      <section>
-    <form  @submit.prevent="login">
+      <section class="signup-container">
+    <form class="signup-wraaper"  @submit.prevent="login">
       <label for="">login</label>
       <input
         type="text"
         placeholder="username"
         v-model="credencials.username"
+        class="signup-input"
       />
       <input
         type="password"
         placeholder="password"
         v-model="credencials.password"
+        class="signup-input"
       />
-        <button>login</button>
+        <button class="signup-input">login</button>
     </form>
     <div class="sign-up" v-if="!loggedInUser">
             <label for="">sign up</label>
-      <form @submit.prevent="signup">
+      <form class="signup-wraaper" @submit.prevent="signup">
         <input
           type="text"
           placeholder="username"
           v-model="signUpCredencials.username"
+          class="signup-input"
         />
         <input
           type="text"
           placeholder="Your full name"
           v-model="signUpCredencials.fullname"
+          class="signup-input"
         />
         <input
           type="password"
           placeholder="password"
           v-model="signUpCredencials.password"
+          class="signup-input"
         />
-        <button>Signup</button>
+        <button class="signup-input">Signup</button>
       </form>
     </div>
       </section>
@@ -77,7 +82,7 @@ export default {
             fullname: "",
             isAdmin: false,
           };
-          this.$router.push("/home");
+          this.$router.push("/");
         });
     },
     logout() {
@@ -120,8 +125,38 @@ export default {
 </script>
 
 <style scoped>
-
-
+.signup-container{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+}
+.signup-input{
+  min-width: 250px;
+    width: 28%;
+    max-width: 400px;
+    outline: none!important;
+    margin-bottom: 7px;
+    border-radius: 8px;
+    height: 2.6rem;
+    border-width: 1px;
+}
+.signup-wraaper{
+      display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+label{
+  font-size: 2rem ;
+}
+button{
+      min-width: 250px;
+    width: 28%;
+    max-width: 400px;
+    color: hotpink;
+    font-size: 1rem;
+}
 </style>
 
 

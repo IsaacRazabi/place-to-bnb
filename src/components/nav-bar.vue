@@ -13,7 +13,7 @@
 
         <router-link to="/" class="home" exact>Home</router-link> 
         <router-link to="/explore">explore</router-link> 
-        <router-link to="/host">become a host</router-link>
+        <router-link  to="/host">become a host</router-link>
 
       </nav>
 

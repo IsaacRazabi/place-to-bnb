@@ -20,7 +20,7 @@ const routes = [
     component: signUp
   },
   {
-    path: '/explore',
+    path: '/explore/:place?',
     name: 'explore',
     component: stayApp
   },
