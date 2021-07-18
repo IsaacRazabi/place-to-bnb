@@ -78,7 +78,7 @@
               </router-link>
         </main> 
          <router-link to="/host">
-        <aside>
+        <aside class="bottom-img">
             <img src="../assets/examp/sample3.jpg">
         </aside>
         </router-link>
@@ -86,6 +86,9 @@
 </template>
 
 <style>
+.bottom-img img{
+    width: 100%;
+}
 .main-title{
     font-size: 1.7em;
     font-weight: bold;
