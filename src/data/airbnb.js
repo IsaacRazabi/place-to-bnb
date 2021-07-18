@@ -41,7 +41,7 @@ export const  defaultStayes  = {
       "host": {
         "_id": "51399391",
         "fullname": "Davit Pok",
-        "imgUrl": "https://a0.muscache.com/im/pictures/user/47b1918f-7771-4d5f-908b-85b040636302.jpg?im_w=240",
+        "imgUrl": "",
       },
       "loc": {
         "country": "Israel",
