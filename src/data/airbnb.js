@@ -40,18 +40,11 @@ export const defaultStayes = {
         "Pets allowed",
         "Cooking basics",
       ],
-<<<<<<< HEAD
       host: {
         _id: "51399391",
         fullname: "Davit Pok",
         imgUrl:
           "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small",
-=======
-      "host": {
-        "_id": "51399391",
-        "fullname": "Davit Pok",
-        "imgUrl": "https://a0.muscache.com/im/pictures/user/47b1918f-7771-4d5f-908b-85b040636302.jpg?im_w=240",
->>>>>>> 42d63184a456548bb368b55a826a0b48141f3c01
       },
       loc: {
         country: "Israel",
@@ -740,6 +733,7 @@ export const defaultStayes = {
       likedByUserIds: ["u101", "u102"],
     },
     {
+      _id: "10006546903",
       name: "House in the greenest part of the city",
       imgUrls: [
         "https://a0.muscache.com/im/pictures/miso/Hosting-42081840/original/7efd2968-6a22-4836-bac4-8ae0dc824002.jpeg?im_w=720",
@@ -751,6 +745,11 @@ export const defaultStayes = {
       capacity: 8,
       amenities: [
         "TV",
+        "Wifi",
+        "Kitchen",
+        "Smoking allowed",
+        "Pets allowed",
+        "Cooking basics",
       ],
       host: {
         _id: "51399391",
