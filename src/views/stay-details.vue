@@ -1,7 +1,7 @@
 <template>
   <section v-if="stay" class="details-section">
     <div class="deatails-head-container">
-      <h2 class="details-title">{{ stay.name }}</h2>
+      <h2 class="details-title" >{{ stay.name }}</h2>
       <div class="details-subtitle">
         <div>
           <img src="../assets/examp/red-star.jpg" alt="" srcset="" />
@@ -70,7 +70,7 @@
           </div>
         </div>
         <div class="details-all-about">
-          <h3>All about Maayan’s place</h3>
+          <h3>All about {{stay.host.fullname}}’s place</h3>
           <p>
             Our home is located in the Galilee close to tzfat and the kineret lake.
             The place is perfect for families (with kids) ,couples, solo adventurers, business travelers.
@@ -210,7 +210,7 @@
             <img src="../assets/examp/exam-avatar3.jpg"/>
           </div>
           <div class="details-reviews-user-name-n-date">
-            <h5>Noa</h5>
+            <h5>Elishai</h5>
             <span>August 2020</span>
           </div>
         </div>
@@ -245,7 +245,7 @@
             <img src="../assets/examp/exam-avatar5.jpg"/>
           </div>
           <div class="details-reviews-user-name-n-date">
-            <h5>Elishai</h5>
+            <h5>Noa</h5>
             <span>April 2021</span>
           </div>
         </div>
@@ -324,6 +324,9 @@ export default {
     showImage() {
       return this.stay.imgUrls[0];
     },
+    showAvatarImage(){
+      return this.stay.host.imgUrl;
+    }
   },
   methods: {
     showImages() {
@@ -331,6 +334,7 @@ export default {
     },
   },
   created() {
+    window.scrollTo(0,0);
     const { stayId } = this.$route.params;
     stayService.getById(stayId).then((stay) => {
       this.stay = stay;
@@ -397,7 +401,7 @@ export default {
 .details-reservation-rating img{
   width: 16px;
   height: 16px;
-  
+  border-radius: 50%;
 }
 .details-reservation-title{
     display: flex;
@@ -456,6 +460,7 @@ export default {
 .details-reviews-user-img img{
   width: 56px;
   height: 56px;
+  border-radius: 50%;
 }
 .details-reviews-user-name-n-date{
   margin-left:12px ;
@@ -485,6 +490,7 @@ h3{
 }
 .details-offers-column img{
   margin-right: 15px;
+  border-radius: 50%;
 }
 .details-offers{
   text-align: left;

@@ -40,11 +40,18 @@ export const defaultStayes = {
         "Pets allowed",
         "Cooking basics",
       ],
+<<<<<<< HEAD
       host: {
         _id: "51399391",
         fullname: "Davit Pok",
         imgUrl:
           "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small",
+=======
+      "host": {
+        "_id": "51399391",
+        "fullname": "Davit Pok",
+        "imgUrl": "https://a0.muscache.com/im/pictures/user/47b1918f-7771-4d5f-908b-85b040636302.jpg?im_w=240",
+>>>>>>> 42d63184a456548bb368b55a826a0b48141f3c01
       },
       loc: {
         country: "Israel",
