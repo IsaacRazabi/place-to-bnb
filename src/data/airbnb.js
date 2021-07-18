@@ -733,7 +733,6 @@ export const defaultStayes = {
       likedByUserIds: ["u101", "u102"],
     },
     {
-      _id: "10006546903",
       name: "House in the greenest part of the city",
       imgUrls: [
         "https://a0.muscache.com/im/pictures/miso/Hosting-42081840/original/7efd2968-6a22-4836-bac4-8ae0dc824002.jpeg?im_w=720",
@@ -745,11 +744,6 @@ export const defaultStayes = {
       capacity: 8,
       amenities: [
         "TV",
-        "Wifi",
-        "Kitchen",
-        "Smoking allowed",
-        "Pets allowed",
-        "Cooking basics",
       ],
       host: {
         _id: "51399391",
