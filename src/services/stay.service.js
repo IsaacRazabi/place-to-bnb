@@ -25,11 +25,38 @@ function query(filterBy) {
         storageService.postMany(STAY_KEY, initialstayList) 
         return initialstayList;
     }
+
+
+    let cheakedAmenities = [];
+    if(cheakedAmenities.length) {
+     Object.entries(filterBy.amenities).forEach(
+      ([key, value]) => { if (value) {cheakedAmenities.push(key)}}
+  );
+     }
+  if (cheakedAmenities.includes('Smokingallowed')) {
+    let idx = cheakedAmenities.findIndex(name=> name === 'Smokingallowed');
+    cheakedAmenities.splice(idx,1,'Smoking allowed')
+  } 
+  if (cheakedAmenities.includes('Cookingbasics')) {
+    let idx = cheakedAmenities.findIndex(name=> name === 'Cookingbasics');
+    cheakedAmenities.splice(idx,1,'Cooking basics')
+  } 
+  if (cheakedAmenities.includes('Petsallowed')) {
+    let idx = cheakedAmenities.findIndex(name=> name === 'Petsallowed');
+    cheakedAmenities.splice(idx,1,'Pets allowed')
+  } 
+
+
     let regex = new RegExp(filterBy.loc, 'i')
-    let filteredStayes=stayes.filter((stay) => regex.test(stay.loc.address));
-    console.log(stayes);
-    return filteredStayes;
-  })
+    let filteredStayes=stayes.filter((stay) =>regex.test(stay.loc.address)) 
+    .filter(stay=> stay.price>filterBy.priceStart && stay.price < filterBy.priceEnd )
+
+    if(cheakedAmenities.length) {
+    return filteredStayes.filter(stay=>stay.amenities.some(sta=>cheakedAmenities.includes(sta)))
+    } 
+
+     return filteredStayes;
+    })
 }
 
 function getById(stayId) {

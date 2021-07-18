@@ -48,6 +48,16 @@ export default {
         dateStart: new Date().toISOString().substr(0, 10),
         dateEnd: new Date().toISOString().substr(0, 10),
         guests: 0,
+              priceStart: 0,
+      priceEnd: 1000,
+      amenities:{
+        TV:false,
+Wifi:false,
+Kitchen:false,
+Smokingallowed:false,
+Petsallowed:false,
+Cookingbasics:false,
+      }
       },
       isSowen: false,
     };
@@ -56,7 +66,8 @@ export default {
   methods: {
     setFilter() {
       this.$emit("filter", JSON.parse(JSON.stringify(this.filterBy)));
-      this.$router.push({path: '/explore'})
+         this.$store.dispatch("loadStayes");
+      // this.$router.push({path: '/explore'})
     },
     // displayInput(){
     //     this.isSowen = !isSowen
