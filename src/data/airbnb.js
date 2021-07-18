@@ -24,7 +24,7 @@ export const  defaultStayes  = {
   },
   "stay": [
     {
-      "_id": "100065461",
+      "_id": "110065461",
       "name": "Ribeira Charming Duplex",
       "imgUrls": ["https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large", "otherImg.jpg"],
       "price": 75.00,
@@ -66,7 +66,7 @@ export const  defaultStayes  = {
       "likedByUserIds" : ["u101", "u102"]
     },
     {
-      "_id": "100065462",
+      "_id": "120065462",
       "name": "Amazing private suite 10min from center",
       "imgUrls": ["https://a0.muscache.com/im/pictures/be0cacdf-bab1-4734-b74e-b1f8c2977125.jpg?im_w=720", "otherImg.jpg"],
       "price": 145.00,
@@ -108,7 +108,7 @@ export const  defaultStayes  = {
       "likedByUserIds" : ["u101", "u102"]
     },
     {
-      "_id": "100065463",
+      "_id": "130065463",
       "name": "House in the greenest part of the city",
       "imgUrls": ["https://a0.muscache.com/im/pictures/miso/Hosting-42081840/original/7efd2968-6a22-4836-bac4-8ae0dc824002.jpeg?im_w=720", "otherImg.jpg"],
       "price": 96.00,
@@ -150,7 +150,7 @@ export const  defaultStayes  = {
       "likedByUserIds" : ["u101", "u102"]
     },
     {
-      "_id": "100065464",
+      "_id": "140065464",
       "name": "Old Nickel is located in the city centre ",
       "imgUrls": ["https://a0.muscache.com/im/pictures/92f3e0d1-7d10-4be3-8eba-e5ca93e28106.jpg?im_w=720", "otherImg.jpg"],
       "price": 101.00,
@@ -192,7 +192,7 @@ export const  defaultStayes  = {
       "likedByUserIds" : ["u101", "u102"]
     },
     {
-      "_id": "100065465",
+      "_id": "150065465",
       "name": "Located near by the Royal Palace",
       "imgUrls": ["https://a0.muscache.com/im/pictures/438d8f15-1d46-42d3-a625-23a6c7df8d61.jpg?im_w=720", "otherImg.jpg"],
       "price": 74.00,
@@ -234,7 +234,7 @@ export const  defaultStayes  = {
       "likedByUserIds" : ["u101", "u102"]
     },
     {
-      "_id": "100065466",
+      "_id": "160065466",
       "name": "In a prime location",
       "imgUrls": ["https://a0.muscache.com/im/pictures/fd17b546-5ecf-461f-ae41-b3efd0b3ca28.jpg?im_w=720", "otherImg.jpg"],
       "price": 256.00,
@@ -276,7 +276,7 @@ export const  defaultStayes  = {
       "likedByUserIds" : ["u101", "u102"]
     },
     {
-      "_id": "100065467",
+      "_id": "170065467",
       "name": "Situated in the heart of the city centre",
       "imgUrls": ["https://a0.muscache.com/im/pictures/miso/Hosting-47997821/original/49793977-2eff-4e82-a1ef-610832c3f526.jpeg?im_w=720", "otherImg.jpg"],
       "price": 159.00,
@@ -318,7 +318,7 @@ export const  defaultStayes  = {
       "likedByUserIds" : ["u101", "u102"]
     },
     {
-      "_id": "100065461",
+      "_id": "180065461",
       "name": "At walking distance from Central Station ",
       "imgUrls": ["https://a0.muscache.com/im/pictures/8c94c2fd-d1a6-465a-93a4-ff989cf287ee.jpg?im_w=720", "otherImg.jpg"],
       "price": 229.00,
@@ -360,7 +360,7 @@ export const  defaultStayes  = {
       "likedByUserIds" : ["u101", "u102"]
     },
     {
-      "_id": "100065462",
+      "_id": "190065462",
       "name": "Restaurant and Irish pub near by ",
       "imgUrls": ["https://a0.muscache.com/im/pictures/2bda3dae-6ddc-4215-8728-c76c62bebc64.jpg?im_w=720", "otherImg.jpg"],
       "price": 125.00,
@@ -402,7 +402,7 @@ export const  defaultStayes  = {
       "likedByUserIds" : ["u101", "u102"]
     },
     {
-      "_id": "100065463",
+      "_id": "111065463",
       "name": "Easy access to all famous sights",
       "imgUrls": ["https://a0.muscache.com/im/pictures/7df0697a-af3c-4b06-9ef6-73697d43981d.jpg?im_w=720", "otherImg.jpg"],
       "price": 81.00,
@@ -444,7 +444,7 @@ export const  defaultStayes  = {
       "likedByUserIds" : ["u101", "u102"]
     },
     {
-      "_id": "100065464",
+      "_id": "112065464",
       "name": "On-site parking is available",
       "imgUrls": ["https://a0.muscache.com/im/pictures/d1498446-3c89-4511-8ede-dab28ca50edb.jpg?im_w=720", "otherImg.jpg"],
       "price": 76.00,
@@ -486,7 +486,7 @@ export const  defaultStayes  = {
       "likedByUserIds" : ["u101", "u102"]
     },
     {
-      "_id": "100065465",
+      "_id": "113065465",
       "name": "Is a 5-minute walk away from main square",
       "imgUrls": ["https://a0.muscache.com/im/pictures/miso/Hosting-47997821/original/70575592-6805-47b1-80e0-3fab545d6e23.jpeg?im_w=720", "otherImg.jpg"],
       "price": 154.00,
@@ -528,7 +528,7 @@ export const  defaultStayes  = {
       "likedByUserIds" : ["u101", "u102"]
     },
     {
-      "_id": "100065466",
+      "_id": "114065466",
       "name": " Situated on the most exclusive shopping street",
       "imgUrls": ["https://a0.muscache.com/im/pictures/f2e6581c-c8f3-4c43-8b02-d095460674d5.jpg?im_w=720", "otherImg.jpg"],
       "price": 321.00,
@@ -572,7 +572,7 @@ export const  defaultStayes  = {
     },
 
     {
-      "_id": "100065467",
+      "_id": "115065467",
       "name": "Ribeira Charming Duplex",
       "imgUrls": ["https://a0.muscache.com/im/pictures/16c5f59c-2404-4c00-a7b6-497c234ed1e0.jpg?im_w=720", "otherImg.jpg"],
       "price": 129.00,
@@ -613,8 +613,8 @@ export const  defaultStayes  = {
       ],
       "likedByUserIds" : ["u101", "u102"]
     },
-    {
-      "_id": "100065461",
+        {
+      "_id": "116065461",
       "name": "Ribeira Charming Duplex",
       "imgUrls": ["https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large", "otherImg.jpg"],
       "price": 75.00,
@@ -656,7 +656,7 @@ export const  defaultStayes  = {
       "likedByUserIds" : ["u101", "u102"]
     },
     {
-      "_id": "100065462",
+      "_id": "117065462",
       "name": "Amazing private suite 10min from center",
       "imgUrls": ["https://a0.muscache.com/im/pictures/be0cacdf-bab1-4734-b74e-b1f8c2977125.jpg?im_w=720", "otherImg.jpg"],
       "price": 145.00,
@@ -698,7 +698,7 @@ export const  defaultStayes  = {
       "likedByUserIds" : ["u101", "u102"]
     },
     {
-      "_id": "100065463",
+      "_id": "118065463",
       "name": "House in the greenest part of the city",
       "imgUrls": ["https://a0.muscache.com/im/pictures/miso/Hosting-42081840/original/7efd2968-6a22-4836-bac4-8ae0dc824002.jpeg?im_w=720", "otherImg.jpg"],
       "price": 96.00,
@@ -740,7 +740,7 @@ export const  defaultStayes  = {
       "likedByUserIds" : ["u101", "u102"]
     },
     {
-      "_id": "100065464",
+      "_id": "119065464",
       "name": "Old Nickel is located in the city centre ",
       "imgUrls": ["https://a0.muscache.com/im/pictures/92f3e0d1-7d10-4be3-8eba-e5ca93e28106.jpg?im_w=720", "otherImg.jpg"],
       "price": 101.00,
@@ -782,7 +782,7 @@ export const  defaultStayes  = {
       "likedByUserIds" : ["u101", "u102"]
     },
     {
-      "_id": "100065465",
+      "_id": "121065465",
       "name": "Located near by the Royal Palace",
       "imgUrls": ["https://a0.muscache.com/im/pictures/438d8f15-1d46-42d3-a625-23a6c7df8d61.jpg?im_w=720", "otherImg.jpg"],
       "price": 74.00,
@@ -824,7 +824,7 @@ export const  defaultStayes  = {
       "likedByUserIds" : ["u101", "u102"]
     },
     {
-      "_id": "100065466",
+      "_id": "122065466",
       "name": "In a prime location",
       "imgUrls": ["https://a0.muscache.com/im/pictures/fd17b546-5ecf-461f-ae41-b3efd0b3ca28.jpg?im_w=720", "otherImg.jpg"],
       "price": 256.00,
@@ -866,7 +866,7 @@ export const  defaultStayes  = {
       "likedByUserIds" : ["u101", "u102"]
     },
     {
-      "_id": "100065467",
+      "_id": "123065467",
       "name": "Situated in the heart of the city centre",
       "imgUrls": ["https://a0.muscache.com/im/pictures/miso/Hosting-47997821/original/49793977-2eff-4e82-a1ef-610832c3f526.jpeg?im_w=720", "otherImg.jpg"],
       "price": 159.00,
@@ -908,7 +908,7 @@ export const  defaultStayes  = {
       "likedByUserIds" : ["u101", "u102"]
     },
     {
-      "_id": "100065461",
+      "_id": "124065461",
       "name": "At walking distance from Central Station ",
       "imgUrls": ["https://a0.muscache.com/im/pictures/8c94c2fd-d1a6-465a-93a4-ff989cf287ee.jpg?im_w=720", "otherImg.jpg"],
       "price": 229.00,
@@ -950,7 +950,7 @@ export const  defaultStayes  = {
       "likedByUserIds" : ["u101", "u102"]
     },
     {
-      "_id": "100065462",
+      "_id": "125065462",
       "name": "Restaurant and Irish pub near by ",
       "imgUrls": ["https://a0.muscache.com/im/pictures/2bda3dae-6ddc-4215-8728-c76c62bebc64.jpg?im_w=720", "otherImg.jpg"],
       "price": 125.00,
@@ -992,7 +992,7 @@ export const  defaultStayes  = {
       "likedByUserIds" : ["u101", "u102"]
     },
     {
-      "_id": "100065463",
+      "_id": "126065463",
       "name": "Easy access to all famous sights",
       "imgUrls": ["https://a0.muscache.com/im/pictures/7df0697a-af3c-4b06-9ef6-73697d43981d.jpg?im_w=720", "otherImg.jpg"],
       "price": 81.00,
@@ -1034,7 +1034,7 @@ export const  defaultStayes  = {
       "likedByUserIds" : ["u101", "u102"]
     },
     {
-      "_id": "100065464",
+      "_id": "127065464",
       "name": "On-site parking is available",
       "imgUrls": ["https://a0.muscache.com/im/pictures/d1498446-3c89-4511-8ede-dab28ca50edb.jpg?im_w=720", "otherImg.jpg"],
       "price": 76.00,
@@ -1076,7 +1076,7 @@ export const  defaultStayes  = {
       "likedByUserIds" : ["u101", "u102"]
     },
     {
-      "_id": "100065465",
+      "_id": "128065465",
       "name": "Is a 5-minute walk away from main square",
       "imgUrls": ["https://a0.muscache.com/im/pictures/miso/Hosting-47997821/original/70575592-6805-47b1-80e0-3fab545d6e23.jpeg?im_w=720", "otherImg.jpg"],
       "price": 154.00,
@@ -1118,7 +1118,7 @@ export const  defaultStayes  = {
       "likedByUserIds" : ["u101", "u102"]
     },
     {
-      "_id": "100065466",
+      "_id": "129065466",
       "name": " Situated on the most exclusive shopping street",
       "imgUrls": ["https://a0.muscache.com/im/pictures/f2e6581c-c8f3-4c43-8b02-d095460674d5.jpg?im_w=720", "otherImg.jpg"],
       "price": 321.00,
@@ -1162,7 +1162,7 @@ export const  defaultStayes  = {
     },
 
     {
-      "_id": "100065467",
+      "_id": "131065467",
       "name": "Ribeira Charming Duplex",
       "imgUrls": ["https://a0.muscache.com/im/pictures/16c5f59c-2404-4c00-a7b6-497c234ed1e0.jpg?im_w=720", "otherImg.jpg"],
       "price": 129.00,
