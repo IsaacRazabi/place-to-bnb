@@ -43,10 +43,11 @@
 <h1>
   you can easily sign-up and becomeone of our hostes !
 </h1>
+<router-link to="/sign-up">
 <button>
   sign-up
-  <router-link to="/sign-up"></router-link>
 </button>
+ </router-link>
   </main>
  </main>
 </template>

@@ -91,6 +91,22 @@
 </template>
 
 <style>
+a:link {
+     text-decoration: none; 
+}
+a:visited {
+     text-decoration: none; 
+}
+a:hover {
+     text-decoration: none; 
+}
+a:active {
+     text-decoration: none; 
+}
+.main-container{
+    color: #FFFFFF;
+  text-decoration: none;
+}
 .bottom-img img{
     width: 100%;
 }
@@ -109,6 +125,8 @@ section{
 }
 .main-card p{
     text-align: left;
+     color: black;
+    text-decoration: none;
 }
 .main-card img{
     cursor: pointer;
