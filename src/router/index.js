@@ -6,7 +6,7 @@ import signUp from '../components/stay-signup.vue'
 import stayDetails from '../views/stay-details.vue'
 import stayEdit from '../views/stay-edit.vue'
 import backOffice from '../views/stay-backOffice.vue'
-import signUp from '../components/superhost.vue'
+import superhost from '../components/superhost.vue'
 
 Vue.use(VueRouter)
 
