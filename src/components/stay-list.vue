@@ -1,5 +1,6 @@
 <template>
-  <section>
+  <section class="list-section">
+    <main class="main-list-container">
     <div class="list-title">Places to stay near you</div>
     <div class="list-filter">
       <button @click="tooglePrice" class="btn-filter">Price</button>
@@ -48,6 +49,7 @@
 </main> 
 
     </div>
+    </main>
   </section>
 </template>
 
@@ -125,6 +127,14 @@ this.filterBy.amenities.Cookingbasics=false;
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.list-section{
+    display: grid;
+    grid-template-columns: 80px 1fr 80px;
+    grid-auto-flow: dense;
+}
+.main-list-container{
+    grid-column: 2;
+}
 li {
   list-style-type: none;
   margin: 12px;

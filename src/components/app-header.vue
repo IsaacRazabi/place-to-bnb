@@ -67,6 +67,7 @@ export default {
 <style scoped>
 .main-display {
   position: relative;
+  grid-column: 1/-1;
 }
 
 .filter {
@@ -114,7 +115,8 @@ justify-content: space-between;
 } */
 
 .bgc-img {
-  height: 100vh;
+  
+  height: 75vh;
   width: 100%;
 }
 /* .logo-img{

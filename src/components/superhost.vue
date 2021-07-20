@@ -3,8 +3,9 @@
 <template>
     <section>
         <navBar class="navBar"></navBar>
-        <img src="../assets/examp/Airbnb-Superhost-4.jpg">
-        <h2>hello</h2>
+        <div>
+            <img src="../assets/examp/Airbnb-Superhost-4.jpg">
+        </div>
     </section>
 </template>
 
@@ -16,3 +17,9 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+    section div{
+        text-align: center;
+    }
+</style>

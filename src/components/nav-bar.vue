@@ -1,9 +1,9 @@
 <template>
-<main>
+<main class="nav-bar-main">
     <section class="header-container" v-bind:class="{ filterShow: isFilterShow }">
 
      
-    <router-link to="/" class="home" exact>    <img class="logo-img" src="@/assets/imgs/app-logo/logo_transparent.png"> </router-link>
+    <router-link to="/" class="home" exact>    <img class="logo-img" src="@/assets/imgs/app-logo/placetobnbred-long.jpg"> </router-link>
        <button class="search-btn" v-if="this.$route.name==='explore'" @click="showFilter" > start your search  </button>
 
 
@@ -89,19 +89,27 @@ this.isFilterShow = !this.isFilterShow
 };
 </script>
 <style scoped>
+.nav-bar-main{
+    display: grid;
+    grid-template-columns: 80px 1fr 80px;
+    grid-auto-flow: dense;
+}
+* {
+    grid-column: 2;
+}
 
 .nav-menu {
   margin-inline-start: auto;
 }
 .header-container {
-  height: 80px;
+  height: 90px;
   background-color: #fff !important;
   position: sticky;
   top: 0;
   box-shadow: 0 10px 10px -10px rgb(33 35 38 / 10%);
   z-index: 50;
   display: flex;
-justify-content: space-between;
+  justify-content: space-between;
   align-items: center;
 }
 .logIn-dropdown {
@@ -122,8 +130,10 @@ justify-content: space-between;
 
 
 .logo-img{
-    width: 200px;
-  height: 200px;
+    width: 270px;
+    height: 70px;
+  /* height: 200px; */
+  
 }
 .nav-menu{
   display: flex;

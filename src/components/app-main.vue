@@ -1,6 +1,6 @@
 <template>
-    <section>
-        <aside>
+    <section class="main-section">
+        <aside class="main-aside">
             <div class="main-title">
             Explore nearby
             </div>
@@ -10,8 +10,8 @@
                         <img src="../assets/examp/small-sample1.jpg">
                     </div>
                     <div class="near-city">
-                        <p>Tel Aviv-Yafo</p>
-                        <p>1 hour drive</p>
+                        <p>Germany</p>
+                        <p>Home of the Oatmeal Festival</p>
                     </div>
                 </div>
                 <div class="mini-card">
@@ -19,8 +19,8 @@
                         <img src="../assets/examp/small-sample2.jpg">
                     </div>
                     <div class="near-city">
-                        <p>Natanya</p>
-                        <p>1.5 hour drive</p>
+                        <p>New York</p>
+                        <p>The City That Never Sleeps</p>
                     </div>
                 </div>
                 <div class="mini-card">
@@ -28,8 +28,8 @@
                         <img src="../assets/examp/small-sample3.jpg">
                     </div>
                     <div class="near-city">
-                        <p>Jerusalem</p>
-                        <p>3 hour drive</p>
+                        <p>Barcelona</p>
+                        <p>City of eternal sunshine</p>
                     </div>
                 </div>
                 <div class="mini-card">
@@ -37,8 +37,8 @@
                         <img src="../assets/examp/small-sample4.jpg">
                     </div>
                     <div class="near-city">
-                        <p>Herzilya</p>
-                        <p>1.2 hour drive</p>
+                        <p>Paris</p>
+                        <p>Where the best begins</p>
                     </div>
                 </div>
             </div>
@@ -91,6 +91,22 @@
 </template>
 
 <style>
+body{
+    margin:0px;
+}
+.near-city{
+    justify-content: center;
+    position: relative;
+    bottom: 15px;
+    padding-left: 10px;
+}
+
+.near-city p:first-child {
+  font-weight: 600;
+}
+.main-aside{
+    padding-top: 50px ;
+}
 a:link {
      text-decoration: none; 
 }
@@ -114,14 +130,15 @@ a:active {
     font-size: 1.7em;
     font-weight: bold;
     padding-bottom: 20px;
+    color: black;
 }
-section{
+.main-section{
     display: grid;
-    grid-template-columns: 5rem 1fr 5rem;
+    grid-template-columns: 80px 1fr 80px;
     grid-auto-flow: dense;
 }
 * {
-        grid-column: 2;
+    grid-column: 2;
 }
 .main-card p{
     text-align: left;
@@ -133,12 +150,12 @@ section{
 }
 .mini-card-container{
      display: flex;
-     
+     justify-content: space-between;  
 }
 .mini-card{
     display: flex;
     padding-bottom: 60px;
-    margin-inline-end: 240px;    
+    margin-inline-end: 100px;  
 }
 .mini-card img{
     cursor: pointer;
