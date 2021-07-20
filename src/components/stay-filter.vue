@@ -51,7 +51,7 @@
           <label for="guests"> add guests </label>
           <input type="number" v-model="filterBy.guests" />
         </span>
-        <button>🔎</button>
+        <img class="red-btn" src="@/assets/imgs/app-logo/search-red-btn.jpg">
       </div>
     </section>
   </form>
@@ -101,6 +101,10 @@ Cookingbasics:false,
 </script>
 
 <style scoped>
+.red-btn{
+  border-radius: 50%;
+  width: 60px;
+}
 .location{
   text-align: left;
 }

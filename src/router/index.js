@@ -6,6 +6,8 @@ import signUp from '../components/stay-signup.vue'
 import stayDetails from '../views/stay-details.vue'
 import stayEdit from '../views/stay-edit.vue'
 import userDetails from '../views/user-details.vue'
+import backOffice from '../views/stay-backOffice.vue'
+import superhost from '../components/superhost.vue'
 
 Vue.use(VueRouter)
 
@@ -14,6 +16,16 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/superhost',
+    name: 'superhost',
+    component: superhost
+  },
+  {
+    path: '/office',
+    name: 'office',
+    component: backOffice
   },
   {
     path: '/sign-up',

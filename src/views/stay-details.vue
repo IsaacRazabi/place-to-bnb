@@ -134,21 +134,21 @@
           </div>
         </div>
 
-        <div class="details-right-column">
-          <div class="details-reservation">
-            <div class="details-reservation-box">
-              <div class="details-reservation-title">
-                <div class="details-reservation-price">
-                  <p>
-                    <span class="cost"> ₪{{ stay.price }} </span>
-                    <span> / night </span>
-                  </p>
-                </div>
-                <div class="details-reservation-rating">
-                  <img src="../assets/examp/red-star.jpg" alt="" srcset="" />
-                  <span v-if="stay.reviews[0].rate" class="rating"> {{ stay.reviews[0].rate }} </span>
-                  <span class="voters">({{ stay.reviews[0].votes }})</span>
-                </div>
+    
+    
+      <div class="details-right-column">
+        <div class="details-reservation">
+          <div class="details-reservation-box">
+            <div class="details-reservation-title">
+              <div class="details-reservation-price">
+                <p>
+                  <span class="cost">
+                    ${{stay.price}} 
+                  </span>
+                   <span>
+                   / night 
+                   </span>
+                </p>
               </div>
               <form>
                 <div class="details-reservation-Order">
@@ -200,6 +200,7 @@
               </form>
             </div>
           </div>
+        </div>
         </div>
       </main>
       <aside class="details-reviews">
@@ -316,6 +317,7 @@
             </p>
           </div>
         </div>
+          </aside>
 
          <div class="flex">
         <ul class=" a-clean reviews-container ">
@@ -343,27 +345,8 @@
           </li>
         </ul>
         </div>
-      </aside>
-      <div></div>
-      <!-- 
-<stayReview ></stayReview> -->
-     
 
-<!-- 
-            <h5 class="details-reviews-user-name-n-date">
-              {{ review.by.fullname }}
-            </h5>
-            <img class="details-reviews-user-img" src="showImage" />
-            
-            <div class="details-reviews-user-details">
-                   <span class="demonstration"></span>
-            <el-rate v-model="review.rate" :colors="colors" disabled> </el-rate>
-              <! <div>rate : {{ review.rate }}</div> -->
-              <!-- <div>votes : {{ review.votes }}</div>
-            </div>
-            <p class="details-review-text">{{ review.txt }}</p>  -->
-
-<div>
+      <div>
         <form v-if="loggedInUser" @submit.prevent="addReview()">
           <h2>share your exprience</h2>
 <div class="txt-input el-textarea"></div>
@@ -386,13 +369,33 @@
       </div>
     </section>
   </main>
+  
 </template>
+
+      <!-- 
+<stayReview ></stayReview> -->
+     
+
+<!-- 
+            <h5 class="details-reviews-user-name-n-date">
+              {{ review.by.fullname }}
+            </h5>
+            <img class="details-reviews-user-img" src="showImage" />
+            
+            <div class="details-reviews-user-details">
+                   <span class="demonstration"></span>
+            <el-rate v-model="review.rate" :colors="colors" disabled> </el-rate>
+              <! <div>rate : {{ review.rate }}</div> -->
+              <!-- <div>votes : {{ review.votes }}</div>
+            </div>
+            <p class="details-review-text">{{ review.txt }}</p>  -->
+
 
 <script>
 import { stayService } from "../services/stay.service.js";
 // import stayReview from '../components/stay-review.vue'
 import navBar from "../components/nav-bar.vue";
-import { userService } from '../services/user.service.js';
+import { userService } from "../services/user.service.js";
 export default {
   data() {
     return {
@@ -411,26 +414,26 @@ export default {
       value1: null,
       value2: null,
       colors: ["#99A9BF", "#F7BA2A", "#FF9900"], // same as { 2: '#99A9BF', 4: { value: '#F7BA2A', excluded: true }, 5: '#FF9900' }
-       orderToEdit: {
-         _id: "",
-      hostId : '',
-      createdAt: Date.now(),
-      buyer: {
+      orderToEdit: {
         _id: "",
-        fullname: "",
-      },
-      totalPrice: 0,
-      // startDate: "2025/10/15",
-      // endDate: "2025/10/17",
+        hostId: "",
+        createdAt: Date.now(),
+        buyer: {
+          _id: "",
+          fullname: "",
+        },
+        totalPrice: 0,
+        // startDate: "2025/10/15",
+        // endDate: "2025/10/17",
         dates: [],
-      guests: 0,
-      stay: {
-        _id: '',
-        name: '',
-        price: '',
+        guests: 0,
+        stay: {
+          _id: "",
+          name: "",
+          price: "",
+        },
+        status: "pending",
       },
-      status: "pending",
-       }
     };
   },
   computed: {
@@ -462,31 +465,32 @@ export default {
         stay: this.stay,
         review: this.reviewToEdit,
       });
-      userService.addUserReview({review :this.reviewToEdit , stay : this.stay})
+      userService.addUserReview({ review: this.reviewToEdit, stay: this.stay });
       this.reviewToEdit = { txt: "" };
     },
-    reserve(){
-     let days = ( Math.floor((this.orderToEdit.dates[1] - this.orderToEdit.dates[0]) / (1000*60*60*24)));
-  this.orderToEdit.buyer._id = this.loggedInUser._id;
+    reserve() {
+      let days = Math.floor(
+        (this.orderToEdit.dates[1] - this.orderToEdit.dates[0]) /
+          (1000 * 60 * 60 * 24)
+      );
+      this.orderToEdit.buyer._id = this.loggedInUser._id;
       this.orderToEdit.buyer.fullname = this.loggedInUser.fullname;
-     this.orderToEdit.totalPrice = days *this.stay.price;
+      this.orderToEdit.totalPrice = days * this.stay.price;
 
-     this.orderToEdit.hostId = this.stay.host._id
-     this.orderToEdit.stay._id = this.stay._id
- this.orderToEdit.stay.name = this.stay.name
-  this.orderToEdit.stay.price = this.stay.price
-    console.log(this.orderToEdit);
-     this.$store.dispatch({type : "saveOrder", order : this.orderToEdit})
-      userService.addUserOrder({order :this.orderToEdit})
-   
-    }
+      this.orderToEdit.hostId = this.stay.host._id;
+      this.orderToEdit.stay._id = this.stay._id;
+      this.orderToEdit.stay.name = this.stay.name;
+      this.orderToEdit.stay.price = this.stay.price;
+      console.log(this.orderToEdit);
+      this.$store.dispatch({ type: "saveOrder", order: this.orderToEdit });
+      userService.addUserOrder({ order: this.orderToEdit });
+    },
   },
   created() {
     window.scrollTo(0, 0);
     const { stayId } = this.$route.params;
     stayService.getById(stayId).then((stay) => {
       this.stay = stay;
-
     });
   },
 };
@@ -505,6 +509,7 @@ export default {
 .details-reservation-Order {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 .details-reservation-check-in {
   width: 49%;
@@ -559,7 +564,7 @@ export default {
 .cost {
   font-size: 20px;
   line-height: 20px;
-  font-weight: 800;
+  font-weight: 600;
 }
 .details-reservation-box {
   text-align: center;
@@ -777,43 +782,43 @@ h2 {
   list-style: none;
 }
 .txt-input {
-    max-width: 50%;
-    margin-top: 5px;
-    margin-right: 10px;
+  max-width: 50%;
+  margin-top: 5px;
+  margin-right: 10px;
 }
 .el-textarea {
-    position: relative;
-    display: inline-block;
-    width: 100%;
-    vertical-align: bottom;
-    font-size: 14px;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  vertical-align: bottom;
+  font-size: 14px;
 }
 .el-textarea__inner {
-    display: block;
-    resize: vertical;
-    padding: 5px 15px;
-    line-height: 1.5;
-    box-sizing: border-box;
-    width: 100%;
-    font-size: inherit;
-    color: #606266;
-    background-color: #fff;
-    background-image: none;
-    border: 1px solid #dcdfe6;
-    border-radius: 4px;
-    transition: border-color .2s cubic-bezier(.645,.045,.355,1);
-}
-.reviews-container{
+  display: block;
+  resize: vertical;
+  padding: 5px 15px;
+  line-height: 1.5;
+  box-sizing: border-box;
   width: 100%;
-    display: flex;
-    flex-wrap: wrap;
+  font-size: inherit;
+  color: #606266;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #dcdfe6;
+  border-radius: 4px;
+  transition: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.reviews-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.flex{
-display: flex;
-widows: 100%;
+.flex {
+  display: flex;
+  widows: 100%;
 }
-.review-box{
+.review-box {
   width: 50%;
 }
 </style>
