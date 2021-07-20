@@ -5,6 +5,7 @@ import stayApp from '../views/stayApp.vue'
 import signUp from '../components/stay-signup.vue'
 import stayDetails from '../views/stay-details.vue'
 import stayEdit from '../views/stay-edit.vue'
+import userDetails from '../views/user-details.vue'
 
 Vue.use(VueRouter)
 
@@ -37,6 +38,11 @@ const routes = [
   {
     path: '/host',
     component: stayEdit
+  },
+  {
+    path: '/user/:id',
+    name: 'user-details',
+    component: userDetails
   },
   {
     path: '/about',

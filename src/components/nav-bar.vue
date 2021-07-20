@@ -1,7 +1,7 @@
 <template>
-<main>
-    <section class="header-container" v-bind:class="{ filterShow: isFilterShow }">
-
+<!-- <main  :v-bind:class="{showNavOnScroll : isScroll}" > -->
+  <main>
+    <section class="header-container" v-bind:class="{ filterShow: isFilterShow}">
      
     <router-link to="/" class="home" exact>    <img class="logo-img" src="@/assets/imgs/app-logo/logo_transparent.png"> </router-link>
        <button class="search-btn" v-if="this.$route.name==='explore'" @click="showFilter" > start your search  </button>
@@ -32,7 +32,7 @@
           <div v-bind:class="{ show: isShow }" class="dropdownContent">
           <router-link to="/sign-up">Log In</router-link>
           <router-link to="/sign-up">Sign Up</router-link>
-          <router-link to="/user-profile">user profile</router-link>
+          <router-link v-if="loggedInUser" :to="`/user/${loggedInUser._id}`">user profile</router-link>
           </div>
           </div>
         </div>
@@ -55,7 +55,9 @@ export default {
     return {
       loggedInUser: this.$store.getters.loggedinUser,
       isShow: true,
-      isFilterShow:false
+      isFilterShow:false,
+      onTop: true,
+      // isScroll: true,
     };
   },
   components: {
@@ -64,7 +66,11 @@ export default {
   computed: {
     currentRouteName() {
         return this.$route.name;
-    }
+    },
+     isScroll(){
+      if (this.onTop) return true
+      else {return false}
+     }
 },
   methods: {
        filter(filterBy) {
@@ -84,6 +90,44 @@ this.isFilterShow = !this.isFilterShow
     },
 
   },
+  created(){
+
+
+window.addEventListener("scroll", function(){
+if (document.body.scrollTop !== 0 || document.documentElement.scrollTop !== 0) 
+{
+   this.onTop = false
+}
+else if (document.body.scrollTop === 0 || document.documentElement.scrollTop === 0) 
+{
+   this.onTop =true
+}
+
+});
+
+//  window.addEventListener("scroll", function(){
+// if(window.pageYOffset > 0){
+//   this.isScroll = false
+//   console.log('sss',this.isScroll);
+// } 
+// else {
+//   this.isScroll = false
+//    console.log('dsfds',this.isScroll);
+// }
+//  })
+
+  
+
+//  window.addEventListener("scroll", function(){
+// if(window.scrollTop!==0){
+// this.onTop = false
+// console.log('sdf');
+// } 
+//  })
+  },
+  destroy(){
+    removeEventListener('scroll')
+  }
 
 };
 </script>
@@ -94,7 +138,6 @@ this.isFilterShow = !this.isFilterShow
 }
 .header-container {
   height: 80px;
-  background-color: #fff !important;
   position: sticky;
   top: 0;
   box-shadow: 0 10px 10px -10px rgb(33 35 38 / 10%);
@@ -214,4 +257,9 @@ justify-content: space-between;
   width: 250px;
 }
 
+.showNavOnScroll{
+    position: fixed;
+    z-index: 1;
+  
+}
 </style>

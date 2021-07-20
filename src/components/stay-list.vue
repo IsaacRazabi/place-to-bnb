@@ -1,6 +1,8 @@
 <template>
   <section>
-    <div class="list-title">Places to stay near you</div>
+    <!-- <div  class="list-title">Places to stay near you</div> -->
+<div  class="list-title"> {{this.locationList}}</div>
+    
     <div class="list-filter">
       <button @click="tooglePrice" class="btn-filter">Price</button>
       <button class="btn-filter">Loacation</button>
@@ -59,7 +61,7 @@ export default {
       isPriceShow: true,
       isTypeShow: true,
       filterBy:{
-        loc: "",
+        loc: {address:''},
         dateStart: new Date().toISOString().substr(0, 10),
         dateEnd: new Date().toISOString().substr(0, 10),
         guests: 0,
@@ -114,7 +116,12 @@ this.filterBy.amenities.Cookingbasics=false;
     },
   },
   computed:{
-    priceToFilter(){return {priceStart:this.filterBy.priceStart , priceEnd:this.filterBy.priceEnd }}
+    priceToFilter(){return {priceStart:this.filterBy.priceStart , priceEnd:this.filterBy.priceEnd }},
+    locationList() {
+       const { place } = this.$route.params;
+       if (!place) return 'Places to stay near you'
+       return ` places to stay in ${place} ` 
+       }
   },
   components: {
     stayPreview,

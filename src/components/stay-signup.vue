@@ -1,4 +1,7 @@
     <template>
+    <main>
+      <navBar></navBar>
+   
       <section class="signup-container">
     <form class="signup-wraaper"  @submit.prevent="login">
       <label for="">login</label>
@@ -41,11 +44,13 @@
       </form>
     </div>
       </section>
+       </main>
 </template>
 
 <script>
 
 
+  import navBar from '../components/nav-bar.vue'
 export default {
   data() {
     return {
@@ -101,7 +106,7 @@ export default {
     // },
   },
   components: {
-
+ navBar
   },
     // watch: {
     // credencials: {

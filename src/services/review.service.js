@@ -8,6 +8,7 @@ export const reviewService = {
   query,
   remove
 }
+const STAY_KEY = 'stayData';
 
 // More ways to send query params:
 // return axios.get('api/toy/?id=1223&balance=13')
@@ -20,20 +21,19 @@ export const reviewService = {
 // }
 
 function query() {
-  return storageService.query('review')
+  return storageService.query(STAY_KEY)
 }
 
 function remove(reviewId) {
   // return httpService.delete(`review/${reviewId}`)
-  return storageService.delete('review', reviewId)
+  return storageService.delete(STAY_KEY, reviewId)
 }
 async function add(review) {
   // const addedReview = await httpService.post(`review`, review)
 
   review.byUser = userService.getLoggedinUser()
-  review.aboutUser = await userService.getById(review.aboutUserId)
-  const addedReview = storageService.post('review', review)
-
+  // review.aboutUser = await userService.getById(review.aboutUserId)
+  const addedReview = storageService.post(STAY_KEY, review)
   return addedReview
 }
 
