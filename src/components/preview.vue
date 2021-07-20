@@ -12,7 +12,7 @@
             <p>{{stay.name}}</p>
             <p>
               <span class="cost">
-                 ₪{{stay.price}} 
+                 ${{stay.price}} 
               </span>
               <span>
                 / night 
@@ -76,7 +76,7 @@ a:link {
 .cost{
   font-size: 16px ;
   line-height: 20px ;
-  font-weight: 800;
+  font-weight: 600;
 }
 img{
   width: 360px;

@@ -134,7 +134,7 @@
               <div class="details-reservation-price">
                 <p>
                   <span class="cost">
-                    ₪{{stay.price}} 
+                    ${{stay.price}} 
                   </span>
                    <span>
                    / night 
@@ -358,6 +358,7 @@ export default {
 .details-reservation-Order{
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 .details-reservation-check-in{
   width: 49%;
@@ -412,7 +413,7 @@ export default {
 .cost{
   font-size: 20px ;
   line-height: 20px ;
-  font-weight: 800;
+  font-weight: 600;
 }
 .details-reservation-box{
   text-align: center;
