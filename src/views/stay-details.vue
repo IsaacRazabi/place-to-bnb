@@ -7,7 +7,7 @@
         <h2 class="details-title">{{ stay.name }}</h2>
         <div class="details-subtitle">
           <div>
-            <img src="../assets/examp/red-star.jpg" alt="" srcset="" />
+            <img v-if="stay.reviews[0].rate" src="../assets/examp/red-star.jpg" alt="" srcset="" />
             <span v-if="stay.reviews[0].rate"  class="rating"> {{ stay.reviews[0].rate }} </span>
             <span class="voters"
               >({{ stay.reviews[0].votes }} <a>reviews</a>)

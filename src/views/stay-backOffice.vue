@@ -26,34 +26,46 @@
                     <h2>Hello, Moshe cohen !</h2>
                     <p>created on april 2018</p>
                 </div>
-                <div class="Houses-statistics">
-                    <h3>Houses statistics:</h3>
-                    <div id="vue-container">
-                        <div id="chartContainer" style="height: 360px; width: 100%;"></div>
-                    </div>
-                </div>
                 <div class="backoffice-host-offer">
-                    <h3>Houses you offer: 2</h3>
+                    <h3>Houses you offer</h3>
                     <div class="backoffice-offer-details">
                         <span class="backoffice-title">Name:</span>
                         <span class="backoffice-name">Villa de'Larosa</span>
                         <span class="backoffice-title">Type:</span>
                         <span class="backoffice-name">House</span>
                     </div>
-                    <div class="backoffice-offer-card">
+                    <div class="details-subtitle">
+                        <div>
+                            <img src="../assets/examp/red-star.jpg" />
+                            <span  class="rating"> 4.6 </span>
+                            <span class="voters">(11} <a>reviews</a>)
+                            </span>
+                         </div>
+                    </div>
+                    <div class="backoffice-offer-gallery">
                         <div class="backoffice-offer-card-img">
                             <img src="https://a0.muscache.com/im/pictures/d94df1e1-9525-4104-91a0-8395a6275665.jpg?im_w=720">
                         </div>
+                        <div class="backoffice-offer-card-img">
+                            <img src="https://a0.muscache.com/im/pictures/9a26c18f-ffd4-4277-960f-3d8a0c5bbfd6.jpg?im_w=720">
+                        </div>
+                        <div class="backoffice-offer-card-img">
+                            <img src="https://a0.muscache.com/im/pictures/d9a378fd-b2f8-4dd3-974e-1a755136ce51.jpg?im_w=720">
+                        </div>
+                    </div>
+                    <h3>House Bookings: 11</h3>
+                    <div class="backoffice-offer-card">
                         <div class="backoffice-offer-card-ditails">
-                            <h3>House Bookings: 5</h3>
                             <div class="booking-table">
-                                <table class="booking-info" style="width: 100%;">
-                                    <tr data-v-30dfd110="">
+                                <table class="booking-info">
+                                    <tr>
                                         <th>Guest Name:</th>
+                                        <th>Property:</th>
                                         <th>Guests:</th>
                                         <th>Check In:</th>
                                         <th>Check Out:</th>
                                         <th>Contact:</th>
+                                        <th>Approval:</th>
                                     </tr>
                                     <tr>
                                         <td>
@@ -62,6 +74,7 @@
                                                 <span>Rony bato</span>
                                             </div>
                                         </td>
+                                        <td>Villa de'Larosa</td>
                                         <td>2</td>
                                         <td>2020-07-01</td>
                                         <td>2020-07-09</td>
@@ -69,6 +82,7 @@
                                             <img src="../assets/examp/icons/envelope-icon.jpg" />
                                             <img src="../assets/examp/icons/home-phone-icon.jpg" />
                                         </td>
+                                        <td><button>🟢</button></td>
                                     </tr>
                                     <tr>
                                         <td>
@@ -77,6 +91,7 @@
                                                 <span>Ishi moto</span>
                                             </div>
                                         </td>
+                                        <td>Villa de'Larosa</td>
                                         <td>1</td>
                                         <td>2020-03-12</td>
                                         <td>2020-03-16</td>
@@ -84,6 +99,7 @@
                                             <img src="../assets/examp/icons/envelope-icon.jpg" />
                                             <img src="../assets/examp/icons/home-phone-icon.jpg" />
                                         </td>
+                                        <td><button>🔴</button></td>
                                     </tr>
                                     <tr>
                                         <td>
@@ -92,6 +108,7 @@
                                                 <span>Don Karo</span>
                                             </div>
                                         </td>
+                                        <td>Villa de'Larosa</td>
                                         <td>4</td>
                                         <td>2020-04-20</td>
                                         <td>2020-04-25</td>
@@ -99,6 +116,7 @@
                                             <img src="../assets/examp/icons/envelope-icon.jpg" />
                                             <img src="../assets/examp/icons/home-phone-icon.jpg" />
                                         </td>
+                                        <td><button>🟢</button></td>
                                     </tr>
                                     <tr>
                                         <td>
@@ -107,6 +125,7 @@
                                                 <span>Shin Bul</span>
                                             </div>
                                         </td>
+                                        <td>Villa de'Larosa</td>
                                         <td>2</td>
                                         <td>2019-02-25</td>
                                         <td>2019-02-29</td>
@@ -114,6 +133,7 @@
                                             <img src="../assets/examp/icons/envelope-icon.jpg" />
                                             <img src="../assets/examp/icons/home-phone-icon.jpg" />
                                         </td>
+                                        <td><button>🟢</button></td>
                                     </tr>
                                     <tr>
                                         <td>
@@ -122,6 +142,7 @@
                                                 <span>Nim Or</span>
                                             </div>
                                         </td>
+                                        <td>Villa de'Larosa</td>
                                         <td>1</td>
                                         <td>2020-01-22</td>
                                         <td>2021-01-24</td>
@@ -129,35 +150,7 @@
                                             <img src="../assets/examp/icons/envelope-icon.jpg" />
                                             <img src="../assets/examp/icons/home-phone-icon.jpg" />
                                         </td>
-                                    </tr>
-                    
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="backoffice-host-offer">
-                    <div class="backoffice-offer-details">
-                        <span class="backoffice-title">Name:</span>
-                        <span class="backoffice-name">Villa de'Larosa</span>
-                        <span class="backoffice-title">Type:</span>
-                        <span class="backoffice-name">House</span>
-                    </div>
-                    <div class="backoffice-offer-card">
-                        <div class="backoffice-offer-card-img">
-                            <img src="https://a0.muscache.com/im/pictures/9a26c18f-ffd4-4277-960f-3d8a0c5bbfd6.jpg?im_w=720">
-                        </div>
-                        <div class="backoffice-offer-card-ditails">
-                            <h3>House Bookings: 5</h3>
-                            <div class="booking-table">
-                                <table class="booking-info" style="width: 100%;">
-                                    <tr data-v-30dfd110="">
-                                        <th>Guest Name:</th>
-                                        <th>Guests:</th>
-                                        <th>Check In:</th>
-                                        <th>Check Out:</th>
-                                        <th>Contact:</th>
+                                        <td><button>🟢</button></td>
                                     </tr>
                                     <tr>
                                         <td>
@@ -166,6 +159,7 @@
                                                 <span>Moti luhim</span>
                                             </div>
                                         </td>
+                                        <td>Villa de'Larosa</td>
                                         <td>1</td>
                                         <td>2021-03-09</td>
                                         <td>2021-03-12</td>
@@ -173,6 +167,7 @@
                                             <img src="../assets/examp/icons/envelope-icon.jpg" />
                                             <img src="../assets/examp/icons/home-phone-icon.jpg" />
                                         </td>
+                                        <td><button>🟢</button></td>
                                     </tr>
                                     <tr>
                                         <td>
@@ -181,6 +176,7 @@
                                                 <span>Shimha Rif</span>
                                             </div>
                                         </td>
+                                        <td>Villa de'Larosa</td>
                                         <td>1</td>
                                         <td>2021-02-17</td>
                                         <td>2021-02-22</td>
@@ -188,6 +184,7 @@
                                             <img src="../assets/examp/icons/envelope-icon.jpg" />
                                             <img src="../assets/examp/icons/home-phone-icon.jpg" />
                                         </td>
+                                        <td><button>🟢</button></td>
                                     </tr>
                                     <tr>
                                         <td>
@@ -196,6 +193,7 @@
                                                 <span>kobi Tiro</span>
                                             </div>
                                         </td>
+                                        <td>Villa de'Larosa</td>
                                         <td>6</td>
                                         <td>2021-05-23</td>
                                         <td>2021-06-02</td>
@@ -203,11 +201,69 @@
                                             <img src="../assets/examp/icons/envelope-icon.jpg" />
                                             <img src="../assets/examp/icons/home-phone-icon.jpg" />
                                         </td>
+                                        <td><button>🟢</button></td>
                                     </tr>
-                    
+                                    <tr>
+                                        <td>
+                                            <div class="guest-user">
+                                                <img src="https://a0.muscache.com/im/pictures/user/7616e352-3ac0-4217-aa1a-cbdbd7fd7875.jpg?im_w=240">
+                                                <span>Eli Kopter</span>
+                                            </div>
+                                        </td>
+                                        <td>Villa de'Larosa</td>
+                                        <td>8</td>
+                                        <td>2021-08-15</td>
+                                        <td>2021-10-16</td>
+                                        <td class="contacts-icons">
+                                            <img src="../assets/examp/icons/envelope-icon.jpg" />
+                                            <img src="../assets/examp/icons/home-phone-icon.jpg" />
+                                        </td>
+                                        <td><button>🟡</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="guest-user">
+                                                <img src="https://a0.muscache.com/im/pictures/user/9db51a14-a66f-4001-9eed-be469d3a0673.jpg?im_w=240">
+                                                <span>Bob doono</span>
+                                            </div>
+                                        </td>
+                                        <td>Villa de'Larosa</td>
+                                        <td>2</td>
+                                        <td>2021-11-02</td>
+                                        <td>2021-11-28</td>
+                                        <td class="contacts-icons">
+                                            <img src="../assets/examp/icons/envelope-icon.jpg" />
+                                            <img src="../assets/examp/icons/home-phone-icon.jpg" />
+                                        </td>
+                                        <td><button>🟡</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="guest-user">
+                                                <img src="https://a0.muscache.com/im/users/5437998/profile_pic/1421735073/original.jpg?im_w=240">
+                                                <span>Noa Mitch</span>
+                                            </div>
+                                        </td>
+                                        <td>Villa de'Larosa</td>
+                                        <td>3</td>
+                                        <td>2021-07-12</td>
+                                        <td>2021-07-21</td>
+                                        <td class="contacts-icons">
+                                            <img src="../assets/examp/icons/envelope-icon.jpg" />
+                                            <img src="../assets/examp/icons/home-phone-icon.jpg" />
+                                        </td>
+                                        <td><button>🟢</button></td>
+                                    </tr>
                                 </table>
                             </div>
                         </div>
+                    </div>
+                </div>
+                
+                <div class="Houses-statistics">
+                    <h3>Houses statistics:</h3>
+                    <div id="vue-container">
+                        <div id="chartContainer" style="height: 360px; width: 100%;"></div>
                     </div>
                 </div>
                 <div class="backoffice-btn-add">
@@ -317,6 +373,13 @@ import navBar from "../components/nav-bar.vue";
     grid-template-columns: 15% 1fr 15%;
     grid-auto-flow: dense;
 }
+.backoffice-offer-gallery{
+    display: flex;
+}
+.booking-info{
+    width: 100%;
+}
+
 .backoffice-main-container{
     /* width: 1024px; */
     grid-column: 2;
@@ -374,7 +437,7 @@ padding: 15px 40px;
     background-color: rgb(255, 56, 92);
 }
 .Houses-statistics{
-    width: 800px;
+    width: 1000px;
     padding: 40px 0px 40px 0px;
     border-bottom: 1px solid #ddd;
     margin-bottom: 60px;
@@ -424,9 +487,10 @@ padding: 15px 40px;
     margin-left:15px ;
 } 
 .backoffice-offer-card-img img{
-    height: 250px;
-    width: 200px;
+    width: 320px;
+    height: 200px;
     margin-inline-end: 15px;
+    border-radius: 15px;
 } 
 .backoffice-offer-card{
     display: flex;
@@ -444,7 +508,7 @@ th {
 }
 .backoffice-offer-card-ditails {
     overflow-y: auto;
-    height: 248px;
+    height: 500px;
     width: 100%;
     box-shadow: 0 6px 16px hsla(0,0%,45.9%,.12);
     border-radius: 10px;

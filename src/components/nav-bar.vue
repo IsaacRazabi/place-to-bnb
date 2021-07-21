@@ -3,18 +3,27 @@
     <section class="header-container" v-bind:class="{ filterShow: isFilterShow }">
 
      
-    <router-link to="/" class="home" exact>    <img class="logo-img" src="@/assets/imgs/app-logo/placetobnbred-long.jpg"> </router-link>
+    <router-link to="/" class="home" exact>
+    <div class="logo-container">
+      <div class="logo-img-container">
+        <img class="logo-img" src="@/assets/imgs/app-logo/placetobnbred-logo.jpg">
+      </div>
+      <div class="logo-title">
+        placetobnb
+      </div>
+    </div>  
+     </router-link>
        <button class="search-btn" v-if="this.$route.name==='explore'" @click="showFilter" > start your search  </button>
 
 
       <div class="side-header">
 
-      <nav class="nav-menu ">
+      <nav class="nav-menu">
 
-        <router-link to="/" class="home" exact>Home</router-link> 
-        <router-link to="/explore">explore</router-link> 
-        <router-link  to="/host">become a host</router-link>
-        <router-link  to="/office">Back office</router-link>
+        <router-link to="/" class="home" exact><span>Home</span></router-link> 
+        <router-link to="/explore"><span>explore</span></router-link> 
+        <router-link  to="/host"><span>become a host</span></router-link>
+        <router-link  to="/office"><span>Back office</span></router-link>
 
       </nav>
 
@@ -133,6 +142,25 @@ else if (document.body.scrollTop === 0 || document.documentElement.scrollTop ===
 };
 </script>
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+.logo-container{
+  display:flex;
+}
+.nav-menu span{
+  padding-right:10px;
+  color: black;
+}
+.nav-menu span:hover{
+  text-decoration-line: underline;
+}
+.logo-title{
+  font-family: 'Lobster', cursive;
+  font-size: 23px;
+  line-height: 5px;
+  color: rgb(255, 56, 92);
+  position:relative; top:12px;
+  padding:10px;
+}
 .nav-bar-main{
     display: grid;
     grid-template-columns: 80px 1fr 80px;
@@ -174,8 +202,8 @@ else if (document.body.scrollTop === 0 || document.documentElement.scrollTop ===
 
 
 .logo-img{
-    width: 270px;
-    height: 70px;
+    width: 50px;
+    height: 50px;
   /* height: 200px; */
   
 }
@@ -195,8 +223,8 @@ else if (document.body.scrollTop === 0 || document.documentElement.scrollTop ===
   } */
 .user{
   cursor: pointer;
-  border: 1px solid #dadada;
-    border-radius: 40px;
+  /* border: 1px solid #dadada;
+    border-radius: 40px; */
 }
 
 
@@ -207,14 +235,22 @@ else if (document.body.scrollTop === 0 || document.documentElement.scrollTop ===
   font-size: 16px;
   border: none;
 }
-
+.dropdown img{
+  margin-top:7px;
+}
 .dropdown {
   position: relative;
   display: inline-block;
+  width: 77px;
+  height: 42px;
+  border: 1px solid #ddd;
+  border-radius: 50px;
+  justify-items: center;
 }
 .show{
    display: none;
 }
+
 .dropdownContent {
  
   position: absolute;
