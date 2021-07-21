@@ -137,6 +137,7 @@ else if (document.body.scrollTop === 0 || document.documentElement.scrollTop ===
     display: grid;
     grid-template-columns: 80px 1fr 80px;
     grid-auto-flow: dense;
+
 }
 * {
     grid-column: 2;

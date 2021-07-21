@@ -9,7 +9,7 @@
       <button class="btn-filter">Loacation</button>
       <button @click="toogleType" class="btn-filter">Type of place</button>
     </div>
-   {{stayes.length}}
+ 
     <ul>
       <li v-for="stay in stayes" :key="stay._id">
         <!-- <router-link :to="'/stay-details/' + stay._id"> -->

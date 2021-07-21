@@ -1,6 +1,5 @@
-// import {storageService } from './async-storage.service.js'
-// import {defaultOrderes } from '../data/airbnb.js';
-import { userService } from './user.service.js';
+
+// import { userService } from './user.service.js';
 import { httpService } from './http.service.js';
 
 
@@ -19,15 +18,7 @@ add
 
 
 function query(filterBy='') {
-  return httpService.get("order", { params: { filterBy } });
-
-  // return storageService.query(ORDER_KEY)
-  // .then(orders => {
-  //   // if (!orderes.length) { 
-  //   //     const initialorderList =  gOrderes;
-  //   //     storageService.postMany(ORDER_KEY, initialorderList) 
-  //       return orders;
-  //   })
+  return httpService.get("order", { params: filterBy });
 }
 
 function getById(orderId) {
@@ -51,24 +42,20 @@ function getById(orderId) {
 
 function remove(orderId) {
   return httpService.delete(`order/${orderId}`)
-  // return storageService.delete('orderData', orderId)
-
 }
 
 
 async function add(order) {
   if (order._id){
-    order.byUser = userService.getLoggedinUser()
-    order.aboutUser = await userService.getById(order.aboutUserId)
+    // order.byUser = userService.getLoggedinUser()
+    // order.aboutUser = await userService.getById(order.aboutUserId)
     const addedOrder = await httpService.put(`order`, order)
     return addedOrder
   }
   else{
-    order.byUser = userService.getLoggedinUser()
-    order.aboutUser = await userService.getById(order.aboutUserId)
-    
+    // order.byUser = userService.getLoggedinUser()
+    // order.aboutUser = await userService.getById(order.aboutUserId)
     const addedOrder = await httpService.post(`order`, order)
-  //  const addedOrder = storageService.post(ORDER_KEY, order)
    return addedOrder
  }
 }

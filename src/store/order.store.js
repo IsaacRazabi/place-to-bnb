@@ -1,6 +1,8 @@
 // import { storageService } from '../services/async-storage.service';
 // import { socketService, SOCKET_EMIT_USER_WATCH, SOCKET_EVENT_USER_UPDATED } from '../services/socket.service'
 import { orderService } from "../services/order.service.js";
+import { userService } from "../services/user.service.js";
+// import { stayService } from "../services/stay.service.js";
 
 
 
@@ -39,63 +41,39 @@ export const orderStore = {
         },        
         async saveOrder({commit}, { order }){
             try{
-                await orderService.add(order)
-                .then(savedOrder => {
+               const savedOrder = await orderService.add(order)
                     commit({type: 'addOrder', savedOrder });
+                    userService.addUserOrder({ order: savedOrder })
                       return savedOrder;
-                    })
-              
             }
             catch {
                 console.log('we have a problem');
             }
         
     },
-async updateOrderStatus(context, {order}){
+    // async updateStayWithOrder(context, { order , stay}){
+    //     try {
+    //         if(!stay.orders) stay.orders=[]
+    //         stay.orders.push(order);
+    //         stay = await stayService.add(stay)
+    //         return stay;
+    //     } catch (err) {
+    //         console.log('reviewStore: Error in addReview', err)
+    //         throw err
+    //     }},
+
+async updateOrderStatus(context, {orderToSave}){
+    console.log(orderToSave);
     try {
-        order = await orderService.add(order)
+    //    await orderService.add(orderToSave)
+       const user = await userService.getById(orderToSave.buyer._id)
+       const idx = user.orders.findIndex(orderUser=>{orderUser._id===orderToSave._id})
+       user.orders.splice(idx,1,orderToSave)
+        userService.update(user)
         // context.dispatch({type: 'increaseScore'})
-        return order;
+        return orderToSave;
     } catch (err) {
         console.log('orderStore: Error in addReview', err)
         throw err
     }}
-
-// async removeReview(context, { reviewId }) {
-//     try {
-//         await reviewService.remove(reviewId);
-//         context.commit({ type: 'removeReview', reviewId })
-//     } catch (err) {
-//         console.log('reviewStore: Error in removeReview', err)
-//         throw err
-//     }
-// },
-//     }
-// }
-
-
-// order: [
-//     {
-//       _id: "o1225",
-//       hostId: "u102",
-//       createdAt: 9898989,
-//       buyer: {
-//         _id: "u101",
-//         fullname: "User 1",
-//       },
-//       totalPrice: 160,
-//       startDate: "2025/10/15",
-//       endDate: "2025/10/17",
-//       guests: {
-//         adults: 2,
-//         kids: 1,
-//       },
-//       stay: {
-//         _id: "h102",
-//         name: "House Of Uncle My",
-//         price: 63.0,
-//       },
-//       status: "pending",
-//     },
-//   ],
 }}

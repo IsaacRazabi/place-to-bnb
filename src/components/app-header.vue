@@ -8,8 +8,7 @@
         </div>
         <img
           class="bgc-img"
-          src="@/assets/imgs/bgc/Airbnb-Beachfront-Greece.webp"
-          alt=""
+           :src="getImgSlide"
         />
       </div>
     </main>
@@ -25,15 +24,27 @@ export default {
     return {
       interval: null,
       imgUrl: 1,
-      loggedInUser: this.$store.getters.loggedinUser,
+    
       isShow: true,
+      
     };
   },
   components: {
     stayFilter,
     navBar,
   },
-  computed: {},
+  computed: {
+    getImgSlide(){
+      let src=''
+      if (this.imgUrl === 1) src= require('@/assets/imgs/bgc/1-brazil_b.jpg')
+        if (this.imgUrl === 2) src= require('@/assets/imgs/bgc/Airbnb-Beachfront-Greece.webp');
+      if (this.imgUrl === 3) src= require('@/assets/imgs/bgc/airbnb-example-home-1000x667.jpg');
+      return src
+    },
+      loggedInUser() {
+      return this.$store.getters.loggedinUser;
+    },
+  },
   created() {
     this.interval = setInterval(() => {
       this.imgUrl++;
@@ -49,11 +60,6 @@ export default {
     toogleShow() {
       this.isShow = !this.isShow;
     },
-    // filter(filterBy) {
-    //     console.log(filterBy);
-    // 	this.$store.commit({ type:'filterToys', filterBy })
-    // 	this.$store.dispatch("loadToys")
-    // },
     filter(filterBy) {
       this.$store.commit({ type: "filterStayes", filterBy });
       this.$store.dispatch("loadStayes");
@@ -68,6 +74,9 @@ export default {
 .main-display {
   position: relative;
   grid-column: 1/-1;
+  /* position: fixed;
+    width: 100%;
+    z-index: 1000; */
 }
 
 .filter {
@@ -85,99 +94,10 @@ export default {
 .filter * > {
   width: 250px;
 }
-/* .nav-menu {
-  margin-inline-start: auto;
-}
-.header-container {
-  height: 80px;
-  background-color: #fff !important;
-  position: sticky;
-  top: 0;
-  box-shadow: 0 10px 10px -10px rgb(33 35 38 / 10%);
-  z-index: 50;
-  display: flex;
-justify-content: space-between;
-  align-items: center;
-}
-.logIn-dropdown {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 10px 5px 10px;
-  cursor: pointer;
-  border-radius: 50%;
-  border: 3px solid black;
-}
-.header-img {
-  width: 28px;
-  height: 25px;
-  padding: 0 0 0 2px;
-} */
-
 .bgc-img {
   height: 80vh;
   width: 100%;
 }
-/* .logo-img{
-    width: 200px;
-  height: 200px;
-}
-.nav-menu{
-  display: flex;
-  flex-direction: row;
-        justify-content: space-between;
-        gap: 8px;
-}
-.side-header{
-  display: flex;
-            height: 100%;
-    align-items: center;
-    gap: 8px;
-} */
-/* .drop-btn{
-  } */
-/* .user{
-  cursor: pointer;
-  border: 1px solid #dadada;
-    border-radius: 40px;
-}
-
-
-.dropbtn {
-  background-color: #4CAF50;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-}
-
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-.show{
-   display: none;
-}
-.dropdownContent {
- 
-  position: absolute;
-  background-color:white;
-  min-width: 65px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-}
-
-.dropdownContent a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-.dropdownContent a:hover {
-  background-color: #ddd;
-} */
-
 .filter-container {
   display: flex;
   justify-content: center;

@@ -1,40 +1,42 @@
 <template>
   <main>
     <navBar></navBar>
-    
+
+
+ 
     <section class="center" v-if="user">
       <div>
         <img class="user-img" src="@/assets/examp/user-avatar.png" />
         <h4>{{ user.fullname }}</h4>
       </div>
-
-      <div v-if="user.stayes">
-        <!-- <div v-if="user._id === user.stay.host._id ">  -->
-        <h2>yout stayes</h2>
-        <div>
-          <ul>
-            <li class="a-clean" v-for="(stay, idx) in user.stayes" :key="idx">
-              <!-- <router-link :to="`/stay/details/${order.stay.stayId}`"> -->
-              <!-- <img src="review.stay.imgsUrl[0]"/> -->
-              <p> stay name : {{ stay.name }}</p>
-              <p> price per night : {{stay.price}}</p>
-              <p> stay summary: {{stay.summary}}</p>
-              <p>type : {{stay.type}}</p>
-              <img src="user.stay.imgUrls[0]" >
-
-              <!-- </router-link>   -->
-            </li>
-          </ul>
+    <div v-if="this.stayes">
+         <h1> your stayes </h1>
+       <ul >
+        <li
+          class="a-clean"
+          v-for="(stay, idx) in this.stayes"
+          :key="idx"
+        >
+        <div v-if="stay.byUserId===user._id">
+          <p>stay name : {{ stay.name }}</p>
+              <p>price per night : {{ stay.price }}</p>
+              <p>stay summary: {{ stay.summary }}</p>
+              <p>type : {{ stay.type }}</p>
+              <img :src="stay.imgUrls[0]" />
         </div>
-      </div>
-      <!-- </div> -->
+        </li>
+        </ul>
+    </div>
 
       <h2>your orders</h2>
-      <div v-if="user.orders">
+      <div v-if="this.orders">
         <ul>
-          <li class="a-clean" v-for="(order, idx) in user.orders" :key="idx">
-            <!-- <router-link :to="`/stay/details/${order.stay.stayId}`"> -->
-            <!-- <img src="review.stay.imgsUrl[0]"/> -->
+          <li class="a-clean" v-for="(order, idx) in this.orders" :key="idx">
+         <div v-if="stay.byUserId===user._id">
+
+           <div v-if="order.hostId===user._id">
+             {{order.stay.name}}
+             </div>
 
             <p>ordere at : {{ order.createdAt }}</p>
             <p>order price: {{ order.totalPrice }}</p>
@@ -43,18 +45,16 @@
             <p>number of guests: {{ order.guests }}</p>
             <p>location : {{ order.stay.name }}</p>
             <p>status: {{ order.status }}</p>
-
-            <!-- </router-link>  -->
+         </div>
           </li>
         </ul>
       </div>
+
+
       <h2>your reviews</h2>
-      <div v-if="user.reviews">
+      <div v-if="user.reviews.length">
         <ul>
           <li class="a-clean" v-for="(review, idx) in user.reviews" :key="idx">
-            <!-- <router-link :to="`/stay/details/${review.stay.stayId}`"> -->
-            <!-- <p> About {{review.stay.loc.address }} </p> -->
-            <!-- <img src="review.stay.imgsUrl[0]"/> -->
             {{ review.txt }}
             <el-rate
               v-if="review.rate"
@@ -63,10 +63,11 @@
               disabled
             >
             </el-rate>
-            <!-- </router-link>  -->
           </li>
         </ul>
       </div>
+
+
       <details>
         <summary>pesrsonal info</summary>
         <pre>user name : {{ user.username }}</pre>
@@ -116,27 +117,30 @@ export default {
     handleSuccess(response, file, fileList) {
       console.log(response, file, fileList);
     },
+    confirmOrder(diff, orderToSave) {
+      if (diff === 1) orderToSave.status = "confirm";
+      if (diff === 0) orderToSave.status = "rejected";
+      this.$store.dispatch({ type: "updateOrderStatus", orderToSave });
+    },
   },
   components: {
     navBar,
   },
   async created() {
-    // const {id} = this.$route.params.id;
     const user = await userService.getById(this.userId);
     this.user = user;
   },
-  // watch: {
-  //   userId: {
-  //     handler() {
-  //       this.$store.dispatch({ type: "loadAndWatchUser", userId: this.userId });
-  //     },
-  //     immediate: true,
-  //   },
-  // },
+
   computed: {
-    // user() {
-    //   return this.$store.getters.watchedUser;
-    // },
+    orders() {
+      return this.$store.getters.sordersToDisplay;
+    },
+     stayes() {
+      return this.$store.getters.stayesToDisplay;
+    },
+    users(){
+ return this.$store.getters.users;
+    },
     userId() {
       return this.$route.params.id;
     },
@@ -165,5 +169,8 @@ h1 {
   width: 56px;
   height: 56px;
   border-radius: 50%;
+}
+.stay-details {
+  margin-bottom: 75px;
 }
 </style>

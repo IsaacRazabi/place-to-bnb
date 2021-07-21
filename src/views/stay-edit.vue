@@ -69,6 +69,11 @@ export default {
         createdAt: Date.now(),
         imgUrls: [],
         reviews:[],
+        host:{
+          _id:this.loggedInUser()._id ,
+          fullname: this.loggedInUser().fullname ,
+          imgUrl:this.loggedInUser().imgUrl
+        }
       //   host:{
       //        _id: userService.getLoggedinUser()._id ,
       // fullname: userService.getLoggedinUser().fullname,
