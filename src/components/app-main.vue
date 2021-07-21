@@ -42,7 +42,50 @@
                     </div>
                 </div>
             </div>
+            <div class="mini-card-container">
+                <div class="mini-card">
+                    <div class="mini-pic">
+                        <img src="../assets/examp/small-sample5.jpg">
+                    </div>
+                    <div class="near-city">
+                        <p>Tokyo</p>
+                        <p>Smart city</p>
+                    </div>
+                </div>
+                <div class="mini-card">
+                    <div class="mini-pic">
+                        <img src="../assets/examp/small-sample6.jpg">
+                    </div>
+                    <div class="near-city">
+                        <p>Melbourne</p>
+                        <p>Sophisticated, stylish, free-spirited</p>
+                    </div>
+                </div>
+                <div class="mini-card">
+                    <div class="mini-pic">
+                        <img src="../assets/examp/small-sample7.jpg">
+                    </div>
+                    <div class="near-city">
+                        <p>Wellington</p>
+                        <p>Beautiful places to hike</p>
+                    </div>
+                </div>
+                <div class="mini-card">
+                    <div class="mini-pic">
+                        <img src="../assets/examp/small-sample8.jpg">
+                    </div>
+                    <div class="near-city">
+                        <p>Osaka</p>
+                        <p>Japan’s third-largest city</p>
+                    </div>
+                </div>
+            </div>
         </aside>
+        <router-link to="/explore">
+        <aside class="bottom-img">
+            <img src="../assets/examp/baner-sample.jpg">
+        </aside>
+        </router-link>
         <main class="main-container">
             <div class="main-title">
             Live anywhere
@@ -94,10 +137,23 @@
 body{
     margin:0px;
 }
+.bottom-img{
+    padding-top:60px;
+}
+.mini-pic img{
+    width: 72px;
+    height: 72px;
+    border-radius: 10px;
+}
+.main-pic img{
+    width: 362px;
+    height: 362px;
+    border-radius: 10px;
+}
 .near-city{
     justify-content: center;
     position: relative;
-    bottom: 15px;
+    bottom: 5px;
     padding-left: 10px;
 }
 
@@ -105,7 +161,7 @@ body{
   font-weight: 600;
 }
 .main-aside{
-    padding-top: 50px ;
+    /* padding-top: 50px ; */
 }
 a:link {
      text-decoration: none; 
@@ -127,8 +183,9 @@ a:active {
     width: 100%;
 }
 .main-title{
-    font-size: 1.7em;
+    font-size: 32px;
     font-weight: bold;
+    padding-top:60px;
     padding-bottom: 20px;
     color: black;
 }
@@ -144,6 +201,9 @@ a:active {
     text-align: left;
      color: black;
     text-decoration: none;
+    font-weight: 600 ;
+    font-size: 18px;
+    line-height: 5px;
 }
 .main-card img{
     cursor: pointer;
@@ -154,8 +214,9 @@ a:active {
 }
 .mini-card{
     display: flex;
-    padding-bottom: 60px;
-    margin-inline-end: 100px;  
+    /* padding-bottom: 60px; */
+    /* margin-inline-end: 100px;   */
+    width: 362px;
 }
 .mini-card img{
     cursor: pointer;
