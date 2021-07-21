@@ -146,6 +146,7 @@ ul {
   /* justify-content: center; */
   margin: 0;
   padding: 0;
+  
 }
 .list-title {
   padding-top: 30px;
