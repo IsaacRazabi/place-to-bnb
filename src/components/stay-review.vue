@@ -2,17 +2,18 @@
   <div class="container home">
     <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
     <ul class="review-list">
-      <li v-for="review in reviews" :key="review._id">
+      <li v-for="(review, idx) in reviews" :key="idx">
         <p>
           About
           <router-link :to="`user/${review.aboutUser._id}`">
-            {{review.aboutUser.fullname}}
-          </router-link> 
+            {{ review.aboutUser.fullname }}
+          </router-link>
         </p>
-        <h3>{{review.txt}}</h3>
-        <p>By 
+        <h3>{{ review.txt }}</h3>
+        <p>
+          By
           <router-link :to="`user/${review.byUser._id}`">
-            {{review.byUser.fullname}}
+            {{ review.byUser.fullname }}
           </router-link>
         </p>
         <hr />
@@ -21,12 +22,15 @@
     <hr />
     <form v-if="loggedInUser" @submit.prevent="addReview()">
       <h2>share your exprience</h2>
-      <select v-model="reviewToEdit.aboutUserId">
-        <option v-for="user in users" :key="user._id" :value="user._id" >
+      <!-- <select v-model="reviewToEdit.aboutUserId">
+        <option v-for="(user,idx) in users" :key="user._id" :value="idx" >
           {{user.fullname}}
         </option>
-      </select>
-      <textarea placeholder="Your Opinion Matters..." v-model="reviewToEdit.txt"></textarea>
+      </select> -->
+      <textarea
+        placeholder="Your Opinion Matters..."
+        v-model="reviewToEdit.txt"
+      ></textarea>
       <button>Save</button>
     </form>
   </div>
@@ -34,38 +38,50 @@
 
 
 <script>
+import { stayService } from "../services/stay.service.js";
 export default {
-
+  // props:{
+  // reviews : {
+  //   type : Array
+  // }
+  // },
   data() {
     return {
       reviewToEdit: {
-        txt: '',
-        aboutUserId: null
-      }
-    }
+        txt: "",
+        aboutUserId: null,
+      },
+    };
   },
   computed: {
-    reviews() {
-      return this.$store.getters.reviews;
+    stay() {
+      const { stayId } = this.$route.params;
+     return JSON.parse(stayService.getById(stayId));
     },
+    reviews() {
+      return this.stay.reviews;
+    },
+    // reviews() {
+    //   return this.$store.getters.reviews;
+    // },
     users() {
-      return this.$store.getters.users
+      return this.$store.getters.users;
     },
     loggedInUser() {
-      return this.$store.getters.loggedinUser
-    }
+      return this.$store.getters.loggedinUser;
+    },
   },
   created() {
-    this.$store.dispatch({type: 'loadUsers'})
-    this.$store.dispatch({type: 'loadReviews'})
+    this.$store.dispatch({ type: "loadUsers" });
+
+    // this.$store.dispatch({type: 'loadReviews'})
   },
   methods: {
     async addReview() {
-      await this.$store.dispatch({type: 'addReview', review: this.reviewToEdit})
-      this.reviewToEdit = {txt: '', aboutUserId: null}
-    }
-  }
-
-  
-}
+      this.reviews.push(this.reviewToEdit);
+      await this.$store.dispatch({ type: "saveStay", stay: this.reviews });
+      this.reviewToEdit = { txt: "", aboutUserId: null };
+    },
+  },
+};
 </script>

@@ -115,8 +115,7 @@ justify-content: space-between;
 } */
 
 .bgc-img {
-  
-  height: 75vh;
+  height: 80vh;
   width: 100%;
 }
 /* .logo-img{

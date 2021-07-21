@@ -17,7 +17,7 @@ export default {
   data() {
     return {
    filterBy: {
-        loc: "",
+       loc: {address:''},
         dateStart: new Date().toISOString().substr(0, 10),
         dateEnd: new Date().toISOString().substr(0, 10),
         guests: 0,
@@ -51,7 +51,7 @@ Cookingbasics:false,
   },
   created() {
     const { place } = this.$route.params;
-    this.filterBy.loc=place
+    this.filterBy.loc.address = place ? place :  ""
     this.$store.commit({ type: "filterStayes",  filterBy : this.filterBy});
     this.$store.dispatch("loadStayes");
 

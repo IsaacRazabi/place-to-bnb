@@ -9,7 +9,7 @@ export const stayStore = {
     state: {
        stayes: [],
        filterBy: {
-        loc: "",
+        loc: {address:''},
         dateStart: new Date().toISOString().substr(0, 10),
         dateEnd: new Date().toISOString().substr(0, 10),
         guests: 0,
@@ -38,10 +38,6 @@ export const stayStore = {
             state.stayes.push(stay)
         },
         filterStayes(state, { filterBy }) {
-console.log(filterBy);
-            // if(filterBy.loc) state.filterBy = filterBy 
-            // else {state.filterBy.amenities = filterBy}
-     
             state.filterBy = filterBy
         },
         removeStay(state, { stayId }) {
@@ -59,7 +55,6 @@ console.log(filterBy);
             }
         },        
         async saveStay({commit}, { stay }){
-            
             try{
                 await stayService.add(stay)
                 .then(savedStay => {
@@ -71,24 +66,21 @@ console.log(filterBy);
             catch {
                 console.log('we have a problem');
             }
-        }
+        
     },
-    async addReview(context, { review }){
+async updateStay(context, { review , stay}){
     try {
-        review = await reviewService.add(review)
-        context.commit({ type: 'addReview', review })
-        // context.dispatch({type: 'increaseScore'})
-
+        stay.reviews.push(review);
+        stay = await stayService.add(stay)
         return review;
     } catch (err) {
         console.log('reviewStore: Error in addReview', err)
         throw err
-    }
-},
-async loadReviews(context) {
-    try {
-        const reviews = await reviewService.query();
-        context.commit({ type: 'setReviews', reviews })
+    }},
+// async loadReviews(context) {
+//     try {
+//         const reviews = await reviewService.query();
+//         context.commit({ type: 'setReviews', reviews })
         // socketService.off(SOCKET_EVENT_REVIEW_ADDED)
         // socketService.on(SOCKET_EVENT_REVIEW_ADDED, review => {
         //     console.log('Got review from socket', review);
@@ -100,11 +92,11 @@ async loadReviews(context) {
             
         // })
 
-    } catch (err) {
-        console.log('reviewStore: Error in loadReviews', err)
-        throw err
-    }
-},
+    // } catch (err) {
+    //     console.log('reviewStore: Error in loadReviews', err)
+    //     throw err
+    // }
+// },
 async removeReview(context, { reviewId }) {
     try {
         await reviewService.remove(reviewId);
@@ -114,6 +106,6 @@ async removeReview(context, { reviewId }) {
         throw err
     }
 },
-
+    }
 }
 

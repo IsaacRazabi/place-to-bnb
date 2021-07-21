@@ -28,7 +28,8 @@
   action="https://jsonplaceholder.typicode.com/posts/"
   :on-preview="handlePreview"
   :on-remove="handleRemove"
-  :file-list="fileList"
+  :on-success="handleSuccess"
+ 
   multiple>
   <i class="el-icon-upload"></i>
   <div class="el-upload__text">Drop file here or <em>click to upload</em></div>
@@ -41,9 +42,9 @@
   </main>
   <main v-else>
 <h1>
-  you can easily sign-up and becomeone of our hostes !
+  you can easily sign-up and become one of our hostes !
 </h1>
-<router-link to="/sign-up">
+ <router-link to="/sign-up">
 <button>
   sign-up
 </button>
@@ -54,12 +55,12 @@
 
 <script>
 import { stayService } from '../services/stay.service.js';
+import {userService} from '../services/user.service.js'
 import navBar from '../components/nav-bar.vue'
 export default {
   data() {
     return {
       stayToEdit: {
-        _id: "",
         name: "",
         summary: "",
         price: null,
@@ -67,7 +68,12 @@ export default {
         type: "",
         createdAt: Date.now(),
         imgUrls: [],
-        reviews:[{rate:4.2}]
+        reviews:[],
+      //   host:{
+      //        _id: userService.getLoggedinUser()._id ,
+      // fullname: userService.getLoggedinUser().fullname,
+      // imgUrl :userService.getLoggedinUser().imgUrl
+      //   }
       },
     };
   },
@@ -86,20 +92,22 @@ export default {
   },
   methods: {
     saveStay() {
-      console.log(this.stayToEdit);
       if(!this.stayToEdit.imgUrls.length){
      this.stayToEdit.imgUrls.push("https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large") 
       }
-      // if (!this.stayToEdit.reviews.length){this.stayToEdit.reviews[0].rate=4.2}
-
-    
       this.$store
         .dispatch({ type: "saveStay",  stay :this.stayToEdit })
         .then(()=>{
           this.$store.dispatch({ type: "loadStayes" });
          })
+         .then(()=>{
+userService.addUserStay({stay :this.stayToEdit})
+         })
         .then(() => this.$router.push({ path: "/explore"}));
     },
+    handlePreview(file){console.log(file)},
+handleRemove(file,fileList){console.log(file,fileList)},
+handleSuccess(response, file, fileList){console.log(response, file, fileList)}
  
   },
   computed: {

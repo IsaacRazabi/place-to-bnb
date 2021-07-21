@@ -5,6 +5,7 @@ import stayApp from '../views/stayApp.vue'
 import signUp from '../components/stay-signup.vue'
 import stayDetails from '../views/stay-details.vue'
 import stayEdit from '../views/stay-edit.vue'
+import userDetails from '../views/user-details.vue'
 import backOffice from '../views/stay-backOffice.vue'
 import superhost from '../components/superhost.vue'
 
@@ -49,6 +50,11 @@ const routes = [
   {
     path: '/host',
     component: stayEdit
+  },
+  {
+    path: '/user/:id',
+    name: 'user-details',
+    component: userDetails
   },
   {
     path: '/about',

@@ -33,7 +33,7 @@
           <div v-bind:class="{ show: isShow }" class="dropdownContent">
           <router-link to="/sign-up">Log In</router-link>
           <router-link to="/sign-up">Sign Up</router-link>
-          <router-link to="/user-profile">user profile</router-link>
+          <router-link v-if="loggedInUser" :to="`/user/${loggedInUser._id}`">user profile</router-link>
           </div>
           </div>
         </div>
@@ -56,7 +56,9 @@ export default {
     return {
       loggedInUser: this.$store.getters.loggedinUser,
       isShow: true,
-      isFilterShow:false
+      isFilterShow:false,
+      onTop: true,
+      // isScroll: true,
     };
   },
   components: {
@@ -65,7 +67,11 @@ export default {
   computed: {
     currentRouteName() {
         return this.$route.name;
-    }
+    },
+     isScroll(){
+      if (this.onTop) return true
+      else {return false}
+     }
 },
   methods: {
        filter(filterBy) {
@@ -85,6 +91,44 @@ this.isFilterShow = !this.isFilterShow
     },
 
   },
+  created(){
+
+
+window.addEventListener("scroll", function(){
+if (document.body.scrollTop !== 0 || document.documentElement.scrollTop !== 0) 
+{
+   this.onTop = false
+}
+else if (document.body.scrollTop === 0 || document.documentElement.scrollTop === 0) 
+{
+   this.onTop =true
+}
+
+});
+
+//  window.addEventListener("scroll", function(){
+// if(window.pageYOffset > 0){
+//   this.isScroll = false
+//   console.log('sss',this.isScroll);
+// } 
+// else {
+//   this.isScroll = false
+//    console.log('dsfds',this.isScroll);
+// }
+//  })
+
+  
+
+//  window.addEventListener("scroll", function(){
+// if(window.scrollTop!==0){
+// this.onTop = false
+// console.log('sdf');
+// } 
+//  })
+  },
+  destroy(){
+    removeEventListener('scroll')
+  }
 
 };
 </script>
@@ -225,4 +269,9 @@ this.isFilterShow = !this.isFilterShow
   width: 250px;
 }
 
+.showNavOnScroll{
+    position: fixed;
+    z-index: 1;
+  
+}
 </style>
