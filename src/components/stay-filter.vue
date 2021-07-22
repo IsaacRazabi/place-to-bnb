@@ -101,43 +101,5 @@ Cookingbasics:false,
 </script>
 
 <style scoped>
-.red-btn{
-  border-radius: 50%;
-  width: 60px;
-}
-.location{
-  text-align: left;
-}
-input{
-  color:gray;
-}
-input{
-  border: 0;
-}
-.location {
-  display: flex;
-  flex-direction: column;
-}
-/* .location::after{
-  content: 'location';
-} */
-.cheak-in {
-  display: flex;
-  flex-direction: column;
-}
-.cheak-out {
-  display: flex;
-  flex-direction: column;
-}
-.guests {
-  display: flex;
-  flex-direction: column;
-}
-.filter-wrraper {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  margin-inline-start: 8px;
-  margin-inline-end: 8px;
-}
+
 </style>

@@ -96,7 +96,7 @@
                     <div class="main-pic">
                         <img src="../assets/examp/norm-sample1.jpg">
                     </div>
-                    <p>barcelona</p>
+                    <p>Barcelona</p>
                 </div>
                 </router-link>
                 <router-link to="/explore/paris">
@@ -104,7 +104,7 @@
                     <div class="main-pic">
                         <img src="../assets/examp/norm-sample2.jpg">
                     </div>
-                    <p>paris</p>
+                    <p>Paris</p>
                 </div>
                   </router-link>
                     <router-link to="/explore/rome">
@@ -134,105 +134,5 @@
 </template>
 
 <style>
-body{
-    margin:0px;
-}
-.bottom-img{
-    padding-top:60px;
-}
-.mini-pic img{
-    width: 72px;
-    height: 72px;
-    border-radius: 10px;
-}
-.main-pic img{
-    width: 362px;
-    height: 362px;
-    border-radius: 10px;
-}
-.near-city{
-    justify-content: center;
-    position: relative;
-    bottom: 5px;
-    padding-left: 10px;
-}
 
-.near-city p:first-child {
-  font-weight: 600;
-}
-.main-aside{
-    /* padding-top: 50px ; */
-}
-a:link {
-     text-decoration: none; 
-}
-a:visited {
-     text-decoration: none; 
-}
-a:hover {
-     text-decoration: none; 
-}
-a:active {
-     text-decoration: none; 
-}
-.main-container{
-    color: #FFFFFF;
-  text-decoration: none;
-}
-.bottom-img img{
-    width: 100%;
-}
-.main-title{
-    font-size: 32px;
-    font-weight: bold;
-    padding-top:60px;
-    padding-bottom: 20px;
-    color: black;
-}
-.main-section{
-    display: grid;
-    grid-template-columns: 80px 1fr 80px;
-    grid-auto-flow: dense;
-}
-
-.main-card p{
-    text-align: left;
-     color: black;
-    text-decoration: none;
-    font-weight: 600 ;
-    font-size: 18px;
-    line-height: 5px;
-}
-.main-card img{
-    cursor: pointer;
-}
-.mini-card-container{
-     display: flex;
-     justify-content: space-between;  
-}
-.mini-card{
-    display: flex;
-    /* padding-bottom: 60px; */
-    /* margin-inline-end: 100px;   */
-    width: 362px;
-}
-.mini-card img{
-    cursor: pointer;
-}
-.mini-card p{
-    text-align: left; 
-}
-
-.main-card-container{
-    display: flex;
-    align-items: center;
-    justify-content:space-between; 
-    padding-bottom: 60px;
-}
-.main-title{
-    text-align: left;
-}
-aside img{
-    cursor: pointer;
-}
 </style>

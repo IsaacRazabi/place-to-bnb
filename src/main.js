@@ -10,6 +10,9 @@ import 'element-ui/lib/theme-chalk/index.css';
 
 Vue.use(ElementUI,{locale});
 
+// Styles
+import "./scss/styles.scss";
+
 
 
 Vue.config.productionTip = false

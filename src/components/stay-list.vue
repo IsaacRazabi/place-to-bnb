@@ -142,12 +142,12 @@ this.filterBy.amenities.Cookingbasics=false;
 .main-list-container{
     grid-column: 2;
 }
-li {
+.list-section li {
   list-style-type: none;
   margin: 12px;
   padding: 0;
 }
-ul {
+.list-section ul {
   display: flex;
   flex-wrap: wrap;
   /* justify-content: center; */
@@ -169,7 +169,7 @@ ul {
   padding-top: 20px;
   padding-bottom: 20px;
 }
-.btn-filter {
+.list-filter .btn-filter{
   text-align: center;
   border: 1px solid #b0b0b0;
   background-color: #fff;
@@ -187,7 +187,7 @@ ul {
   border: 1px solid rgb(34, 34, 34);
 }
 
-.show {
+.list-section show {
   display: none;
 }
 .priceContainer {

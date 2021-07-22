@@ -149,28 +149,5 @@ export default {
 </script>
 
 <style scoped>
-.a-clean {
-  text-decoration: none;
-  list-style: none;
-}
-.center {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 20px;
-}
-h2,
-h2,
-h4,
-h1 {
-  text-align: center;
-}
-.user-img {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-}
-.stay-details {
-  margin-bottom: 75px;
-}
+
 </style>
