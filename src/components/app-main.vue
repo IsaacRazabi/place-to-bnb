@@ -137,6 +137,9 @@
 body{
     margin:0px;
 }
+*{
+    grid-column: 2;
+}
 .bottom-img{
     padding-top:60px;
 }

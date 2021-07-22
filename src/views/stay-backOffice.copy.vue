@@ -8,19 +8,6 @@
             src="https://a0.muscache.com/im/users/12591733/profile_pic/1393398487/original.jpg?im_w=240"
           />
           <p>Update Photo</p>
-          <!--                     
-             <el-upload v-if="isUpload"
-  class="upload-demo"
-  drag
-  action="https://jsonplaceholder.typicode.com/posts/"
-  :on-preview="handlePreview"
-  :on-remove="handleRemove"
- :on-success="handleSuccess"
-  multiple>
-  <i class="el-icon-upload"></i>
-  <div class="el-upload__text">Drop file here or <em>click to upload</em></div>
-  <div class="el-upload__tip" slot="tip">jpg/png files with a size less than 500kb</div>
-</el-upload> -->
         </div>
         <div class="backoffice-safe-badge">
           <img src="../assets/examp/icons/safe-badge.jpg" />
@@ -43,7 +30,7 @@
       </div>
       <main class="backoffice-main">
         <div class="backoffice-main-hello">
-          <h2>Hello, Moshe cohen !</h2>
+          <h2>Hello, {{user.fullname}} !</h2>
           <p>created on april 2018</p>
         </div>
         <div class="backoffice-host-offer">
@@ -58,6 +45,7 @@
                   <span class="backoffice-title">Type:</span>
                   <span class="backoffice-name">{{ stay.type }}</span>
                 </div>
+
                 <div class="details-subtitle">
                   <div>
                     <img src="../assets/examp/red-star.jpg" />
@@ -77,6 +65,8 @@
                   </div>
                 </div>
 
+          <chat v-if="showChat"></chat>
+
                 <div v-if="stay.orders">
                   <ul>
                     <li
@@ -84,7 +74,6 @@
                       v-for="(order, idx) in stay.orders"
                       :key="idx"
                     >
-                      <h3>House Bookings: 11</h3>
                       <div class="backoffice-offer-card">
                         <div class="backoffice-offer-card-ditails">
                           <div class="booking-table">
@@ -118,16 +107,23 @@
                                   <img
                                     src="../assets/examp/icons/home-phone-icon.jpg"
                                   />
+                                  <!-- <router-link to="/chat"> -->
+                                <button @click="changeChat" >
+                                  <img src="../assets/imgs/chat/livechat-online-chat-computer-icons-chat-room-web-chat-png-favpng-91JHkthNg2nLfZihFVZ9ppMcB.jpg" />
+                                </button>
+                                  <!-- </router-link>  -->
                                 </td>
                                 <td v-if="order.status === 'pending'">
-                                  <button @click="confirmOrder(1, stay, idx)">
-                                    🟢
+                                  <button @click="confirmOrder(1, stay, idx,order._id)">
+                                   🔴
                                   </button>
                                 </td>
                                 <td v-if="order.status === 'confirm'">
-                                  <button @click="confirmOrder(0, stay, idx)">
-                                    🔴
+                                  <button @click="confirmOrder(0, stay, idx,order._id)">
+                                     🟢
                                   </button>
+                                  
+          
                                 </td>
                               </tr>
                             </table>
@@ -141,380 +137,505 @@
             </li>
           </ul>
 
-          <div class="backoffice-offer-details">
-            <span class="backoffice-title">Name:</span>
-            <span class="backoffice-name">Villa de'Larosa</span>
-            <span class="backoffice-title">Type:</span>
-            <span class="backoffice-name">House</span>
-          </div>
-          <div class="details-subtitle">
-            <div>
-              <img src="../assets/examp/red-star.jpg" />
-              <span class="rating"> 4.6 </span>
-              <span class="voters">(11} <a>reviews</a>) </span>
-            </div>
-          </div>
-          <div class="backoffice-offer-gallery">
-            <div class="backoffice-offer-card-img">
-              <img
-                src="https://a0.muscache.com/im/pictures/d94df1e1-9525-4104-91a0-8395a6275665.jpg?im_w=720"
-              />
-            </div>
-            <div class="backoffice-offer-card-img">
-              <img
-                src="https://a0.muscache.com/im/pictures/9a26c18f-ffd4-4277-960f-3d8a0c5bbfd6.jpg?im_w=720"
-              />
-            </div>
-            <div class="backoffice-offer-card-img">
-              <img
-                src="https://a0.muscache.com/im/pictures/d9a378fd-b2f8-4dd3-974e-1a755136ce51.jpg?im_w=720"
-              />
-            </div>
-          </div>
+          <ul v-if="this.stayes">
+            <li class="a-clean" v-for="(stay, idx) in stayes" :key="idx">
+              <div v-if="stay.host._id === user._id">
+                <div class="backoffice-offer-details">
+                  <span class="backoffice-title">Name:</span>
+                  <span class="backoffice-name">Villa de'Larosa</span>
+                  <span class="backoffice-title">Type:</span>
+                  <span class="backoffice-name">House</span>
+                </div>
+                <div class="details-subtitle">
+                  <div>
+                    <img src="../assets/examp/red-star.jpg" />
+                    <span class="rating"> 4.6 </span>
+                    <span class="voters">(11} <a>reviews</a>) </span>
+                  </div>
+                </div>
+                <div class="backoffice-offer-gallery">
+                  <div class="backoffice-offer-card-img">
+                    <img
+                      src="https://a0.muscache.com/im/pictures/d94df1e1-9525-4104-91a0-8395a6275665.jpg?im_w=720"
+                    />
+                  </div>
+                  <div class="backoffice-offer-card-img">
+                    <img
+                      src="https://a0.muscache.com/im/pictures/9a26c18f-ffd4-4277-960f-3d8a0c5bbfd6.jpg?im_w=720"
+                    />
+                  </div>
+                  <div class="backoffice-offer-card-img">
+                    <img
+                      src="https://a0.muscache.com/im/pictures/d9a378fd-b2f8-4dd3-974e-1a755136ce51.jpg?im_w=720"
+                    />
+                  </div>
+                </div>
+                <!-- transition -->
+                <!-- <div id="cf">
+                        <img class="bottom" src="https://a0.muscache.com/im/pictures/d9a378fd-b2f8-4dd3-974e-1a755136ce51.jpg?im_w=720" />
+                        <img class="top" src="https://a0.muscache.com/im/pictures/9a26c18f-ffd4-4277-960f-3d8a0c5bbfd6.jpg?im_w=720" />
+                    </div> -->
 
-          <h3>House Bookings: 11</h3>
-          <div class="backoffice-offer-card">
-            <div class="backoffice-offer-card-ditails">
-              <div class="booking-table">
-                <table class="booking-info">
-                  <tr>
-                    <th>Guest Name:</th>
-                    <th>Property:</th>
-                    <th>Guests:</th>
-                    <th>Check In:</th>
-                    <th>Check Out:</th>
-                    <th>Contact:</th>
-                    <th>Approval:</th>
-                  </tr>
-                  <tr>
-                    <td>
-                      <div class="guest-user">
-                        <img
-                          src="https://a0.muscache.com/im/pictures/user/79d73ef5-ba94-4075-af21-63a8cf6e05f6.jpg?im_w=240"
-                        />
-                        <span>Rony bato</span>
-                      </div>
-                    </td>
-                    <td>Villa de'Larosa</td>
-                    <td>2</td>
-                    <td>2020-07-01</td>
-                    <td>2020-07-09</td>
-                    <td class="contacts-icons">
-                      <img src="../assets/examp/icons/envelope-icon.jpg" />
-                      <img src="../assets/examp/icons/home-phone-icon.jpg" />
-                    </td>
-                    <td><button>🟢</button></td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <div class="guest-user">
-                        <img
-                          src="https://a0.muscache.com/im/pictures/user/a8e6be2d-d8aa-443b-8a46-29dd8296d733.jpg?im_w=240"
-                        />
-                        <span>Ishi moto</span>
-                      </div>
-                    </td>
-                    <td>Villa de'Larosa</td>
-                    <td>1</td>
-                    <td>2020-03-12</td>
-                    <td>2020-03-16</td>
-                    <td class="contacts-icons">
-                      <img src="../assets/examp/icons/envelope-icon.jpg" />
-                      <img src="../assets/examp/icons/home-phone-icon.jpg" />
-                    </td>
-                    <td><button>🔴</button></td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <div class="guest-user">
-                        <img
-                          src="https://a0.muscache.com/im/pictures/user/0a330d33-9745-4176-ae52-fb72f9040515.jpg?im_w=240"
-                        />
-                        <span>Don Karo</span>
-                      </div>
-                    </td>
-                    <td>Villa de'Larosa</td>
-                    <td>4</td>
-                    <td>2020-04-20</td>
-                    <td>2020-04-25</td>
-                    <td class="contacts-icons">
-                      <img src="../assets/examp/icons/envelope-icon.jpg" />
-                      <img src="../assets/examp/icons/home-phone-icon.jpg" />
-                    </td>
-                    <td><button>🟢</button></td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <div class="guest-user">
-                        <img
-                          src="https://a0.muscache.com/im/users/19737476/profile_pic/1407604544/original.jpg?im_w=240"
-                        />
-                        <span>Shin Bul</span>
-                      </div>
-                    </td>
-                    <td>Villa de'Larosa</td>
-                    <td>2</td>
-                    <td>2019-02-25</td>
-                    <td>2019-02-29</td>
-                    <td class="contacts-icons">
-                      <img src="../assets/examp/icons/envelope-icon.jpg" />
-                      <img src="../assets/examp/icons/home-phone-icon.jpg" />
-                    </td>
-                    <td><button>🟢</button></td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <div class="guest-user">
-                        <img
-                          src="https://a0.muscache.com/im/pictures/user/56af832c-76d8-40a3-a709-c1e2956cafa6.jpg?im_w=240"
-                        />
-                        <span>Nim Or</span>
-                      </div>
-                    </td>
-                    <td>Villa de'Larosa</td>
-                    <td>1</td>
-                    <td>2020-01-22</td>
-                    <td>2021-01-24</td>
-                    <td class="contacts-icons">
-                      <img src="../assets/examp/icons/envelope-icon.jpg" />
-                      <img src="../assets/examp/icons/home-phone-icon.jpg" />
-                    </td>
-                    <td><button>🟢</button></td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <div class="guest-user">
-                        <img
-                          src="https://a0.muscache.com/im/pictures/user/4432de91-b054-4423-9ec2-5333de04c078.jpg?im_w=240"
-                        />
-                        <span>Moti luhim</span>
-                      </div>
-                    </td>
-                    <td>Villa de'Larosa</td>
-                    <td>1</td>
-                    <td>2021-03-09</td>
-                    <td>2021-03-12</td>
-                    <td class="contacts-icons">
-                      <img src="../assets/examp/icons/envelope-icon.jpg" />
-                      <img src="../assets/examp/icons/home-phone-icon.jpg" />
-                    </td>
-                    <td><button>🟢</button></td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <div class="guest-user">
-                        <img
-                          src="https://a0.muscache.com/im/pictures/user/dcaccf4f-e3c3-4022-b93d-79a789fda789.jpg?im_w=240"
-                        />
-                        <span>Shimha Rif</span>
-                      </div>
-                    </td>
-                    <td>Villa de'Larosa</td>
-                    <td>1</td>
-                    <td>2021-02-17</td>
-                    <td>2021-02-22</td>
-                    <td class="contacts-icons">
-                      <img src="../assets/examp/icons/envelope-icon.jpg" />
-                      <img src="../assets/examp/icons/home-phone-icon.jpg" />
-                    </td>
-                    <td><button>🟢</button></td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <div class="guest-user">
-                        <img
-                          src="https://a0.muscache.com/im/pictures/user/397022fa-e9de-4e36-99ee-d0638c3436be.jpg?im_w=240"
-                        />
-                        <span>kobi Tiro</span>
-                      </div>
-                    </td>
-                    <td>Villa de'Larosa</td>
-                    <td>6</td>
-                    <td>2021-05-23</td>
-                    <td>2021-06-02</td>
-                    <td class="contacts-icons">
-                      <img src="../assets/examp/icons/envelope-icon.jpg" />
-                      <img src="../assets/examp/icons/home-phone-icon.jpg" />
-                    </td>
-                    <td><button>🟢</button></td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <div class="guest-user">
-                        <img
-                          src="https://a0.muscache.com/im/pictures/user/7616e352-3ac0-4217-aa1a-cbdbd7fd7875.jpg?im_w=240"
-                        />
-                        <span>Eli Kopter</span>
-                      </div>
-                    </td>
-                    <td>Villa de'Larosa</td>
-                    <td>8</td>
-                    <td>2021-08-15</td>
-                    <td>2021-10-16</td>
-                    <td class="contacts-icons">
-                      <img src="../assets/examp/icons/envelope-icon.jpg" />
-                      <img src="../assets/examp/icons/home-phone-icon.jpg" />
-                    </td>
-                    <td><button>🟡</button></td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <div class="guest-user">
-                        <img
-                          src="https://a0.muscache.com/im/pictures/user/9db51a14-a66f-4001-9eed-be469d3a0673.jpg?im_w=240"
-                        />
-                        <span>Bob doono</span>
-                      </div>
-                    </td>
-                    <td>Villa de'Larosa</td>
-                    <td>2</td>
-                    <td>2021-11-02</td>
-                    <td>2021-11-28</td>
-                    <td class="contacts-icons">
-                      <img src="../assets/examp/icons/envelope-icon.jpg" />
-                      <img src="../assets/examp/icons/home-phone-icon.jpg" />
-                    </td>
-                    <td><button>🟡</button></td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <div class="guest-user">
-                        <img
-                          src="https://a0.muscache.com/im/users/5437998/profile_pic/1421735073/original.jpg?im_w=240"
-                        />
-                        <span>Noa Mitch</span>
-                      </div>
-                    </td>
-                    <td>Villa de'Larosa</td>
-                    <td>3</td>
-                    <td>2021-07-12</td>
-                    <td>2021-07-21</td>
-                    <td class="contacts-icons">
-                      <img src="../assets/examp/icons/envelope-icon.jpg" />
-                      <img src="../assets/examp/icons/home-phone-icon.jpg" />
-                    </td>
-                    <td><button>🟢</button></td>
-                  </tr>
-                </table>
+                   
+
+                <h3>House Bookings: 11</h3>
+                <div class="backoffice-offer-card">
+                  <div class="backoffice-offer-card-ditails">
+                    <div class="booking-table">
+                      <table class="booking-info">
+                        <tr>
+                          <th>Guest Name:</th>
+                          <th>Property:</th>
+                          <th>Guests:</th>
+                          <th>Check In:</th>
+                          <th>Check Out:</th>
+                          <th>Contact:</th>
+                          <th>Approval:</th>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="guest-user">
+                              <img
+                                src="https://a0.muscache.com/im/pictures/user/79d73ef5-ba94-4075-af21-63a8cf6e05f6.jpg?im_w=240"
+                              />
+                              <span>Rony bato</span>
+                            </div>
+                          </td>
+                          <td>Villa de'Larosa</td>
+                          <td>2</td>
+                          <td>2020-07-01</td>
+                          <td>2020-07-09</td>
+                          <td class="contacts-icons">
+                            <img
+                              src="../assets/examp/icons/envelope-icon.jpg"
+                            />
+                            <img
+                              src="../assets/examp/icons/home-phone-icon.jpg"
+                            />
+                          </td>
+                          <td><button>🟢</button></td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="guest-user">
+                              <img
+                                src="https://a0.muscache.com/im/pictures/user/a8e6be2d-d8aa-443b-8a46-29dd8296d733.jpg?im_w=240"
+                              />
+                              <span>Ishi moto</span>
+                            </div>
+                          </td>
+                          <td>Villa de'Larosa</td>
+                          <td>1</td>
+                          <td>2020-03-12</td>
+                          <td>2020-03-16</td>
+                          <td class="contacts-icons">
+                            <img
+                              src="../assets/examp/icons/envelope-icon.jpg"
+                            />
+                            <img
+                              src="../assets/examp/icons/home-phone-icon.jpg"
+                            />
+                          </td>
+                          <td><button>🔴</button></td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="guest-user">
+                              <img
+                                src="https://a0.muscache.com/im/pictures/user/0a330d33-9745-4176-ae52-fb72f9040515.jpg?im_w=240"
+                              />
+                              <span>Don Karo</span>
+                            </div>
+                          </td>
+                          <td>Villa de'Larosa</td>
+                          <td>4</td>
+                          <td>2020-04-20</td>
+                          <td>2020-04-25</td>
+                          <td class="contacts-icons">
+                            <img
+                              src="../assets/examp/icons/envelope-icon.jpg"
+                            />
+                            <img
+                              src="../assets/examp/icons/home-phone-icon.jpg"
+                            />
+                          </td>
+                          <td><button>🟢</button></td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="guest-user">
+                              <img
+                                src="https://a0.muscache.com/im/users/19737476/profile_pic/1407604544/original.jpg?im_w=240"
+                              />
+                              <span>Shin Bul</span>
+                            </div>
+                          </td>
+                          <td>Villa de'Larosa</td>
+                          <td>2</td>
+                          <td>2019-02-25</td>
+                          <td>2019-02-29</td>
+                          <td class="contacts-icons">
+                            <img
+                              src="../assets/examp/icons/envelope-icon.jpg"
+                            />
+                            <img
+                              src="../assets/examp/icons/home-phone-icon.jpg"
+                            />
+                          </td>
+                          <td><button>🟢</button></td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="guest-user">
+                              <img
+                                src="https://a0.muscache.com/im/pictures/user/56af832c-76d8-40a3-a709-c1e2956cafa6.jpg?im_w=240"
+                              />
+                              <span>Nim Or</span>
+                            </div>
+                          </td>
+                          <td>Villa de'Larosa</td>
+                          <td>1</td>
+                          <td>2020-01-22</td>
+                          <td>2021-01-24</td>
+                          <td class="contacts-icons">
+                            <img
+                              src="../assets/examp/icons/envelope-icon.jpg"
+                            />
+                            <img
+                              src="../assets/examp/icons/home-phone-icon.jpg"
+                            />
+                          </td>
+                          <td><button>🟢</button></td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="guest-user">
+                              <img
+                                src="https://a0.muscache.com/im/pictures/user/4432de91-b054-4423-9ec2-5333de04c078.jpg?im_w=240"
+                              />
+                              <span>Moti luhim</span>
+                            </div>
+                          </td>
+                          <td>Villa de'Larosa</td>
+                          <td>1</td>
+                          <td>2021-03-09</td>
+                          <td>2021-03-12</td>
+                          <td class="contacts-icons">
+                            <img
+                              src="../assets/examp/icons/envelope-icon.jpg"
+                            />
+                            <img
+                              src="../assets/examp/icons/home-phone-icon.jpg"
+                            />
+                          </td>
+                          <td><button>🟢</button></td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="guest-user">
+                              <img
+                                src="https://a0.muscache.com/im/pictures/user/dcaccf4f-e3c3-4022-b93d-79a789fda789.jpg?im_w=240"
+                              />
+                              <span>Shimha Rif</span>
+                            </div>
+                          </td>
+                          <td>Villa de'Larosa</td>
+                          <td>1</td>
+                          <td>2021-02-17</td>
+                          <td>2021-02-22</td>
+                          <td class="contacts-icons">
+                            <img
+                              src="../assets/examp/icons/envelope-icon.jpg"
+                            />
+                            <img
+                              src="../assets/examp/icons/home-phone-icon.jpg"
+                            />
+                          </td>
+                          <td><button>🟢</button></td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="guest-user">
+                              <img
+                                src="https://a0.muscache.com/im/pictures/user/397022fa-e9de-4e36-99ee-d0638c3436be.jpg?im_w=240"
+                              />
+                              <span>kobi Tiro</span>
+                            </div>
+                          </td>
+                          <td>Villa de'Larosa</td>
+                          <td>6</td>
+                          <td>2021-05-23</td>
+                          <td>2021-06-02</td>
+                          <td class="contacts-icons">
+                            <img
+                              src="../assets/examp/icons/envelope-icon.jpg"
+                            />
+                            <img
+                              src="../assets/examp/icons/home-phone-icon.jpg"
+                            />
+                          </td>
+                          <td><button>🟢</button></td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="guest-user">
+                              <img
+                                src="https://a0.muscache.com/im/pictures/user/7616e352-3ac0-4217-aa1a-cbdbd7fd7875.jpg?im_w=240"
+                              />
+                              <span>Eli Kopter</span>
+                            </div>
+                          </td>
+                          <td>Villa de'Larosa</td>
+                          <td>8</td>
+                          <td>2021-08-15</td>
+                          <td>2021-10-16</td>
+                          <td class="contacts-icons">
+                            <img
+                              src="../assets/examp/icons/envelope-icon.jpg"
+                            />
+                            <img
+                              src="../assets/examp/icons/home-phone-icon.jpg"
+                            />
+                          </td>
+                          <td><button>🟡</button></td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="guest-user">
+                              <img
+                                src="https://a0.muscache.com/im/pictures/user/9db51a14-a66f-4001-9eed-be469d3a0673.jpg?im_w=240"
+                              />
+                              <span>Bob doono</span>
+                            </div>
+                          </td>
+                          <td>Villa de'Larosa</td>
+                          <td>2</td>
+                          <td>2021-11-02</td>
+                          <td>2021-11-28</td>
+                          <td class="contacts-icons">
+                            <img
+                              src="../assets/examp/icons/envelope-icon.jpg"
+                            />
+                            <img
+                              src="../assets/examp/icons/home-phone-icon.jpg"
+                            />
+                          </td>
+                          <td><button>🟡</button></td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="guest-user">
+                              <img
+                                src="https://a0.muscache.com/im/users/5437998/profile_pic/1421735073/original.jpg?im_w=240"
+                              />
+                              <span>Noa Mitch</span>
+                            </div>
+                          </td>
+                          <td>Villa de'Larosa</td>
+                          <td>3</td>
+                          <td>2021-07-12</td>
+                          <td>2021-07-21</td>
+                          <td class="contacts-icons">
+                            <img
+                              src="../assets/examp/icons/envelope-icon.jpg"
+                            />
+                            <img
+                              src="../assets/examp/icons/home-phone-icon.jpg"
+                            />
+                          </td>
+                          <td><button>🟢</button></td>
+                        </tr>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+
+<div> 
+     <chat v-if="showChat"></chat>
+     <h3>you orders</h3>
+        <ul>
+          <li class="a-clean" v-for="(order, idx) in orders" :key="idx">
+            <div v-if="order.byUserId === user._id">
+              <div class="backoffice-offer-details">
+                <span class="backoffice-title">Name:</span>
+                <span class="backoffice-name">{{ order.stay.name }}</span>
+                <span class="backoffice-title">Type:</span>
+                <span class="backoffice-name">house</span>
+              </div>
+
+              <div class="details-subtitle">
+                <div>
+                  <img src="../assets/examp/red-star.jpg" />
+                  <span class="rating"> 4.6 </span>
+                  <span class="voters">(11} <a>reviews</a>) </span>
+                </div>
+              </div>
+     
+              <div class="backoffice-offer-card">
+                <div class="backoffice-offer-card-ditails">
+                  <div class="booking-table">
+                    <table class="booking-info">
+                      <tr>
+                        <th>Guest Name:</th>
+                        <th>Property:</th>
+                        <th>Guests:</th>
+                        <th>Check In:</th>
+                        <th>Check Out:</th>
+                        <th>Contact:</th>
+                        <th>Approval:</th>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="guest-user">
+                            <img
+                              src="https://a0.muscache.com/im/pictures/user/79d73ef5-ba94-4075-af21-63a8cf6e05f6.jpg?im_w=240"
+                            />
+                            <span>{{ order.buyer.fullname }}</span>
+                          </div>
+                        </td>
+                        <td>{{ order.stay.name }}</td>
+                        <td>{{ order.guests }}</td>
+                        <td>{{ order.dates[0] }}</td>
+                        <td>{{ order.dates[1] }}</td>
+                        <td class="contacts-icons">
+                          <img src="../assets/examp/icons/envelope-icon.jpg" />
+                          <img
+                            src="../assets/examp/icons/home-phone-icon.jpg"
+                          />
+                           <!-- <router-link to="/chat"> -->
+                                  <button @click="changeChat" >chat</button>
+                                  <!-- </router-link> -->
+                        </td>
+                        <td v-if="order.status === 'pending'">
+                          
+                          <button >
+                             🔴
+                          </button>
+                        </td>
+                        <td v-if="order.status === 'confirm'">
+                          <button>
+                           🟢
+                          </button>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
+          </li>
+        </ul>
+        </div> 
 
-        <div class="Houses-statistics">
-          <h3>Houses statistics:</h3>
-          <div id="vue-container">
-            <div id="chartContainer" style="height: 360px; width: 100%"></div>
-          </div>
-        </div>
+      <div class="Houses-statistics">
+                <h3>Houses statistics:</h3>
+                <div id="vue-container">
+                  <div
+                    id="chartContainer"
+                    style="height: 360px; width: 100%"
+                  ></div>
+                </div>
+              </div>
+
         <div class="backoffice-btn-add">
           <router-link to="/host">
             <button>Add a property</button>
           </router-link>
         </div>
       </main>
-
-      
     </div>
-
-    <!-- <div class="backoffice-container">
-            <div data-v-30dfd110="" class="user-card">
-                <img  src="../assets/examp/exam-avatar5.jpg">
-                <div class="update-img">Update Photo</div>
-                    <div class="main-card-container">
-                    <h3 >Identity verification</h3>
-                    <p> Show others you’re really you with the identity verification badge.</p>
-                    <button >Get the badge</button>
-                </div>
-            </div>
-
-            <div class="user-main-container">
-                <h2>Hello, Moshe Marko </h2>
-                <div class="user-subtitle">Created on April 2018</div>
-                <h2 class="statistics-title">Profit Statistics:</h2>
-            </div>
-            <div class="chartjs-size-monitor-shrink">
-                <div id="vue-container">
-                    <div id="chartContainer" style="height: 360px; width: 100%;"></div>
-                </div>
-            </div>
-            <h2>Houses you offer: </h2>
-            <ul>
-                <li class="user-houses-container flex">
-                    <div class="user-houses-txt-container flex">
-                        <h3 class="user-houses-txt flex">
-                            <span class="house-txt-first"> Name: </span>
-                            <span class="house-txt">Beach Apartment </span>
-                            <span class="house-txt-second"> Type: </span>
-                            <span class="house-txt"> Apartment</span>
-                        </h3>
-                    </div>
-                </li>
-            </ul>
-        </div> -->
   </section>
 </template>
 
 <script>
-
-var CanvasJS = require('./canvasjs.min.js');
+var CanvasJS = require("./canvasjs.min.js");
 CanvasJS = CanvasJS.Chart ? CanvasJS : window.CanvasJS;
 
 import navBar from "../components/nav-bar.vue";
+import chat from './chat.vue'
+import { userService } from "../services/user.service.js";
+// import {socketService} from '../services/socket.service'
 
-    export default {
-  el: '#vue-container',
+export default {
+  el: "#vue-container",
   components: {
     navBar,
+    chat
   },
-  data () {
+  data() {
     return {
-        user: "",
-    chartOptions: {
-      title: {
-        text: ""
+      chartOptions: {
+        title: {
+          text: "",
+        },
+        data: [
+          {
+            type: "column",
+            dataPoints: [
+              { x: 1, y: 71 },
+              { x: 2, y: 55 },
+              { x: 3, y: 50 },
+              { x: 4, y: 65 },
+              { x: 5, y: 95 },
+              { x: 6, y: 68 },
+              { x: 7, y: 28 },
+              { x: 8, y: 34 },
+              { x: 9, y: 14 },
+              { x: 10, y: 54 },
+              { x: 11, y: 45 },
+              { x: 12, y: 32 },
+            ],
+          },
+        ],
       },
-      data: [
-        {
-          type: "column",
-          dataPoints: [
-            { x: 1, y: 71 },
-            { x: 2, y: 55 },
-            { x: 3, y: 50 },
-            { x: 4, y: 65 },
-            { x: 5, y: 95 },
-            { x: 6, y: 68 },
-            { x: 7, y: 28 },
-            { x: 8, y: 34 },
-            { x: 9, y: 14 },
-            { x: 10, y: 54 },
-            { x: 11, y: 45 },
-            { x: 12, y: 32 },
-          ]
-        }         
-      ]
-    },
-    chart : null
-  
-    }
+      chart: null,
+      user: "",
+      showChat :false
+    };
   },
   mounted: function () {
     this.chart = new CanvasJS.Chart("chartContainer", this.chartOptions);
     this.chart.render();
   },
-    methods: {
-    confirmOrder(diff, orderToSave,idx) {
-      console.log(diff,idx);
-      if (diff === 1) orderToSave.orders[idx].status = "confirm";
-      if (diff === 0) orderToSave.orders[idx].status = "rejected";
-      this.$store.dispatch({ type: "updateStayStatus", orderToSave });
+  methods: {
+    handlePreview(file) {
+      console.log(file);
     },
+    handleRemove(file, fileList) {
+      console.log(file, fileList);
+    },
+    handleSuccess(response, file, fileList) {
+      console.log(response, file, fileList);
+    },
+    async confirmOrder(diff, orderToSave, idx) {
+      if (diff === 1) orderToSave.orders[idx].status = "confirm";
+      if (diff === 0) orderToSave.orders[idx].status = "pending";
+      // socketService.emit('change status',orderToSave.orders[idx].status)
+      this.$store.dispatch({ type: "updateStayStatus", orderToSave })
+     
+
+      // let orderToUpdate = await orderService.getById(orderId)
+      // console.log(orderToUpdate);
+      // console.log(orderToSave );
+      // if (diff === 1) orderToUpdate.status = "confirm";
+      // if (diff === 0) orderToUpdate.status = "pending";
+      //   this.$store.dispatch({ type: "updateOrderStatus", orderToUpdate});
+    },
+    changeChat(){
+ this.showChat= !this.showChat
+    }
+
   },
   async created() {
-  await  this.$store.dispatch("loadStayes");
-  await this.$store.dispatch("loadUsers");
-  await this.$store.dispatch("loadOrders");
-    const user = await userService.getById(this.$route.params.id);
+    await this.$store.dispatch("loadStayes");
+    await this.$store.dispatch("loadUsers");
+    await this.$store.dispatch("loadOrders");
+    const user = await userService.getById(this.loggedinUser._id);
     this.user = user;
   },
   computed: {
@@ -527,10 +648,17 @@ import navBar from "../components/nav-bar.vue";
     users() {
       return this.$store.getters.users;
     },
-    userId() {
-      return this.$route.params.id;
+    // userId() {
+    //   return this.$route.params.id;
+    // },
+    loggedinUser() {
+      return this.$store.getters.loggedinUser;
     },
-}
+    //     cheakOrderStatus(){
+    //   return this.$store.getters.stayesToDisplay;
+    // }
+  },
+};
 </script>
 
 <style scoped>
@@ -657,6 +785,7 @@ import navBar from "../components/nav-bar.vue";
   height: 200px;
   margin-inline-end: 15px;
   border-radius: 15px;
+  object-fit: cover;
 }
 .backoffice-offer-card {
   display: flex;
@@ -681,108 +810,44 @@ th {
   margin-bottom: 20px;
 }
 
-/* .backoffice-main{
-    display: flex;
-}
- .house-txt {
-    font-weight: lighter;
-    color: #6b6a6a;
-    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
-    align-self: flex-start;
-}
-.user-houses-txt {
-    display: block;
-}
-.user-houses-txt-container {
-    align-items: center;
-    font-size: 1rem;
+#cf {
+  position: relative;
+  height: 281px;
+  width: 450px;
+  margin: 0 auto;
 }
 
-.flex {
-    display: flex;
+#cf img {
+  position: absolute;
+  left: 0;
+  -webkit-transition: opacity 1s ease-in-out;
+  -moz-transition: opacity 1s ease-in-out;
+  -o-transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
+  width: 320px;
+  height: 200px;
 }
-ul {
-    padding: 0;
-    list-style-type: none;
-    margin: 0;
-}
-.chartjs-size-monitor-shrink{
-    border: 1px solid #d3d3d3;
-}
-.statistics-title {
-    margin-top: 15px;
+
+@keyframes cf3FadeInOut {
+  0% {
+    opacity: 1;
   }
-.user-main-container {
-    text-align: left;
-    color: #1e1e1e;
-    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+  45% {
+    opacity: 1;
+  }
+  55% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
 }
-.user-main-container {
-    border: 1px solid #d3d3d3;
-    text-align: left;
-    color: #1e1e1e;
-    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+
+#cf img.top {
+  animation-name: cf3FadeInOut;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-duration: 10s;
+  animation-direction: alternate;
 }
-.user-profile-section .user-card {
-    display: block;
-    align-self: start;
-    position: sticky;
-    top: 80px;
-    padding: 20px 20px 40px;
-}
-.backoffice-container {
-    display: flex;
-    flex-direction: row;
-    padding: 0;
-    gap: 50px;
-}
-.user-profile-section .user-card {
-    display: block;
-    align-self: start;
-    position: -webkit-sticky;
-    position: sticky;
-    top: 80px;
-    padding: 20px 20px 40px;
-}
-.main-card-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 15px;
-    text-align: left;
-    padding-bottom: 25px;
-    height: 400px;
-}
-.user-card {
-    border: 1px solid #d3d3d3;
-    border-radius: 10px;
-    width: 308px;
-    height: 410px;
-    padding: 20px 20px 20px;
-    top: 80px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-self: center;
-    text-align: center;
-}
-.user-card img{
-    height: 100px;
-    width: 100px;
-    border-radius: 50%;
-    -o-object-fit: cover;
-    object-fit: cover;
-    margin-right: auto;
-    margin-left: auto;
-}
-.main-card-container button {
-    padding: 15px 40px;
-    border-radius: 10px;
-}
-.update-img {
-    text-decoration: underline;
-    font-size: .825rem;
-    margin-bottom: 20px;
-    cursor: pointer;
-} 
 </style>

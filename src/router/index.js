@@ -8,6 +8,8 @@ import stayEdit from '../views/stay-edit.vue'
 import userDetails from '../views/user-details.vue'
 import backOffice from '../views/stay-backOffice.vue'
 import superhost from '../components/superhost.vue'
+import backOffice1 from '../views/stay-backOffice.copy.vue'
+import chat from '../views/chat.vue'
 
 Vue.use(VueRouter)
 
@@ -28,6 +30,11 @@ const routes = [
     component: backOffice
   },
   {
+    path: '/office1',
+    name: 'office1',
+    component: backOffice1
+  },
+  {
     path: '/sign-up',
     name: 'signUp',
     component: signUp
@@ -36,6 +43,11 @@ const routes = [
     path: '/explore/:place?',
     name: 'explore',
     component: stayApp
+  },
+  {
+    path: '/chat',
+    name: 'chat',
+    component: chat
   },
   {
     path: '/stay/details/:stayId',

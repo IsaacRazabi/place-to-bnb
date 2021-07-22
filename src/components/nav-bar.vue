@@ -24,6 +24,7 @@
         <router-link to="/explore"><span>explore</span></router-link> 
         <router-link  to="/host"><span>become a host</span></router-link>
         <router-link  to="/office"><span>Back office</span></router-link>
+               <router-link  to="/office1"><span>Back office1</span></router-link>
 
       </nav>
 

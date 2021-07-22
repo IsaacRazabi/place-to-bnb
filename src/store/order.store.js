@@ -62,16 +62,15 @@ export const orderStore = {
     //         throw err
     //     }},
 
-async updateOrderStatus(context, {orderToSave}){
-    console.log(orderToSave);
+async updateOrderStatus(context, {orderToUpdate}){
     try {
-    //    await orderService.add(orderToSave)
-       const user = await userService.getById(orderToSave.buyer._id)
-       const idx = user.orders.findIndex(orderUser=>{orderUser._id===orderToSave._id})
-       user.orders.splice(idx,1,orderToSave)
-        userService.update(user)
-        // context.dispatch({type: 'increaseScore'})
-        return orderToSave;
+        //    await orderService.add(orderToSave)
+    //     let orderToUpdate = await orderService.getById(stat.orderId)
+       
+    //  if (stat.diff === 1) orderToUpdate.status = "confirm";
+    //  if (stat.diff === 0) orderToUpdate.status = "pending";
+     await orderService.add(orderToUpdate)
+        return orderToUpdate;
     } catch (err) {
         console.log('orderStore: Error in addReview', err)
         throw err

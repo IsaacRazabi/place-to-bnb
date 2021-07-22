@@ -152,8 +152,8 @@
               </div>
               <div class="details-reservation-rating">
                 <img src="../assets/examp/red-star.jpg" alt="" srcset="" />
-                <span class="rating"> {{ stay.reviews[0].rate }} </span>
-                <span class="voters">({{ stay.reviews[0].votes }})</span>
+                <span v-if="stay.reviews.rate" class="rating"> {{ stay.reviews[0].rate }} </span>
+                <span v-if="stay.reviews.votes"  class="voters">({{ stay.reviews[0].votes }})</span>
               </div>
             </div>
             <form>
@@ -180,7 +180,7 @@
                 <div class="details-reservation-guests"><p>GUESTS</p><p><input type="number"/></p></div>
               </div>
               <div class="form-btn-approval">
-                <button>Check availability</button>
+                <button @click="reserve">Check availability</button>
               </div>
             </form>
           </div>
