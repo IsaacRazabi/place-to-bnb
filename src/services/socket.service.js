@@ -13,7 +13,7 @@ export const socketService = createSocketService()
 
 window.socketService = socketService
 
-// var socketIsReady = false;
+// let socketIsReady = false;
 socketService.setup()
 
 

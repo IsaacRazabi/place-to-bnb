@@ -1,43 +1,93 @@
 <template>
   <main>
     <navBar></navBar>
-
-
- 
-    <section class="center" v-if="user">
+    <section class="center" v-if="this.user">
       <div>
         <img class="user-img" src="@/assets/examp/user-avatar.png" />
         <h4>{{ user.fullname }}</h4>
       </div>
-    <div v-if="this.stayes">
+    <div   v-if="this.user._id">
          <h1> your stayes </h1>
-       <ul >
+
+         
+       <ul v-if="this.stayes" >
         <li
           class="a-clean"
-          v-for="(stay, idx) in this.stayes"
+          v-for="(stay, idx) in stayes"
           :key="idx"
         >
-        <div v-if="stay.byUserId===user._id">
+     
+        <div v-if="stay.host._id===user._id">
           <p>stay name : {{ stay.name }}</p>
               <p>price per night : {{ stay.price }}</p>
               <p>stay summary: {{ stay.summary }}</p>
               <p>type : {{ stay.type }}</p>
               <img :src="stay.imgUrls[0]" />
+<div v-if="stay.orders">
+ <ul >
+        <li
+          class="a-clean"
+          v-for="(order, idx) in stay.orders"
+          :key="idx"
+        >
+         <p>ordere at : {{ order.createdAt }}</p>
+            <p>order price: {{ order.totalPrice }}</p>
+            <p>cheak in : {{ order.dates[0] }}</p>
+            <p>check out : {{ order.dates[1] }}</p>
+            <p>number of guests: {{ order.guests }}</p>
+            <p>location : {{ order.stay.name }}</p>
+            <button @click="confirmOrder(1,stay,idx)">confirm order</button>
+            <button @click="confirmOrder(0,stay,idx)">reject order</button>
+            <p>status: {{ order.status }}</p>
+
+               </li>
+        </ul>
+</div>
         </div>
         </li>
         </ul>
     </div>
 
-      <h2>your orders</h2>
+
+
+
+
+<h2> your orders </h2>
+ <ul v-if="this.stayes" >
+        <li
+          class="a-clean"
+          v-for="(stay, idx) in stayes"
+          :key="idx"
+        >
+     
+<div v-if="stay.orders">
+ <ul >
+        <li
+          class="a-clean"
+          v-for="(order, idx) in stay.orders"
+          :key="idx"
+        >
+                <div v-if="order.byUserId===user._id">
+         <p>ordere at : {{ order.createdAt }}</p>
+            <p>order price: {{ order.totalPrice }}</p>
+            <p>cheak in : {{ order.dates[0] }}</p>
+            <p>check out : {{ order.dates[1] }}</p>
+            <p>number of guests: {{ order.guests }}</p>
+            <p>location : {{ order.stay.name }}</p>
+            <p>status: {{ order.status }}</p>
+</div>
+
+               </li>
+        </ul>
+        </div>
+        </li>
+        </ul>
+
+      <!-- <h2>your orders</h2>
       <div v-if="this.orders">
         <ul>
           <li class="a-clean" v-for="(order, idx) in this.orders" :key="idx">
-         <div v-if="stay.byUserId===user._id">
-
-           <div v-if="order.hostId===user._id">
-             {{order.stay.name}}
-             </div>
-
+         <div v-if="order.byUserId===user._id">
             <p>ordere at : {{ order.createdAt }}</p>
             <p>order price: {{ order.totalPrice }}</p>
             <p>cheak in : {{ order.dates[0] }}</p>
@@ -48,7 +98,9 @@
          </div>
           </li>
         </ul>
-      </div>
+      </div> -->
+
+
 
 
       <h2>your reviews</h2>
@@ -117,29 +169,33 @@ export default {
     handleSuccess(response, file, fileList) {
       console.log(response, file, fileList);
     },
-    confirmOrder(diff, orderToSave) {
-      if (diff === 1) orderToSave.status = "confirm";
-      if (diff === 0) orderToSave.status = "rejected";
-      this.$store.dispatch({ type: "updateOrderStatus", orderToSave });
+    confirmOrder(diff, orderToSave,idx) {
+      console.log(diff,idx);
+      if (diff === 1) orderToSave.orders[idx].status = "confirm";
+      if (diff === 0) orderToSave.orders[idx].status = "rejected";
+      this.$store.dispatch({ type: "updateStayStatus", orderToSave });
     },
   },
   components: {
     navBar,
   },
   async created() {
-    const user = await userService.getById(this.userId);
+  await  this.$store.dispatch("loadStayes");
+  await this.$store.dispatch("loadUsers");
+  await this.$store.dispatch("loadOrders");
+    const user = await userService.getById(this.$route.params.id);
     this.user = user;
   },
 
   computed: {
     orders() {
-      return this.$store.getters.sordersToDisplay;
+      return this.$store.getters.ordersToDisplay;
     },
-     stayes() {
+    stayes() {
       return this.$store.getters.stayesToDisplay;
     },
-    users(){
- return this.$store.getters.users;
+    users() {
+      return this.$store.getters.users;
     },
     userId() {
       return this.$route.params.id;

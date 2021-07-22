@@ -7,9 +7,9 @@
         <h2 class="details-title">{{ stay.name }}</h2>
         <div class="details-subtitle">
           <div>
-            <img v-if="stay.reviews[0].rate" src="../assets/examp/red-star.jpg" alt="" srcset="" />
-            <span v-if="stay.reviews[0].rate"  class="rating"> {{ stay.reviews[0].rate }} </span>
-            <span class="voters"
+            <img v-if="stay.reviews.rate" src="../assets/examp/red-star.jpg" alt="" srcset="" />
+            <span v-if="stay.reviews.rate"  class="rating"> {{ stay.reviews[0].rate }} </span>
+            <span v-if="stay.reviews.votes"  class="voters"
               >({{ stay.reviews[0].votes }} <a>reviews</a>)
             </span>
             <span>· {{ stay.loc.address }}, {{ stay.loc.country }}</span>
@@ -152,8 +152,8 @@
               </div>
               <div class="details-reservation-rating">
                 <img src="../assets/examp/red-star.jpg" alt="" srcset="" />
-                <span class="rating"> {{ stay.reviews[0].rate }} </span>
-                <span class="voters">({{ stay.reviews[0].votes }})</span>
+                <span v-if="stay.reviews.rate" class="rating"> {{ stay.reviews[0].rate }} </span>
+                <span v-if="stay.reviews.votes"  class="voters">({{ stay.reviews[0].votes }})</span>
               </div>
             </div>
             <form>
@@ -180,7 +180,7 @@
                 <div class="details-reservation-guests"><p>GUESTS</p><p><input type="number"/></p></div>
               </div>
               <div class="form-btn-approval">
-                <button>Check availability</button>
+                <button @click="reserve">Check availability</button>
               </div>
             </form>
           </div>

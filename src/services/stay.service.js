@@ -95,6 +95,8 @@ function remove(stayId) {
 
 async function add(stay) {
   try {
+    
+ 
     if (stay._id){
       // stay.byUser = userService.getLoggedinUser()
       // stay.aboutUser = await userService.getById(stay.aboutUserId)

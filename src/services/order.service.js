@@ -1,6 +1,6 @@
-
+import { httpService } from './http.service.js'
 // import { userService } from './user.service.js';
-import { httpService } from './http.service.js';
+
 
 
 
@@ -18,7 +18,7 @@ add
 
 
 function query(filterBy='') {
-  return httpService.get("order", { params: filterBy });
+  return httpService.get("order", { params: filterBy});
 }
 
 function getById(orderId) {
@@ -49,13 +49,13 @@ async function add(order) {
   if (order._id){
     // order.byUser = userService.getLoggedinUser()
     // order.aboutUser = await userService.getById(order.aboutUserId)
-    const addedOrder = await httpService.put(`order`, order)
+    const addedOrder = await httpService.put("order",  order)
     return addedOrder
   }
   else{
     // order.byUser = userService.getLoggedinUser()
     // order.aboutUser = await userService.getById(order.aboutUserId)
-    const addedOrder = await httpService.post(`order`, order)
+    const addedOrder = await httpService.post("order", order)
    return addedOrder
  }
 }

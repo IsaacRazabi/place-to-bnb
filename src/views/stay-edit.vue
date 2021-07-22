@@ -113,10 +113,8 @@ export default {
   },
   methods: {
     saveStay() {
-      if (!this.stayToEdit.imgUrls.length) {
-        this.stayToEdit.imgUrls.push(
-          "https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large"
-        );
+      if(!this.stayToEdit.imgUrls.length){
+     this.stayToEdit.imgUrls.push("https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large","/img/exam-home4.b4a356bc.jpg","/img/exam-home3.a51f4729.jpg") 
       }
       this.$store
         .dispatch({ type: "saveStay", stay: this.stayToEdit })
