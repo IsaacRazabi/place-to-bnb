@@ -6,10 +6,14 @@
         <div class="filter-container">
           <stayFilter class="filter" @filter="filter"></stayFilter>
         </div>
-        <img
+        <!-- <img
           class="bgc-img"
            :src="getImgSlide"
-        />
+        /> -->
+        <div class="bgc-img-contaner" id="cf">
+          <img class="bottom bgc-img" src="@/assets/examp/heder-sampel.jpg" />
+          <img class="top bgc-img" src="@/assets/imgs/bgc/Airbnb-Beachfront-Greece.webp" />
+        </div>
       </div>
     </main>
   </main>
@@ -36,7 +40,7 @@ export default {
   computed: {
     getImgSlide(){
       let src=''
-      if (this.imgUrl === 1) src= require('@/assets/imgs/bgc/1-brazil_b.jpg')
+      if (this.imgUrl === 1) src= require('@/assets/examp/exam-home2.jpg')
         if (this.imgUrl === 2) src= require('@/assets/imgs/bgc/Airbnb-Beachfront-Greece.webp');
       if (this.imgUrl === 3) src= require('@/assets/imgs/bgc/airbnb-example-home-1000x667.jpg');
       return src
@@ -90,16 +94,65 @@ export default {
   height: 40px;
   box-shadow: 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -2px rgb(0 0 0 / 5%);
   padding: 20px 0;
+  z-index: 2;
 }
 .filter * > {
   width: 250px;
 }
+.bgc-img-contaner{
+  height: 80vh;
+  width: 100%;
+  position: relative;
+  grid-column: 1/-1;
+}
 .bgc-img {
   height: 80vh;
   width: 100%;
+  object-fit: cover;
 }
 .filter-container {
   display: flex;
   justify-content: center;
+}
+
+
+
+#cf {
+  position:relative;
+  
+  margin:0 auto;
+}
+
+#cf img {
+  position:absolute;
+  left:0;
+  -webkit-transition: opacity 3s ease-in-out;
+  -moz-transition: opacity 3s ease-in-out;
+  -o-transition: opacity 3s ease-in-out;
+  transition: opacity 3s ease-in-out;
+}
+
+  @keyframes cf3FadeInOut {
+  0% {
+  opacity:1;
+}
+45% {
+opacity:1;
+}
+55% {
+opacity:0;
+}
+100% {
+opacity:0;
+}
+}
+
+#cf img.top {
+animation-name: cf3FadeInOut;
+animation-timing-function: ease-in-out;
+animation-iteration-count: infinite;
+animation-duration: 15s;
+animation-direction: alternate;
+
 }
 </style>

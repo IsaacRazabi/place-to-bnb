@@ -1,7 +1,6 @@
 <template>
   <main>
     <navBar></navBar>
- 
 
     <section v-if="stay" class="details-section">
       <div class="deatails-head-container">
@@ -146,16 +145,56 @@
                   <span class="cost">
                     ${{stay.price}} 
                   </span>
-                   <span>
+                   <span class="etails-reservation-price-night">
                    / night 
                    </span>
                 </p>
               </div>
-              <form>
+              <div class="details-reservation-rating">
+                <img src="../assets/examp/red-star.jpg" alt="" srcset="" />
+                <span class="rating"> {{ stay.reviews[0].rate }} </span>
+                <span class="voters">({{ stay.reviews[0].votes }})</span>
+              </div>
+            </div>
+            <form>
+              <div class="details-reservation-Order">
+                <div class="details-reservation-check-in">
+                  <p>CHECK IN</p>
+                  <!-- <p><input placeholder="" class="textbox-n" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" /></p> -->
+                  <div class="block">
+                    <span class="demonstration"></span>
+                    <el-date-picker class="el-date-picker"
+                    v-model="orderToEdit.dates"
+                    type="datetimerange"
+                    cellClassName="date-picker"
+                    range-separator="To"
+                    start-placeholder="Start date"
+                    end-placeholder="End date">
+                    </el-date-picker>
+                  </div>
+                </div>
+                <div class="details-reservation-check-out">
+                  <p>CHECK OUT</p>
+                  <p><input placeholder="" class="textbox-n" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" /></p>
+                  </div>
+                <div class="details-reservation-guests"><p>GUESTS</p><p><input type="number"/></p></div>
+              </div>
+              <div class="form-btn-approval">
+                <button>Check availability</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+
+        </div>
+
+<!-- 
+          <form>
                 <div class="details-reservation-Order">
                   <div class="details-reservation-check-in">
                     <p>CHECK IN</p>
-                      <!-- <input
+                      <input
                         placeholder=""
                         class="textbox-n"
                         type="text"
@@ -163,7 +202,7 @@
                         onblur="(this.type='text')"
                         id="date"
                       /> -->
-                    <p>
+                    <!-- <p>
                         <div class="block">
     <span class="demonstration"></span>
     <el-date-picker
@@ -174,7 +213,7 @@
       end-placeholder="End date">
     </el-date-picker>
   </div>
-                    <!-- </p> -->
+                    </p>
                   </div>
                   <div class="details-reservation-check-out">
                     <p>CHECK OUT</p>
@@ -199,10 +238,9 @@
                   <button @click="reserve">Check availability</button>
                 </div>
               </form>
-            </div>
-          </div>
-        </div>
-        </div>
+ --> 
+
+
       </main>
       <aside class="details-reviews">
         <div class="details-reviews-box">
@@ -320,9 +358,9 @@
         </div>
           </aside>
 
-         <div v-if="stay.reviews.length" class="flex">
-        <ul  class=" a-clean reviews-container ">
-          <li  class="review-box" v-for="review in stay.reviews" :key="review.id">
+         <div class="flex">
+        <ul class=" a-clean reviews-container ">
+          <li class="review-box" v-for="review in stay.reviews" :key="review.id">
 
 <div class="details-reviews-box">
           <div class="details-reviews-user-details">
@@ -340,7 +378,7 @@
             <p>
            {{ review.txt }}
             </p>
-             <el-rate  v-model="review.rate" :colors="colors" disabled> </el-rate>
+             <el-rate v-if="review.rate" v-model="review.rate" :colors="colors" disabled> </el-rate>
           </div>
        </div>
           </li>
@@ -363,7 +401,7 @@
           <!-- <input  v-model="reviewToEdit.txt" /> -->
           <div class="block">
             <span class="demonstration"></span>
-            <el-rate  v-model="reviewToEdit.rate" :colors="colors"> </el-rate>
+            <el-rate   v-model="reviewToEdit.rate" :colors="colors"> </el-rate>
           </div>
           <button>Save</button>
         </form>
@@ -372,6 +410,25 @@
   </main>
   
 </template>
+
+      <!-- 
+<stayReview ></stayReview> -->
+     
+
+<!-- 
+            <h5 class="details-reviews-user-name-n-date">
+              {{ review.by.fullname }}
+            </h5>
+            <img class="details-reviews-user-img" src="showImage" />
+            
+            <div class="details-reviews-user-details">
+                   <span class="demonstration"></span>
+            <el-rate v-model="review.rate" :colors="colors" disabled> </el-rate>
+              <! <div>rate : {{ review.rate }}</div> -->
+              <!-- <div>votes : {{ review.votes }}</div>
+            </div>
+            <p class="details-review-text">{{ review.txt }}</p>  -->
+
 
 <script>
 import { stayService } from "../services/stay.service.js";
@@ -397,6 +454,7 @@ export default {
       value2: null,
       colors: ["#99A9BF", "#F7BA2A", "#FF9900"], // same as { 2: '#99A9BF', 4: { value: '#F7BA2A', excluded: true }, 5: '#FF9900' }
       orderToEdit: {
+        _id: "",
         hostId: "",
         createdAt: Date.now(),
         buyer: {
@@ -456,15 +514,15 @@ export default {
       );
       this.orderToEdit.buyer._id = this.loggedInUser._id;
       this.orderToEdit.buyer.fullname = this.loggedInUser.fullname;
+      this.orderToEdit.totalPrice = days * this.stay.price;
 
       this.orderToEdit.hostId = this.stay.host._id;
       this.orderToEdit.stay._id = this.stay._id;
       this.orderToEdit.stay.name = this.stay.name;
       this.orderToEdit.stay.price = this.stay.price;
-      this.orderToEdit.totalPrice = days * this.stay.price;
-      
+      console.log(this.orderToEdit);
       this.$store.dispatch({ type: "saveOrder", order: this.orderToEdit });
-      // userService.addUserOrder({ order: this.orderToEdit })
+      userService.addUserOrder({ order: this.orderToEdit });
     },
   },
   created() {
@@ -478,6 +536,24 @@ export default {
 </script>
 
 <style>
+.date-picker{
+  width: 50px !important;
+}
+.el-date-picker{
+  border: none;
+  padding: 0px;
+  width: 40px;
+}
+.etails-reservation-price-night{
+  font-size: 20px;
+}
+.demonstration{
+  width: 90%;
+}
+.block{
+  z-index: -1;
+  width: 40px;;
+}
 .details-reservation-Order input {
   border: none;
 }
@@ -498,6 +574,7 @@ export default {
   border-top: 1px solid black;
   border-left: 1px solid black;
   border-top-left-radius: 15px;
+  z-index: 2;
 }
 .details-reservation-check-out {
   width: 50%;
@@ -543,7 +620,7 @@ export default {
   margin: 0 5px;
 }
 .cost {
-  font-size: 20px;
+  font-size: 26px;
   line-height: 20px;
   font-weight: 600;
 }
@@ -559,6 +636,7 @@ export default {
 }
 .details-main-container {
   display: flex;
+  justify-content: space-between;
 }
 .details-reservation {
   border: 1px solid #ddd;
@@ -724,7 +802,7 @@ h2 {
   text-decoration-line: underline;
 }
 .details-galery {
-  width: 1240px;
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, 25vh);
@@ -735,6 +813,7 @@ h2 {
   border-radius: 10px 0 0 10px;
   height: 100%;
   width: 100%;
+  object-fit: cover;
 }
 .details-galery .pic2 {
   grid-area: 1/3/2/4;
