@@ -194,9 +194,7 @@ a:active {
     grid-template-columns: 80px 1fr 80px;
     grid-auto-flow: dense;
 }
-* {
-    grid-column: 2;
-}
+
 .main-card p{
     text-align: left;
      color: black;

@@ -53,6 +53,11 @@
                             <img src="https://a0.muscache.com/im/pictures/d9a378fd-b2f8-4dd3-974e-1a755136ce51.jpg?im_w=720">
                         </div>
                     </div>
+                    <!-- transition -->
+                    <!-- <div id="cf">
+                        <img class="bottom" src="https://a0.muscache.com/im/pictures/d9a378fd-b2f8-4dd3-974e-1a755136ce51.jpg?im_w=720" />
+                        <img class="top" src="https://a0.muscache.com/im/pictures/9a26c18f-ffd4-4277-960f-3d8a0c5bbfd6.jpg?im_w=720" />
+                    </div> -->
                     <h3>House Bookings: 11</h3>
                     <div class="backoffice-offer-card">
                         <div class="backoffice-offer-card-ditails">
@@ -491,6 +496,7 @@ padding: 15px 40px;
     height: 200px;
     margin-inline-end: 15px;
     border-radius: 15px;
+    object-fit: cover;
 } 
 .backoffice-offer-card{
     display: flex;
@@ -619,4 +625,45 @@ ul {
     margin-bottom: 20px;
     cursor: pointer;
 } */
+#cf {
+  position:relative;
+  height:281px;
+  width:450px;
+  margin:0 auto;
+}
+
+#cf img {
+  position:absolute;
+  left:0;
+  -webkit-transition: opacity 1s ease-in-out;
+  -moz-transition: opacity 1s ease-in-out;
+  -o-transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
+  width: 320px;
+  height: 200px;
+}
+
+  @keyframes cf3FadeInOut {
+  0% {
+  opacity:1;
+}
+45% {
+opacity:1;
+}
+55% {
+opacity:0;
+}
+100% {
+opacity:0;
+}
+}
+
+#cf img.top {
+animation-name: cf3FadeInOut;
+animation-timing-function: ease-in-out;
+animation-iteration-count: infinite;
+animation-duration: 10s;
+animation-direction: alternate;
+
+}
 </style>
