@@ -265,6 +265,13 @@
                     </div>
                 </div>
                 
+                <div class="financial-interest">
+                    <h2>Financial interest of rental income</h2>
+                    <div class="financial-interest-container">
+                        
+                    </div>
+                </div>
+
                 <div class="Houses-statistics">
                     <h3>Houses statistics:</h3>
                     <div id="vue-container">
@@ -371,149 +378,4 @@ import navBar from "../components/nav-bar.vue";
 
 <style scoped>
 
-/* .backoffice-main{
-    display: flex;
-}
- .house-txt {
-    font-weight: lighter;
-    color: #6b6a6a;
-    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
-    align-self: flex-start;
-}
-.user-houses-txt {
-    display: block;
-}
-.user-houses-txt-container {
-    align-items: center;
-    font-size: 1rem;
-}
-
-.flex {
-    display: flex;
-}
-ul {
-    padding: 0;
-    list-style-type: none;
-    margin: 0;
-}
-.chartjs-size-monitor-shrink{
-    border: 1px solid #d3d3d3;
-}
-.statistics-title {
-    margin-top: 15px;
-  }
-.user-main-container {
-    text-align: left;
-    color: #1e1e1e;
-    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
-}
-.user-main-container {
-    border: 1px solid #d3d3d3;
-    text-align: left;
-    color: #1e1e1e;
-    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
-}
-.user-profile-section .user-card {
-    display: block;
-    align-self: start;
-    position: sticky;
-    top: 80px;
-    padding: 20px 20px 40px;
-}
-.backoffice-container {
-    display: flex;
-    flex-direction: row;
-    padding: 0;
-    gap: 50px;
-}
-.user-profile-section .user-card {
-    display: block;
-    align-self: start;
-    position: -webkit-sticky;
-    position: sticky;
-    top: 80px;
-    padding: 20px 20px 40px;
-}
-.main-card-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 15px;
-    text-align: left;
-    padding-bottom: 25px;
-    height: 400px;
-}
-.user-card {
-    border: 1px solid #d3d3d3;
-    border-radius: 10px;
-    width: 308px;
-    height: 410px;
-    padding: 20px 20px 20px;
-    top: 80px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-self: center;
-    text-align: center;
-}
-.user-card img{
-    height: 100px;
-    width: 100px;
-    border-radius: 50%;
-    -o-object-fit: cover;
-    object-fit: cover;
-    margin-right: auto;
-    margin-left: auto;
-}
-.main-card-container button {
-    padding: 15px 40px;
-    border-radius: 10px;
-}
-.update-img {
-    text-decoration: underline;
-    font-size: .825rem;
-    margin-bottom: 20px;
-    cursor: pointer;
-} */
-#cf {
-  position:relative;
-  height:281px;
-  width:450px;
-  margin:0 auto;
-}
-
-#cf img {
-  position:absolute;
-  left:0;
-  -webkit-transition: opacity 1s ease-in-out;
-  -moz-transition: opacity 1s ease-in-out;
-  -o-transition: opacity 1s ease-in-out;
-  transition: opacity 1s ease-in-out;
-  width: 320px;
-  height: 200px;
-}
-
-  @keyframes cf3FadeInOut {
-  0% {
-  opacity:1;
-}
-45% {
-opacity:1;
-}
-55% {
-opacity:0;
-}
-100% {
-opacity:0;
-}
-}
-
-#cf img.top {
-animation-name: cf3FadeInOut;
-animation-timing-function: ease-in-out;
-animation-iteration-count: infinite;
-animation-duration: 10s;
-animation-direction: alternate;
-
-}
 </style>
