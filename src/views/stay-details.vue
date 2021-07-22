@@ -8,9 +8,9 @@
         <h2 class="details-title">{{ stay.name }}</h2>
         <div class="details-subtitle">
           <div>
-            <img v-if="stay.reviews[0].rate" src="../assets/examp/red-star.jpg" alt="" srcset="" />
-            <span v-if="stay.reviews[0].rate"  class="rating"> {{ stay.reviews[0].rate }} </span>
-            <span class="voters"
+            <img v-if="stay.reviews.rate" src="../assets/examp/red-star.jpg" alt="" srcset="" />
+            <span v-if="stay.reviews.rate"  class="rating"> {{ stay.reviews[0].rate }} </span>
+            <span v-if="stay.reviews.votes"  class="voters"
               >({{ stay.reviews[0].votes }} <a>reviews</a>)
             </span>
             <span>· {{ stay.loc.address }}, {{ stay.loc.country }}</span>

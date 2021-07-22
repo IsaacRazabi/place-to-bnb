@@ -8,7 +8,6 @@
 </template>
 
 <script>
-// import preview from "../components/preview.vue";
 import stayList from "../components/stay-list.vue";
 import navBar from '../components/nav-bar.vue'
 

@@ -18,7 +18,7 @@ add
 
 
 function query(filterBy='') {
-  return httpService.get("order", { params: filterBy });
+  return httpService.get("order", { params: filterBy});
 }
 
 function getById(orderId) {

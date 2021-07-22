@@ -77,6 +77,18 @@ async updateStay(context, { review , stay}){
         console.log('reviewStore: Error in addReview', err)
         throw err
     }},
+
+    async updateStayStatus(context, {orderToSave}){
+        try {
+      
+            orderToSave = await stayService.add(orderToSave)
+            return orderToSave;
+        } catch (err) {
+            console.log('stayStore: Error in update stay status', err)
+            throw err
+        }},
+
+
 // async loadReviews(context) {
 //     try {
 //         const reviews = await reviewService.query();
