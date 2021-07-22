@@ -2,7 +2,11 @@
 <div class="card-container">
       <div class="card">
         <router-link  :to="'/stay/details/'+stay._id">
-          <img class="showImage-img" :src="showImage"/>
+          <div class="card-img">
+            <img class="showImage-img" :src="showImage"/>
+            <!-- <img-carusel :stay=stay></img-carusel> -->
+          </div>
+          <!-- <router-link  :to="'/stay/details/'+stay._id"> -->
           <div class="card-details"> 
             <img src="../assets/examp/red-star.jpg" alt="" srcset="">
             <span v-if="stay.reviews[0].rate" class="rating"> {{stay.reviews[0].rate}} </span>
@@ -25,7 +29,7 @@
 </template>
 
 <script>
-
+// import imgCarusel from "./img-carusel.vue";
 export default {
   props: {
     stay: {
@@ -38,6 +42,9 @@ export default {
       type: Array,
     //   deafult : "../assets/images/images/4.jpg"
     }
+  },
+  components:{
+    //  imgCarusel,
   },
   computed :{
 showImage(){
