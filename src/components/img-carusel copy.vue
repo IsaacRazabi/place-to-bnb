@@ -6,7 +6,7 @@
         <div class="carousel__snapper">
           <a href="#carousel__slide4" class="carousel__prev"
             >Go to last slide</a
-          ><img class="showImage-img" :src="showImage"/>
+          ><img class="bottom bgc-img" src="@/assets/examp/heder-sampel.jpg" />
           <a href="#carousel__slide2" class="carousel__next"
             >Go to next slide</a
           >
@@ -61,36 +61,6 @@
   </section>
 </div>
 </template>
-
-<script>
-export default {
-    props: {
-    stay: {
-      type: Object,
-    },
-    user : {
-        type : Object
-    },
-    imgs :{
-      type: Array,
-    //   deafult : "../assets/images/images/4.jpg"
-    }
-  },
-  computed :{
-showImage(){
-return this.stay.imgUrls[0]
-}
-  },
-methods: {
-
-},
-  data() {
-    return {
-    
-    };
-  }
-}
-</script>
 
 <style lang="scss" scoped>
 .main-carusel{

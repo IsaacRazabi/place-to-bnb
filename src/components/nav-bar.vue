@@ -1,5 +1,6 @@
 <template>
-<main class="nav-bar-main">
+<main class="nav-bar-container">
+  <div class="nav-bar-main">
     <section class="header-container" v-bind:class="{ filterShow: isFilterShow }">
 
      
@@ -55,6 +56,7 @@
 
     </section>
        <stayFilter v-if=isFilterShow   class="filter" @filter="filter"></stayFilter>
+</div>
 </main>
 </template>
 
