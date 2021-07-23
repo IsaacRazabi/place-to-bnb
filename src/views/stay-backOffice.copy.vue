@@ -36,9 +36,12 @@
         <div class="backoffice-host-offer">
           <h3>Houses you offer</h3>
 
+<chat :user="user" v-if="showChat"></chat>
+
           <ul v-if="this.stayes">
             <li class="a-clean" v-for="(stay, idx) in stayes" :key="idx">
               <div v-if="stay.host._id === user._id">
+          
                 <div class="backoffice-offer-details">
                   <span class="backoffice-title">Name:</span>
                   <span class="backoffice-name">{{ stay.name }}</span>
@@ -65,7 +68,7 @@
                   </div>
                 </div>
 
-          <chat v-if="showChat"></chat>
+          
 
                 <div v-if="stay.orders">
                   <ul>
@@ -455,8 +458,194 @@
         </div>
 
 
+<!-- 
+
+  <ul v-if="stayes">
+            <li class="a-clean" v-for="(stay, idx) in stayes" :key="idx">
+               <div v-if="stay.orders">
+                  <ul>
+                    <li
+                      class="a-clean"
+                      v-for="(order, idx) in stay.orders"
+                      :key="idx"
+                    >
+                  <div  v-if="order.byUserId===user._id">
+                      <div class="backoffice-offer-card">
+                        <div class="backoffice-offer-card-ditails">
+                          <div class="booking-table">
+                            <table class="booking-info">
+                              <tr>
+                                <th>Guest Name:</th>
+                                <th>Property:</th>
+                                <th>Guests:</th>
+                                <th>Check In:</th>
+                                <th>Check Out:</th>
+                                <th>Contact:</th>
+                                <th>Approval:</th>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <div class="guest-user">
+                                    <img
+                                      src="https://a0.muscache.com/im/pictures/user/79d73ef5-ba94-4075-af21-63a8cf6e05f6.jpg?im_w=240"
+                                    />
+                                    <span>{{ order.buyer.fullname }}</span>
+                                  </div>
+                                </td>
+                                <td>{{ order.stay.name }}</td>
+                                <td>{{ order.guests }}</td>
+                                <td>{{ order.dates[0] }}</td>
+                                <td>{{ order.dates[1] }}</td>
+                                <td class="contacts-icons">
+                                  <img
+                                    src="../assets/examp/icons/envelope-icon.jpg"
+                                  />
+                                  <img
+                                    src="../assets/examp/icons/home-phone-icon.jpg"
+                                  />
+                             
+                                <button @click="changeChat" >
+                                  <img src="../assets/imgs/chat/livechat-online-chat-computer-icons-chat-room-web-chat-png-favpng-91JHkthNg2nLfZihFVZ9ppMcB.jpg" />
+                                </button>
+                                 
+                                </td>
+                                <td v-if="order.status === 'pending'">
+                                
+                                   
+                              
+                                </td>
+                                <td v-if="order.status === 'confirm'">
+                                
+                                     
+                             
+                                </td>
+                              </tr>
+                            </table>
+                          </div>
+                        </div>
+  
+
+                      </div>
+                    
+                    </li>
+                  </ul>
+ </div>
+  </li>
+          </ul> -->
+<!--   
+
+          <ul v-if="this.stayes">
+            <li class="a-clean" v-for="(stay, idx) in stayes" :key="idx"> -->
+              <!-- <div v-if="stay.host._id === user._id"> -->
+                <!-- <div class="backoffice-offer-details">
+                  <span class="backoffice-title">Name:</span>
+                  <span class="backoffice-name">{{ stay.name }}</span>
+                  <span class="backoffice-title">Type:</span>
+                  <span class="backoffice-name">{{ stay.type }}</span>
+                </div>
+
+                <div class="details-subtitle">
+                  <div>
+                    <img src="../assets/examp/red-star.jpg" />
+                    <span class="rating"> 4.6 </span>
+                    <span class="voters">(11} <a>reviews</a>) </span>
+                  </div>
+                </div>
+                <div class="backoffice-offer-gallery">
+                  <div class="backoffice-offer-card-img">
+                    <img :src="stay.imgUrls[0]" />
+                  </div>
+                  <div class="backoffice-offer-card-img">
+                    <img :src="stay.imgUrls[1]" />
+                  </div>
+                  <div class="backoffice-offer-card-img">
+                    <img :src="stay.imgUrls[2]" />
+                  </div>
+                </div> -->
+<!-- 
+                <div v-if="stay.orders">
+                  <ul> -->
+          <!-- <chat :user="user" v-if="showChat"></chat> -->
+                    <!-- <li
+                      class="a-clean"
+                      v-for="(order, idx) in stay.orders"
+                      :key="idx"
+                    >
+                    <div v-if="order.byUser._id===user._id">
+                      <h3> cheak your orders  </h3>
+                      <div class="backoffice-offer-card">
+                        <div class="backoffice-offer-card-ditails">
+                          <div class="booking-table">
+                            <table class="booking-info">
+                              <tr>
+                                <th>Guest Name:</th>
+                                <th>Property:</th>
+                                <th>Guests:</th>
+                                <th>Check In:</th>
+                                <th>Check Out:</th>
+                                <th>Contact:</th>
+                                <th>Approval:</th>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <div class="guest-user">
+                                    <img
+                                      src="https://a0.muscache.com/im/pictures/user/79d73ef5-ba94-4075-af21-63a8cf6e05f6.jpg?im_w=240"
+                                    />
+                                    <span>{{ order.buyer.fullname }}</span>
+                                  </div>
+                                </td>
+                                <td>{{ order.stay.name }}</td>
+                                <td>{{ order.guests }}</td>
+                                <td>{{ order.dates[0] }}</td>
+                                <td>{{ order.dates[1] }}</td>
+                                <td class="contacts-icons">
+                                  <img
+                                    src="../assets/examp/icons/envelope-icon.jpg"
+                                  />
+                                  <img
+                                    src="../assets/examp/icons/home-phone-icon.jpg"
+                                  />
+                                 
+                               <button @click="changeChat" >
+                                  <img src="../assets/imgs/chat/livechat-online-chat-computer-icons-chat-room-web-chat-png-favpng-91JHkthNg2nLfZihFVZ9ppMcB.jpg" />
+                                </button>
+                            
+                            </td>
+                                <td v-if="order.status === 'pending'">
+                                  <button @click="confirmOrder(1, stay, idx,order._id)">
+                                   
+                                  </button>
+                                </td>
+                                <td v-if="order.status === 'confirm'">
+                                  <button @click="confirmOrder(0, stay, idx,order._id)">
+                                     
+                                  </button>
+                                   -->
+          
+                                <!-- </td>
+                              </tr>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+               </div> 
+            </li>
+          </ul>  -->
+
+
+
+
+
+
+
+
 <div> 
-     <chat v-if="showChat"></chat>
+     <chat :user="user" v-if="showChat"></chat>
      <h3>you orders</h3>
         <ul>
           <li class="a-clean" v-for="(order, idx) in orders" :key="idx">
@@ -507,9 +696,9 @@
                           <img
                             src="../assets/examp/icons/home-phone-icon.jpg"
                           />
-                           <!-- <router-link to="/chat"> -->
+                       
                                   <button @click="changeChat" >chat</button>
-                                  <!-- </router-link> -->
+                                  
                         </td>
                         <td v-if="order.status === 'pending'">
                           
@@ -559,7 +748,7 @@ CanvasJS = CanvasJS.Chart ? CanvasJS : window.CanvasJS;
 import navBar from "../components/nav-bar.vue";
 import chat from './chat.vue'
 import { userService } from "../services/user.service.js";
-// import {socketService} from '../services/socket.service'
+import {socketService} from '../services/socket.service'
 
 export default {
   el: "#vue-container",
@@ -595,7 +784,8 @@ export default {
       },
       chart: null,
       user: "",
-      showChat :false
+      showChat :false,
+      status : 'pending'
     };
   },
   mounted: function () {
@@ -617,7 +807,9 @@ export default {
       if (diff === 0) orderToSave.orders[idx].status = "pending";
       // socketService.emit('change status',orderToSave.orders[idx].status)
       this.$store.dispatch({ type: "updateStayStatus", orderToSave })
-     
+
+      this.status = orderToSave.orders[idx].status
+      socketService.emit('order new status', this.status)
 
       // let orderToUpdate = await orderService.getById(orderId)
       // console.log(orderToUpdate);
@@ -637,6 +829,7 @@ export default {
     await this.$store.dispatch("loadOrders");
     const user = await userService.getById(this.loggedinUser._id);
     this.user = user;
+    socketService.on('change status', this.confirmOrder)
   },
   computed: {
     orders() {
