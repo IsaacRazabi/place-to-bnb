@@ -82,6 +82,7 @@ async updateStay(context, { review , stay}){
         try {
       
             orderToSave = await stayService.add(orderToSave)
+            // commit({type: 'setStayes' });
             return orderToSave;
         } catch (err) {
             console.log('stayStore: Error in update stay status', err)

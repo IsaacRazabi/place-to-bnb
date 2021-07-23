@@ -523,6 +523,8 @@ export default {
       console.log(this.orderToEdit);
       this.$store.dispatch({ type: "saveOrder", order: this.orderToEdit });
       userService.addUserOrder({ order: this.orderToEdit });
+       this.$router.push({path: '/office1'})
+
     },
   },
   created() {

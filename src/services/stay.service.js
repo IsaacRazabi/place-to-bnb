@@ -20,6 +20,7 @@ add
 
 
 function query(filterBy) {
+  console.log(filterBy);
   return httpService.get("stay",  filterBy );
 
   // return storageService.query(STAY_KEY)

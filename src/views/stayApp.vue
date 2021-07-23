@@ -49,8 +49,9 @@ Cookingbasics:false,
     stayList,
   },
   created() {
-    const { place } = this.$route.params;
-    this.filterBy.loc.address = place ? place :  ""
+    let {place} = this.$route.params;
+    if (place === undefined) place = '';
+    this.filterBy.loc.address = place
     this.$store.commit({ type: "filterStayes",  filterBy : this.filterBy});
     this.$store.dispatch("loadStayes");
 
