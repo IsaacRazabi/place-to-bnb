@@ -176,9 +176,13 @@ label i{
   transform: translate(-50%, -50%) rotate(180deg);
 } */
 .wrapper{
-  position: sticky;
-  right: 30px;
-  bottom: 0px;
+  position: fixed;
+  top:0;
+  left: 0;
+  z-index: 100;
+  justify-content: center;
+  /* right: 30px;
+  bottom: 0px; */
   max-width: 400px;
   background: #fff;
   border-radius: 15px;
