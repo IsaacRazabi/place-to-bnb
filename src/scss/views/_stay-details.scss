@@ -235,6 +235,8 @@
     display: grid;
     grid-template-columns: 20% 1fr 20%;
     grid-auto-flow: dense;
+    padding-top: 100px;
+    padding-bottom: 80px;
   }
   .deatails-head-container {
     grid-column: 2;

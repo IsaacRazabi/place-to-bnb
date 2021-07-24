@@ -1,4 +1,5 @@
 <template>
+ <section>
       <section class="list-section">
     <main class="main-list-container">
     <!-- <div  class="list-title">Places to stay near you</div> -->
@@ -52,11 +53,15 @@
 
     </div>
     </main>
+    
   </section>
+        <appFooter></appFooter>
+ </section>
 </template>
 
 <script>
 import stayPreview from "./preview.vue";
+import appFooter from "@/components/app-footer.vue";
 export default {
   data() {
     return {
@@ -127,6 +132,7 @@ this.filterBy.amenities.Cookingbasics=false;
   },
   components: {
     stayPreview,
+    appFooter,
   },
 };
 // :user="user"

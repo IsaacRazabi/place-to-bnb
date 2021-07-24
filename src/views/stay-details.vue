@@ -407,6 +407,7 @@
         </form>
       </div>
     </section>
+    <appFooter></appFooter>
   </main>
   
 </template>
@@ -435,6 +436,7 @@ import { stayService } from "../services/stay.service.js";
 // import stayReview from '../components/stay-review.vue'
 import navBar from "../components/nav-bar.vue";
 import { userService } from "../services/user.service.js";
+import appFooter from "@/components/app-footer.vue";
 export default {
   data() {
     return {
@@ -489,6 +491,7 @@ export default {
   components: {
     // stayReview,
     navBar,
+    appFooter,
   },
   methods: {
     showImages() {
