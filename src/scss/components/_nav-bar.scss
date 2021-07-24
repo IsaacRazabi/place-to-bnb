@@ -2,6 +2,17 @@
 .logo-container{
   display:flex;
 }
+.nav-bar-container{
+    position: fixed;
+    width: 100%;
+    grid-column: 1/-1;
+    z-index: 6;
+    background-color: white;
+    display: grid;
+    grid-template-columns: 80px 1fr 80px;
+    grid-auto-flow: dense;
+    box-shadow: 0 6px 8px 0 rgba(0,0,0,.2);
+}
 .nav-menu span{
   padding-right:10px;
   color: black;
@@ -18,13 +29,11 @@
   padding:10px;
 }
 .nav-bar-main{
-    display: grid;
-    grid-template-columns: 80px 1fr 80px;
-    grid-auto-flow: dense;
-
+    
 }
-* {
+.header-container {
     grid-column: 2;
+    // border:1px solid;
 }
 
 .nav-menu {
@@ -33,9 +42,10 @@
 .header-container {
   height: 90px;
   background-color: #fff !important;
-  position: sticky;
-  top: 0;
-//   box-shadow: 0 10px 10px -10px rgb(33 35 38 / 10%);
+//   position: sticky;
+//   top: 0;
+  
+  // box-shadow: 0 10px 10px 10px rgba(33 ,35, 38, .5);
   z-index: 50;
   display: flex;
   justify-content: space-between;

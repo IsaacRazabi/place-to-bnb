@@ -1,6 +1,6 @@
 <template>
   <main>
-    <navBar></navBar>
+   
     <main>
       <div class="header-main-title">
        Place yourself anywhere anytime
@@ -24,7 +24,7 @@
 
 <script>
 import stayFilter from "../components/stay-filter.vue";
-import navBar from "./nav-bar.vue";
+// import navBar from "./nav-bar.vue";
 export default {
   name: "app-header",
   data() {
@@ -38,7 +38,7 @@ export default {
   },
   components: {
     stayFilter,
-    navBar,
+    // navBar,
   },
   computed: {
     getImgSlide(){

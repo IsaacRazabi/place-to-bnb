@@ -8,8 +8,8 @@
         <div class="details-subtitle">
           <div>
             <img v-if="stay.reviews.rate" src="../assets/examp/red-star.jpg" alt="" srcset="" />
-            <span v-if="stay.reviews.rate"  class="rating"> {{ stay.reviews[0].rate }} </span>
-            <span v-if="stay.reviews.votes"  class="voters"
+            <span v-if="stay.reviews[0].rate"  class="rating"> {{ stay.reviews[0].rate }} </span>
+            <span v-if="stay.reviews[0].votes"  class="voters"
               >({{ stay.reviews[0].votes }} <a>reviews</a>)
             </span>
             <span>· {{ stay.loc.address }}, {{ stay.loc.country }}</span>
@@ -407,6 +407,7 @@
         </form>
       </div>
     </section>
+    <appFooter></appFooter>
   </main>
   
 </template>
@@ -435,6 +436,7 @@ import { stayService } from "../services/stay.service.js";
 // import stayReview from '../components/stay-review.vue'
 import navBar from "../components/nav-bar.vue";
 import { userService } from "../services/user.service.js";
+import appFooter from "@/components/app-footer.vue";
 export default {
   data() {
     return {
@@ -444,9 +446,9 @@ export default {
         rate: 3,
         votes: 3,
         by: {
-          _id: "",
-          fullname: "",
-          imgUrl: [],
+          _id: '',
+          fullname: '',
+          imgUrl: '',
         },
       },
       stay: "",
@@ -489,6 +491,7 @@ export default {
   components: {
     // stayReview,
     navBar,
+    appFooter,
   },
   methods: {
     showImages() {

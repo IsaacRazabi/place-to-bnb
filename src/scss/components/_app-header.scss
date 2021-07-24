@@ -11,7 +11,7 @@
     align-items: center;
     justify-content: center;
     position: absolute;
-    top: 70px;
+    top: 110px;
     border-radius: 50px;
     background-color: #fff;
     height: 40px;
@@ -23,19 +23,20 @@
     width: 250px;
   }
   .bgc-img-contaner{
-    height: 80vh;
+    height: 89vh;
     width: 100%;
     position: relative;
     grid-column: 1/-1;
   }
   .bgc-img {
-    height: 80vh;
+    height: 88.5vh;
     width: 100%;
     object-fit: cover;
   }
   .filter-container {
     display: flex;
     justify-content: center;
+    
   }
   
   .header-main-title{
