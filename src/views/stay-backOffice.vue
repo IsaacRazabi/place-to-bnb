@@ -323,6 +323,7 @@
                 </li>
             </ul>
         </div> -->
+        <appFooter class="backoffice-section-footer"></appFooter>
     </section>
 </template>
 
@@ -332,11 +333,13 @@ var CanvasJS = require('./canvasjs.min.js');
 CanvasJS = CanvasJS.Chart ? CanvasJS : window.CanvasJS;
 
 import navBar from "../components/nav-bar.vue";
+import appFooter from "@/components/app-footer.vue";
 
     export default {
   el: '#vue-container',
   components: {
     navBar,
+    appFooter,
   },
   data () {
     return {

@@ -86,7 +86,10 @@ export default {
         type: "",
         createdAt: Date.now(),
         imgUrls: [],
-        reviews: [],
+        reviews: [{
+                "rate": 1,
+                "votes": 1,
+        }],
         host: {
           _id: this.loggedInUser()._id,
           fullname: this.loggedInUser().fullname,

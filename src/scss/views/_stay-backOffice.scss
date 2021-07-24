@@ -1,6 +1,10 @@
 .backoffice-section-navBar{
     grid-column: 1/-1;
 }
+.backoffice-section-footer{
+    grid-column: 1/-1;
+    padding-top: 80px;
+}
 .backoffice-section{
     display: grid;
     grid-template-columns: 15% 1fr 15%;
@@ -17,7 +21,7 @@
     /* width: 1024px; */
     grid-column: 2;
     display: flex;
-    padding-top: 50px;
+    padding-top: 90px;
     
 }
 .backoffice-user-details{
@@ -29,7 +33,7 @@
     display: block;
     align-self: start;  
     position: sticky;
-    top: 110px;
+    top: 130px;
     padding: 40px 20px 40px;
     font-family: Avenir,Helvetica,Arial,sans-serif;
     /* color: #6b6a6a; */

@@ -11,7 +11,7 @@ export const stayService = {
   getById,
   getEmptyStay,
   remove,
-add
+  add
 };
 
 // const STAY_KEY = 'stayData';
@@ -21,7 +21,7 @@ add
 
 function query(filterBy) {
   console.log(filterBy);
-  return httpService.get("stay",  filterBy );
+  return httpService.get("stay", filterBy);
 
   // return storageService.query(STAY_KEY)
   // .then(stayes => {
@@ -56,7 +56,7 @@ function query(filterBy) {
   //   let filteredStayes=stayes.filter((stay) =>regex.test(stay.loc.address)) 
   //   .filter(stay=> stay.price>filterBy.priceStart && stay.price < filterBy.priceEnd )
 
-    
+
   //   if(cheakedAmenities.length) {
   //   return filteredStayes.filter(stay=>stay.amenities.some(sta=>cheakedAmenities.includes(sta)))
   //   } 
@@ -66,7 +66,7 @@ function query(filterBy) {
 }
 
 function getById(stayId) {
-  return httpService.get("stay/"+stayId);
+  return httpService.get("stay/" + stayId);
 }
 
 function getEmptyStay() {
@@ -74,15 +74,18 @@ function getEmptyStay() {
     name: "",
     summary: "",
     price: null,
-    loc:{address:''},
+    loc: { address: '' },
     type: "",
     createdAt: Date.now(),
     imgUrls: [],
-    reviews:[],
-    host : {
-      _id: userService.getLoggedinUser()._id ,
+    reviews: [{
+      "rate": 1,
+      "votes": 1,
+    }],
+    host: {
+      _id: userService.getLoggedinUser()._id,
       fullname: userService.getLoggedinUser().fullname,
-      imgUrl :userService.getLoggedinUser().imgUrl
+      imgUrl: userService.getLoggedinUser().imgUrl
     }
   };
 }
@@ -96,22 +99,22 @@ function remove(stayId) {
 
 async function add(stay) {
   try {
-    
- 
-    if (stay._id){
+
+
+    if (stay._id) {
       // stay.byUser = userService.getLoggedinUser()
       // stay.aboutUser = await userService.getById(stay.aboutUserId)
-      const addedStay = await httpService.put("stay",  stay );
-    // const addedStay = storageService.put(STAY_KEY, stay)
-    return addedStay
-   }
-   else{
-    //  stay.byUser = userService.getLoggedinUser()
-    //  stay.aboutUser = await userService.getById(stay.aboutUserId)
-     const addedStay = await httpService.post("stay", stay );
-    //  const addedStay = storageService.post(STAY_KEY, stay)
-     return addedStay
-   }
+      const addedStay = await httpService.put("stay", stay);
+      // const addedStay = storageService.put(STAY_KEY, stay)
+      return addedStay
+    }
+    else {
+      //  stay.byUser = userService.getLoggedinUser()
+      //  stay.aboutUser = await userService.getById(stay.aboutUserId)
+      const addedStay = await httpService.post("stay", stay);
+      //  const addedStay = storageService.post(STAY_KEY, stay)
+      return addedStay
+    }
   }
   catch (error) {
     console.log(error);

@@ -11,6 +11,7 @@
     display: grid;
     grid-template-columns: 80px 1fr 80px;
     grid-auto-flow: dense;
+    box-shadow: 0 6px 8px 0 rgba(0,0,0,.2);
 }
 .nav-menu span{
   padding-right:10px;
@@ -44,7 +45,7 @@
 //   position: sticky;
 //   top: 0;
   
-//   box-shadow: 0 10px 10px -10px rgb(33 35 38 / 10%);
+  // box-shadow: 0 10px 10px 10px rgba(33 ,35, 38, .5);
   z-index: 50;
   display: flex;
   justify-content: space-between;
