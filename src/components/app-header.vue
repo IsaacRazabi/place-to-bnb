@@ -31,7 +31,7 @@ export default {
     return {
       interval: null,
       imgUrl: 1,
-    
+  
       isShow: true,
       
     };
@@ -57,6 +57,7 @@ export default {
       this.imgUrl++;
       if (this.imgUrl > 3) this.imgUrl = 1;
     }, 6000);
+
   },
   methods: {
     logout() {

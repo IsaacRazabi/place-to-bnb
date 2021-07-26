@@ -2,32 +2,26 @@
   <section class="backoffice-section">
     <navBar class="navBar"></navBar>
     <div class="backoffice-main-container">
-      <div class="backoffice-user-details">
-        <div class="backoffice-user-img">
-          <!-- <img
-            src="https://a0.muscache.com/im/users/12591733/profile_pic/1393398487/original.jpg?im_w=240"
-          /> -->
-          <p>Update Photo</p>
-        </div>
-        <div class="backoffice-safe-badge">
-          <img src="../assets/examp/icons/safe-badge.jpg" />
-          <p>
-            To protect your payment, never transfer money or communicate outside
-            of the Airbnb website or app.
-          </p>
-        </div>
-        <div class="backoffice-identity-verification">
-          <h3>Identity verification</h3>
-          <p>
-            Show others you’re really you with the identity verification badge.
-          </p>
-        </div>
-        <!-- <div class="backoffice-btn-badge">
-          <router-link to="/superhost">
-            <button>Get the badge</button>
-          </router-link>
-        </div> -->
-      </div>
+ <div class="backoffice-user-details">       
+                <div class="backoffice-user-img">
+                    <img v-if="user.fullname === 'Issac Razabi'" src="https://a0.muscache.com/im/users/12591733/profile_pic/1393398487/original.jpg?im_w=240" >
+                     <img v-else src="../assets/examp/userGuest.a58b1fc1 - dark.jpg" />
+                    <p>Update Photo</p>
+                </div>
+                <div class="backoffice-safe-badge">
+                    <img v-if="user.fullname === 'Issac Razabi'" src="../assets/examp/icons/safe-badge.jpg" />
+                    <p>To protect your payment, never transfer money or communicate outside of the Airbnb website or app.</p>
+                </div>
+                <div class="backoffice-identity-verification">
+                    <h3>Identity verification</h3>
+                    <p>Show others you’re really you with the identity verification badge. </p>
+                </div>
+                <div class="backoffice-btn-badge">
+                    <router-link  to="/superhost">
+                        <button v-if="user.fullname === 'Issac Razabi'"  >Get the badge</button>
+                    </router-link>  
+                </div>
+            </div>
       <main class="backoffice-main">
         <div class="backoffice-main-hello">
           <h2>Hello, {{user.fullname}} !</h2>
@@ -36,7 +30,7 @@
         <div class="backoffice-host-offer">
           <!-- <h3>Houses you offer</h3> -->
 
-<chat :user="user" v-if="showChat"></chat>
+<chat  :massages="massages" :user="user" v-if="showChat"></chat>
 
           <ul v-if="this.stayes">
             <li class="a-clean" v-for="(stay, idx) in stayes" :key="idx">
@@ -198,7 +192,7 @@
                                 @click="changeChat"
                                 src="../assets/examp/icons/envelope-icon.jpg"
                               />
-                                <!-- <span v-if="this.massages.length "> 🔔 {{massages.length}} </span> -->
+                               <!-- <span>{{massages.length}}</span> -->
                               <img
                                 src="../assets/examp/icons/home-phone-icon.jpg"
                               />
@@ -214,6 +208,7 @@
                               >
                                 🔴
                               </button>
+                               
                             </td>
                             <td v-if="getOrder.status === 'confirm'">
                               <button
@@ -488,7 +483,7 @@
         </div>
 
         <div>
-          <chat :user="user" v-if="showChat"></chat>
+          <chat :massages="massages" :user="user" v-if="showChat"></chat>
           <ul>
             <li class="a-clean" v-for="(order, idx) in orders" :key="idx">
               <div v-if="order.byUserId === user._id">
@@ -539,7 +534,7 @@
                               @click="changeChat"
                               src="../assets/examp/icons/envelope-icon.jpg"
                             />
-                             <!-- <span>{{massages.length}}</span> -->
+                           
                             <img
                               src="../assets/examp/icons/home-phone-icon.jpg"
                             />
@@ -758,7 +753,7 @@ export default {
   text-decoration-line: underline;
 }
 .backoffice-identity-verification h3 {
-  padding-left: 20%;
+  /* padding-left: 20%; */
 }
 .backoffice-btn-badge button {
   padding: 15px 40px;
@@ -787,9 +782,6 @@ export default {
   padding: 40px 0px 40px 0px;
   border-bottom: 1px solid #ddd;
   margin-bottom: 60px;
-}
-.backoffice-main {
-  margin-left: 150px;
 }
 .backoffice-main-hello p {
   text-align: left;

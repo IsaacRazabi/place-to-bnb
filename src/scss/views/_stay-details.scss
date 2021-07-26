@@ -68,7 +68,13 @@
       width: 90%;
     }
   }
+  .el-input-number{
+    width: 100%;
+  }
   .details-reservation-guests {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 10px;
     width: 100%;
     height: 50%;
     border: 1px solid rgb(167, 163, 163);
