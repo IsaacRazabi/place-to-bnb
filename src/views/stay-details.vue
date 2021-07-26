@@ -161,7 +161,7 @@
               <div class="details-reservation-Order">
                 <div class="details-reservation-check-in">
                   <p>CHECK IN</p>
-                  <p><input placeholder="" class="textbox-n" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" /></p>
+                  <p><input v-model="orderToEdit.checkIn" placeholder=""  class="textbox-n" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" /></p>
                   <div class="block">
                     <span class="demonstration"></span>
                     <!-- <el-date-picker class="el-date-picker"
@@ -176,9 +176,15 @@
                 </div>
                 <div class="details-reservation-check-out">
                   <p>CHECK OUT</p>
-                  <p><input placeholder="" class="textbox-n" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" /></p>
+                  <p><input v-model="orderToEdit.checkOut" placeholder="" class="textbox-n" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" /></p>
                   </div>
-                <div class="details-reservation-guests"><p>GUESTS</p><p><input type="number" value="1"/></p></div>
+                <div class="details-reservation-guests"><p>GUESTS</p>
+                  <el-input-number v-model="orderToEdit.guests" :min="1" :max="10"></el-input-number>
+                <!-- <p><input type="number" value="1"/></p> -->
+
+                  
+
+                </div>
               </div>
               <div class="form-btn-approval">
                 <button @click="reserve">Check availability</button>
@@ -468,6 +474,8 @@ export default {
         // startDate: "2025/10/15",
         // endDate: "2025/10/17",
         dates: [],
+        checkIn:'',
+        checkOut:'',
         guests: 0,
         stay: {
           _id: "",
@@ -522,8 +530,8 @@ export default {
           (1000 * 60 * 60 * 24)
       );
       // this.dayes=dayes
-      this.orderToEdit.dates[0] = this.orderToEdit.dates[0].toLocaleString();
-      this.orderToEdit.dates[1] = this.orderToEdit.dates[1].toLocaleString();
+      this.orderToEdit.dates[0] = this.orderToEdit.checkIn.toLocaleString();
+      this.orderToEdit.dates[1] = this.orderToEdit.checkOut.toLocaleString();
       this.orderToEdit.buyer._id = this.loggedInUser._id;
       this.orderToEdit.buyer.fullname = this.loggedInUser.fullname;
       this.orderToEdit.totalPrice = days * this.stay.price;
