@@ -14,8 +14,8 @@
            :src="getImgSlide"
         /> -->
         <div class="bgc-img-contaner" id="cf">
-          <img class="bottom bgc-img" src="@/assets/examp/heder-sampel.jpg" />
-          <img class="top bgc-img" src="@/assets/imgs/bgc/Airbnb-Beachfront-Greece.webp" />
+          <img class="bottom bgc-img" src="@/assets/imgs/bgc/3-itay.jpg" />
+          <img class="top bgc-img" src="@/assets/imgs/bgc/5-norway.jpg" />
         </div>
       </div>
     </main>
