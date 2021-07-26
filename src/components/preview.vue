@@ -3,7 +3,7 @@
       <div class="card">
         <router-link  :to="'/stay/details/'+stay._id">
           <div class="card-img">
-            <span class="my-heart">♡</span>
+            <!-- <span class="my-heart">♡</span> -->
             <img class="showImage-img" :src="showImage"/>
             <!-- <img-carusel :stay=stay></img-carusel> -->
           </div>
