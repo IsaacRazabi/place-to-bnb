@@ -17,7 +17,13 @@
             v-model="filterBy.loc.address"
             type="text"
             placeholder="Where are you going? "
+            list="completeWords"
           />
+          <!-- <input  list="completeWords"  /> -->
+            <datalist v-if="filterBy.loc.address" id="completeWords">
+              <option  v-for="(word, idx) in completeWords"
+            :key="idx">{{ word }}</option>
+            </datalist>
         </span>
         <span class="location">
           <label> Check in </label>
@@ -55,42 +61,6 @@
           />
           
         </span>
-        <!-- <span class="cheak-in">
-          <label for="cheak in">cheak in</label>
-          <input v-model="filterBy.dateStart" type="date" />
-        </span>
-        <span class="cheak-out">
-          <label for="cheak out"> cheak out </label>
-          <input v-model="filterBy.dateEnd" type="date" />
-        </span> -->
-
-        <!-- <span class="demonstration">
-    <el-date-picker
-      v-model="filterBy.value1"
-      type="daterange"
-      range-separator="To"
-      outline="none"
-      border= "0px solid"
-      start-placeholder="Start date"
-      end-placeholder="End date">
-    </el-date-picker>
-</span> -->
-        <!-- <div class="block">
-    <span class="demonstration">Start date time 12:00:00, end date time 08:00:00</span>
-    <el-date-picker
-      v-model="filterBy.dateEnd"
-      type="datetimerange"
-      align="right"
-      start-placeholder="Start Date"
-      end-placeholder="End Date"
-      :default-time="['12:00:00', '08:00:00']">
-    </el-date-picker>
-  </div> -->
-
-        <!-- <span class="guests">
-          <label for="guests"> Add guests </label>
-          <input type="number" v-model="filterBy.guests" />
-        </span> -->
        <button>
          <img class="red-btn" src="@/assets/imgs/app-logo/search-red-btn.jpg" />
          </button>
@@ -144,17 +114,6 @@ export default {
       this.searchWords.push(this.filterBy.loc.address);
       stayService.saveSearchNames(this.searchWords);
     },
-    // createAutoComplete(names) {
-    //   this.completeWords = names;
-    // },
-    // compareWords(word1, word2) {
-    //   let rounds = 0;
-    //   for (let index = 0; index < word2.length; index++) {
-        
-    //     if (word1[index] === word2[index]) rounds++;
-    //   }
-    //   if (rounds === word2.length) return word2;
-    // },
   },
   watch: {
     filterBy: {

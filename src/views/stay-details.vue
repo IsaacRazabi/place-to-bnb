@@ -176,7 +176,7 @@
                 </div>
                 <div class="details-reservation-check-out">
                   <p>CHECK OUT</p>
-                  <p><input v-model="orderToEdit.checkOut" placeholder="Add date" class="textbox-n" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" /></p>
+                  <p><input @input="showInfo"  v-model="orderToEdit.checkOut" placeholder="Add date" class="textbox-n" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" /></p>
                   </div>
                 <div class="details-reservation-guests"><span>GUESTS</span>
                   <span class="fix-guests-number"><el-input-number  v-model="orderToEdit.guests" :min="1" :max="3"></el-input-number></span>
@@ -187,7 +187,7 @@
                 <button @click="reserve">Check availability</button>
               </div>
             </form>
-             <div class="order-extension">
+             <div v-if="isOrderActive" class="order-extension">
                <div class="order-extension-container">
                  <div class="order-extension-title">
                    You won't be charged yet
@@ -432,14 +432,14 @@
           <!-- <input  v-model="reviewToEdit.txt" /> -->
           <div class="block">
             <span class="demonstration"></span>
-            <el-rate   v-model="reviewToEdit.rate" :colors="colors"> </el-rate>
+            <el-rate  v-model="reviewToEdit.rate" :colors="colors"> </el-rate>
           </div>
           <button>Save</button>
         </form>
       </div>
     </section>
     <appFooter></appFooter>
-      <!-- <div id="map" style="width: 100%; height: 400px"></div> -->
+   <!-- <maps></maps> -->
   </main>
   
 </template>
@@ -469,6 +469,7 @@ import {socketService} from '../services/socket.service.js'
 import navBar from "../components/nav-bar.vue";
 import { userService } from "../services/user.service.js";
 import appFooter from "@/components/app-footer.vue";
+// import maps from '../components/maps.vue'
 // import  {mapService} from '../services/map.service'
 export default {
   data() {
@@ -509,6 +510,7 @@ export default {
           price: 0,
         },
         status: "pending",
+        isOrderActive : false
       },
 // dayes:0
     };
@@ -529,7 +531,7 @@ export default {
     // }
   },
   components: {
-    // stayReview,
+    // maps,
     navBar,
     appFooter,
   },
@@ -570,6 +572,9 @@ export default {
          socketService.emit('orderToSend',this.orderToEdit)
        this.$router.push({path: '/office1'})
     },
+    showInfo(){
+      this.isOrderActive = true
+    }
 //     onInit() {
 //     mapService.initMap()
 //         .then(() => {
@@ -590,6 +595,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 
-</style>
+</style>>
+

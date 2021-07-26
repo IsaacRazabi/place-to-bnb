@@ -1,5 +1,6 @@
 <template>
-<main class="nav-bar-container" v-bind:class="{ active: onTop }">
+<!-- <main class="nav-bar-container" v-bind:class="{ active: onTop }"> -->
+  <main class="nav-bar-container">
   <div class="nav-bar-main">
     <section class="header-container" v-bind:class="{ filterShow: isFilterShow }">
 
@@ -84,7 +85,7 @@ export default {
     return {
       loggedInUser: this.$store.getters.loggedinUser,
       isShow: true,
-      isFilterShow:false,
+      isFilterShow:true,
       onTop: false,
        massages: [],
    orders : 0
@@ -143,13 +144,16 @@ window.addEventListener("scroll", function(){
 if (document.body.scrollTop !== 0 || document.documentElement.scrollTop !== 0) 
 {
    this.onTop = false
+   console.log(this.onTop);
 }
-else if (document.body.scrollTop === 0 || document.documentElement.scrollTop === 0) 
-{
+// else (document.body.scrollTop === 0 || document.documentElement.scrollTop === 0) 
+// {
+//    this.onTop =true
+// }
+else{
    this.onTop =true
-
+   console.log(this.onTop);
 }
-
 });
 
   },
