@@ -144,6 +144,7 @@
                 <p>
                   <span class="cost">
                     ${{stay.price}} 
+                  
                   </span>
                    <span class="etails-reservation-price-night">
                    / night 
@@ -433,7 +434,7 @@
 
 <script>
 import { stayService } from "../services/stay.service.js";
-// import stayReview from '../components/stay-review.vue'
+import {socketService} from '../services/socket.service.js'
 import navBar from "../components/nav-bar.vue";
 import { userService } from "../services/user.service.js";
 import appFooter from "@/components/app-footer.vue";
@@ -446,9 +447,9 @@ export default {
         rate: 3,
         votes: 3,
         by: {
-          _id: "",
-          fullname: "",
-          imgUrl: [],
+          _id: '',
+          fullname: '',
+          imgUrl: '',
         },
       },
       stay: "",
@@ -471,11 +472,13 @@ export default {
         stay: {
           _id: "",
           name: "",
-          price: "",
+          price: 0,
         },
         status: "pending",
       },
+// dayes:0
     };
+    
   },
   computed: {
     showImage() {
@@ -487,6 +490,9 @@ export default {
     loggedInUser() {
       return this.$store.getters.loggedinUser;
     },
+    // totalPriceToClose(){
+    //   return this.orderToEdit.price*this.orderToEdit.guests*this.days
+    // }
   },
   components: {
     // stayReview,
@@ -515,19 +521,20 @@ export default {
         (this.orderToEdit.dates[1] - this.orderToEdit.dates[0]) /
           (1000 * 60 * 60 * 24)
       );
+      // this.dayes=dayes
+      this.orderToEdit.dates[0] = this.orderToEdit.dates[0].toLocaleString();
+      this.orderToEdit.dates[1] = this.orderToEdit.dates[1].toLocaleString();
       this.orderToEdit.buyer._id = this.loggedInUser._id;
       this.orderToEdit.buyer.fullname = this.loggedInUser.fullname;
       this.orderToEdit.totalPrice = days * this.stay.price;
-
       this.orderToEdit.hostId = this.stay.host._id;
       this.orderToEdit.stay._id = this.stay._id;
       this.orderToEdit.stay.name = this.stay.name;
       this.orderToEdit.stay.price = this.stay.price;
-      console.log(this.orderToEdit);
       this.$store.dispatch({ type: "saveOrder", order: this.orderToEdit });
       userService.addUserOrder({ order: this.orderToEdit });
+         socketService.emit('orderToSend',this.orderToEdit)
        this.$router.push({path: '/office1'})
-
     },
   },
   created() {
@@ -536,6 +543,7 @@ export default {
     stayService.getById(stayId).then((stay) => {
       this.stay = stay;
     });
+    socketService.on('newOrder',this.orderToEdit)
   },
 };
 </script>

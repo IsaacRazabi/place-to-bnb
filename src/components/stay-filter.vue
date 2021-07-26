@@ -101,6 +101,7 @@
 
 
 <script>
+import { stayService } from "../services/stay.service.js";
 export default {
   name: "stay-filter",
   components: {},
@@ -126,21 +127,59 @@ export default {
       },
       isSowen: false,
       value1: [new Date(2000, 10, 10, 10, 10), new Date(2000, 10, 11, 10, 10)],
+      searchWords: stayService.loadSearchNames() || [],
+      completeWords: [],
     };
   },
   computed: {},
   methods: {
     setFilter() {
       this.$emit("filter", JSON.parse(JSON.stringify(this.filterBy)));
+      this.activeAutoComplete();
       this.$router.push({ path: "/explore" });
       this.$store.dispatch("loadStayes");
     },
-    // displayInput(){
-    //     this.isSowen = !isSowen
-    // }
+    activeAutoComplete() {
+      if (this.searchWords.includes(this.filterBy.loc.address)) return;
+      this.searchWords.push(this.filterBy.loc.address);
+      stayService.saveSearchNames(this.searchWords);
+    },
+    // createAutoComplete(names) {
+    //   this.completeWords = names;
+    // },
+    // compareWords(word1, word2) {
+    //   let rounds = 0;
+    //   for (let index = 0; index < word2.length; index++) {
+        
+    //     if (word1[index] === word2[index]) rounds++;
+    //   }
+    //   if (rounds === word2.length) return word2;
+    // },
+  },
+  watch: {
+    filterBy: {
+      handler(newVal) {
+        const filteredNames = this.searchWords.filter((word) => {
+          return word.startsWith(newVal.loc.address)
+        });
+          this.completeWords = filteredNames;
+      },
+      deep: true,
+    },
   },
 };
 </script>
 
 <style scoped>
+input,
+button,
+submit {
+  border: none;
+  background: white;
+}
+.a-clean {
+  text-decoration: none;
+  list-style: none;
+}
+
 </style>

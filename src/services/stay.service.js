@@ -11,12 +11,14 @@ export const stayService = {
   getById,
   getEmptyStay,
   remove,
-  add
+add,
+saveSearchNames,
+loadSearchNames
 };
 
 // const STAY_KEY = 'stayData';
 // const gStayes = defaultStayes.stay;
-
+const SEARCH = 'SEARCH NAMES'
 
 
 function query(filterBy) {
@@ -157,3 +159,21 @@ async function add(stay) {
   }
 }
 
+function saveSearchNames(names){
+  return _saveToStorage(SEARCH,names)
+ }
+ function loadSearchNames(){
+  // if (!_loadFromStorage(SEARCH)){
+  //   _saveToStorage(SEARCH,defaultSearch)
+  // }
+ return _loadFromStorage(SEARCH)
+}
+
+function _saveToStorage(key, val) {
+  localStorage.setItem(key, JSON.stringify(val));
+}
+
+function _loadFromStorage(key) {
+  var val = localStorage.getItem(key);
+  return JSON.parse(val);
+}

@@ -1,5 +1,5 @@
 <template>
-<main class="nav-bar-container">
+<main class="nav-bar-container" v-bind:class="{ active: onTop }">
   <div class="nav-bar-main">
     <section class="header-container" v-bind:class="{ filterShow: isFilterShow }">
 
@@ -45,6 +45,7 @@
             class="header-img"
             src="@/assets/imgs/user-login/userGuest.a58b1fc1 - dark.jpg"
           />
+           <!-- <button>💳{{massages.length }}</button> -->
         </span>
         <!-- </div> -->
         <div v-bind:class="{ show: isShow }" >
@@ -75,6 +76,7 @@
 
 <script>
      import stayFilter from '../components/stay-filter.vue'
+     import {socketService} from '../services/socket.service'
 export default {
   name: "nav-bar",
   data() {
@@ -82,13 +84,15 @@ export default {
       loggedInUser: this.$store.getters.loggedinUser,
       isShow: true,
       isFilterShow:false,
-      onTop: true,
+      onTop: false,
+       massages: [],
       // isScroll: true,
     };
   },
   components: {
    stayFilter,
   },
+
   computed: {
     currentRouteName() {
         return this.$route.name;
@@ -96,12 +100,20 @@ export default {
      isScroll(){
       if (this.onTop) return true
       else {return false}
+     },
+     isOnTop () {
+       return this.onTop
+      //  else {return false}
+      // return true
      }
 },
   methods: {
        filter(filterBy) {
       this.$store.commit({ type: "filterStayes", filterBy });
       this.$store.dispatch("loadStayes");
+    },
+     addMsg(msg) {
+      this.massages.push(msg);
     },
     showFilter(){
 this.isFilterShow = !this.isFilterShow
@@ -114,10 +126,13 @@ this.isFilterShow = !this.isFilterShow
     toogleShow() {
       this.isShow = !this.isShow;
     },
-
+ changeTopic() {
+      socketService.emit('chat topic', this.topic)
+    },
   },
   created(){
-
+   socketService.emit('chat topic', this.topic)
+    socketService.on('chat addMsg', this.addMsg)
 
 window.addEventListener("scroll", function(){
 if (document.body.scrollTop !== 0 || document.documentElement.scrollTop !== 0) 
@@ -127,29 +142,15 @@ if (document.body.scrollTop !== 0 || document.documentElement.scrollTop !== 0)
 else if (document.body.scrollTop === 0 || document.documentElement.scrollTop === 0) 
 {
    this.onTop =true
+
 }
 
 });
 
-//  window.addEventListener("scroll", function(){
-// if(window.pageYOffset > 0){
-//   this.isScroll = false
-//   console.log('sss',this.isScroll);
-// } 
-// else {
-//   this.isScroll = false
-//    console.log('dsfds',this.isScroll);
-// }
-//  })
-
-  
-
-//  window.addEventListener("scroll", function(){
-// if(window.scrollTop!==0){
-// this.onTop = false
-// console.log('sdf');
-// } 
-//  })
+  },
+  destroyed() {
+    socketService.off('chat addMsg', this.addMsg)
+    // socketService.terminate();
   },
   destroy(){
     removeEventListener('scroll')
@@ -158,5 +159,8 @@ else if (document.body.scrollTop === 0 || document.documentElement.scrollTop ===
 };
 </script>
 <style scoped>
-
+input, button, submit { border:none; background: white; } 
+.active{
+  background: red;
+}
 </style>
