@@ -45,7 +45,7 @@
             class="header-img"
             src="@/assets/imgs/user-login/userGuest.a58b1fc1 - dark.jpg"
           />
-           <!-- <button>💳{{massages.length }}</button> -->
+           <button>💳{{massages.length }}</button>
         </span>
         <!-- </div> -->
         <div v-bind:class="{ show: isShow }" >
