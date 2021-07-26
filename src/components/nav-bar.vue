@@ -45,7 +45,8 @@
             class="header-img"
             src="@/assets/imgs/user-login/userGuest.a58b1fc1 - dark.jpg"
           />
-           <button>💳{{massages.length }}</button>
+           <!-- <button>💳{{massages.length }}</button> -->
+           <!-- {{orders}} -->
         </span>
         <!-- </div> -->
         <div v-bind:class="{ show: isShow }" >
@@ -86,7 +87,7 @@ export default {
       isFilterShow:false,
       onTop: false,
        massages: [],
-      // isScroll: true,
+   orders : 0
     };
   },
   components: {
@@ -129,10 +130,14 @@ this.isFilterShow = !this.isFilterShow
  changeTopic() {
       socketService.emit('chat topic', this.topic)
     },
+    addOrder(){
+this.orders++
+    }
   },
   created(){
    socketService.emit('chat topic', this.topic)
     socketService.on('chat addMsg', this.addMsg)
+       socketService.on("newOrder", this.addOrder);
 
 window.addEventListener("scroll", function(){
 if (document.body.scrollTop !== 0 || document.documentElement.scrollTop !== 0) 

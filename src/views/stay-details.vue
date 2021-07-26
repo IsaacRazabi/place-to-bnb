@@ -415,6 +415,7 @@
       </div>
     </section>
     <appFooter></appFooter>
+      <!-- <div id="map" style="width: 100%; height: 400px"></div> -->
   </main>
   
 </template>
@@ -444,6 +445,7 @@ import {socketService} from '../services/socket.service.js'
 import navBar from "../components/nav-bar.vue";
 import { userService } from "../services/user.service.js";
 import appFooter from "@/components/app-footer.vue";
+// import  {mapService} from '../services/map.service'
 export default {
   data() {
     return {
@@ -530,8 +532,8 @@ export default {
           (1000 * 60 * 60 * 24)
       );
       // this.dayes=dayes
-      this.orderToEdit.dates[0] = this.orderToEdit.checkIn.toLocaleString();
-      this.orderToEdit.dates[1] = this.orderToEdit.checkOut.toLocaleString();
+      // this.orderToEdit.checkIn = this.orderToEdit.checkIn.toLocaleString();
+      // this.orderToEdit.checkOut = this.orderToEdit.checkOut.toLocaleString();
       this.orderToEdit.buyer._id = this.loggedInUser._id;
       this.orderToEdit.buyer.fullname = this.loggedInUser.fullname;
       this.orderToEdit.totalPrice = days * this.stay.price;
@@ -544,6 +546,13 @@ export default {
          socketService.emit('orderToSend',this.orderToEdit)
        this.$router.push({path: '/office1'})
     },
+//     onInit() {
+//     mapService.initMap()
+//         .then(() => {
+//             console.log('Map is ready');
+//         })
+//         .catch(() => console.log('Error: cannot init map'));
+// }
   },
   created() {
     window.scrollTo(0, 0);
@@ -552,6 +561,7 @@ export default {
       this.stay = stay;
     });
     socketService.on('newOrder',this.orderToEdit)
+    // this.onInit()
   },
 };
 </script>

@@ -136,8 +136,8 @@
                                 </td>
                                 <td>{{ order.stay.name }}</td>
                                 <td>{{ order.guests }}</td>
-                                <td>{{ order.dates[0] }}</td>
-                                <td>{{ order.dates[1] }}</td>
+                                <td>{{ order.checkIn }}</td>
+                                <td>{{ order.checkOut}}</td>
                                 <td class="contacts-icons">
                                   <img
                                     @click="changeChat"
@@ -191,8 +191,8 @@
                             </td>
                             <td>{{ getOrder.stay.name }}</td>
                             <td>{{ getOrder.guests }}</td>
-                            <td>{{ getOrder.dates[0] }}</td>
-                            <td>{{ getOrder.dates[1] }}</td>
+                            <td>{{ getOrder.checkIn }}</td>
+                            <td>{{ getOrder.checkOut}}</td>
                             <td class="contacts-icons">
                               <img 
                                 @click="changeChat"
@@ -532,8 +532,8 @@
                           </td>
                           <td>{{ order.stay.name }}</td>
                           <td>{{ order.guests }}</td>
-                          <td>{{ order.dates[0] }}</td>
-                          <td>{{ order.dates[1] }}</td>
+                          <td>{{ order.checkIn }}</td>
+                          <td>{{ order.checkOut }}</td>
                           <td class="contacts-icons">
                             <img
                               @click="changeChat"
@@ -582,6 +582,8 @@
         </div>
       </main>
     </div>
+
+
   </section>
 </template>
 
@@ -703,7 +705,7 @@ export default {
     loggedinUser() {
       return this.$store.getters.loggedinUser;
     },
-    //     cheakOrderStatus(){
+    //     checkOrderStatus(){
     //   return this.$store.getters.stayesToDisplay;
     // }
   },

@@ -13,13 +13,15 @@ export const stayService = {
   remove,
 add,
 saveSearchNames,
-loadSearchNames
+loadSearchNames,
+// initMap,
+// onInit
 };
 
 // const STAY_KEY = 'stayData';
 // const gStayes = defaultStayes.stay;
 const SEARCH = 'SEARCH NAMES'
-
+// var gMap;
 
 function query(filterBy) {
   console.log(filterBy);
@@ -177,3 +179,44 @@ function _loadFromStorage(key) {
   var val = localStorage.getItem(key);
   return JSON.parse(val);
 }
+
+// function initMap(lat = 48.864716, lng =2.349014) {
+//   return _connectGoogleApi()
+//       .then(() => {
+//           gMap = new google.maps.Map(
+//               document.querySelector('#map'), {
+//               center: { lat, lng },
+//               zoom: 15
+//           })
+//           return gMap
+//       })
+//   }
+
+//   function _connectGoogleApi() {
+//     if (window.google) return Promise.resolve()
+//     const API_KEY = 'AIzaSyCbite0Sj6yV5I4oJPBkTebcmdfT01sW9w'; 
+//     var elGoogleApi = document.createElement('script');
+//     elGoogleApi.src = `https://maps.googleapis.com/maps/api/js?key=${API_KEY}`;
+//     elGoogleApi.async = true;
+//     document.body.append(elGoogleApi);
+
+//     return new Promise((resolve, reject) => {
+//         elGoogleApi.onload = resolve;
+//         elGoogleApi.onerror = () => reject('Google script failed to load')
+//     })
+// }
+
+// function onInit() {
+//   mapService.initMap()
+//       .then((map) => {
+//           console.log('Map is ready');
+//           map.addListener("click", (event) => {
+//               mapService.addMarker(event.latLng.toJSON());
+//               let time = Date.now()
+//               let name = prompt('what is the name of this location')
+//              locService.saveLocations(name,event.latLng.toJSON(),time)
+//              onGetLocs()
+//            });
+//       })
+//       .catch(() => console.log('Error: cannot init map'));
+// }
