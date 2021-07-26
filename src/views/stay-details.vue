@@ -409,7 +409,7 @@
        </div>
 
           </aside>
-         <h2>Location</h2>
+         <h2>Where you'll be</h2>
       <GmapMap
   :center="{lat:48.864716, lng:2.349014}"
   :zoom="10"
