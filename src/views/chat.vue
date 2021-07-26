@@ -1,20 +1,5 @@
 <template>
-<!-- <section>
-  <div class="chat-container">
-
-    <ul class = "chat">
-      <li v-for="(msg, idx) in msgs" :key="idx">
-        <span>{{msg.from}}:</span>{{msg.txt}}
-      </li>
-    </ul>
-    <hr />
-    <form @submit.prevent="sendMsg">
-      <input class="chat-room" type="text" v-model="msg.txt" placeholder="Your msg"/>
-      <button>Send</button>
-    </form>
-  </div>
-  </section> -->
- <section>
+ <section v-if="isChatClose">
      <input type="checkbox" id="click">
     <label for="click">
       <i class="fab fa-facebook-messenger"></i>
@@ -22,27 +7,28 @@
     </label>
     <div class="wrapper">
       <div class="head-text">
-Let's chat? - Online</div>
+Let's chat - Online
+<button @click="closeChat">❌</button>
+</div>
 <div class="chat-box">
         <div class="desc-text">
-Please fill out the form below to start chatting with the next available agent.</div>
+Please fill out the form below to start chatting with your host</div>
 <form @submit.prevent="sendMsg" action="#">
           <div class="field">
             <input type="text" v-model="this.user.fullname">
           </div>
-<div class="field">
-            <input v-model="msg.txt" type="text" placeholder="enter your massage" >
-          </div>
-<div class="field textarea">
-            
     <ul class = "chat a-clean">
-      <li v-for="(msg, idx) in msgs" :key="idx">
+      <li class="ltr" v-for="(msg, idx) in msgs" :key="idx">
         <span>{{msg.from}}:</span>{{msg.txt}}
       </li>
     </ul>
+<div class="field">
+            <input v-model="msg.txt" type="text" placeholder="enter your massage" >
+          </div>
+<!-- <div class="field textarea"> -->
     <hr />
    
-          </div>
+          <!-- </div> -->
 <div class="field">
             <button type="submit">Start Chat</button>
           </div>
@@ -66,15 +52,17 @@ user :{
   },
   data() {
     return {
-      msg: {from: 'me', txt: ''},
+      msg: {from:this.loggedInUser, txt: ''},
       msgs: [],
-      topic : 'Love'
+      topic : 'Love',
+     isChatClose  :true
     }
   },
   created() {
     // socketService.setup();
     socketService.emit('chat topic', this.topic)
     socketService.on('chat addMsg', this.addMsg)
+    //  this.isChatClose=true
   },
   destroyed() {
     socketService.off('chat addMsg', this.addMsg)
@@ -85,15 +73,23 @@ user :{
       this.msgs.push(msg)
     },
     sendMsg() {
-      console.log('Sending', this.msg);
+      // console.log('Sending', this.msg);
       socketService.emit('chat newMsg', this.msg)
       // TODO: next line not needed after connecting to backend
       // this.addMsg(this.msg)
       // setTimeout(()=>this.addMsg({from: 'Dummy', txt: 'Yey'}), 2000)
-      this.msg = {from: 'Me', txt: ''};
+      this.msg = {from: this.loggedInUser, txt: ''};
     },
     changeTopic() {
       socketService.emit('chat topic', this.topic)
+    },
+    closeChat(){
+      this.isChatClose=false;
+    }
+  },
+  computed:{
+      loggedInUser() {
+      return this.$store.getters.loggedinUser.fullname;
     }
   }
 }
@@ -108,10 +104,13 @@ user :{
     border-radius: 11%;
 } */
 .chat{
-
-    width: 60%;
+display: flex;
+    flex-direction: column;
     height: 300px;
     border-radius: 11%;
+    align-items: flex-start;
+    margin-top: 10px;
+
 }
 .chat-container{
   border: 1px black solid;
@@ -203,7 +202,7 @@ label i{
   padding: 0 20px;
   font-weight: 500;
   font-size: 20px;
-  background: -webkit-linear-gradient(left, #a445b2, #fa4299);
+background-color: rgb(255, 56, 92);
 }
 .wrapper .chat-box{
   padding: 20px;
@@ -275,7 +274,7 @@ form .textarea textarea:focus::placeholder{
   color: #fff;
   font-size: 18px;
   font-weight: 500;
-  background: -webkit-linear-gradient(left, #a445b2, #fa4299);
+  background-color: rgb(255, 56, 92);
   transition: all 0.3s ease;
 }
 .chat-box form .field button:active{
@@ -285,5 +284,11 @@ form .textarea textarea:focus::placeholder{
  .a-clean {
     text-decoration: none;
     list-style: none;
+  }
+   button, submit {     border: none;
+   background-color: rgb(255, 56, 92);
+    padding-left: 23px; } 
+  .ltr{
+    justify-content: left;
   }
 </style>

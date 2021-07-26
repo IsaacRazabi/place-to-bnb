@@ -35,7 +35,7 @@ export const stayStore = {
             state.stayes = stayes;
         },
         addStay(state, { stay }) {
-            state.stayes.push(stay)
+            state.stayes.unshift(stay)
         },
         filterStayes(state, { filterBy }) {
             state.filterBy = filterBy

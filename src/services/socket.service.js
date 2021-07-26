@@ -26,6 +26,7 @@ function createSocketService() {
       socket = io(baseUrl, { reconnection: false})
       socket = io(baseUrl)
       // socketIsReady = true;
+      console.log(socket);
     },
     on(eventName, cb) {
       socket.on(eventName, cb)
