@@ -23,7 +23,23 @@
     text-align: left;
     padding-left: 10px;
     color: black;
-    font-size: 12px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 600;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+  }
+  .details-reservation-Order span {
+    text-align: left;
+    padding-left: 10px;
+    color: black;
+    font-family: 'Lato', sans-serif;
+    font-weight: 600;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    
+  }
+  .fix-guests-number{
+    text-align: left;
   }
   .details-reservation-Order {
     display: flex;
@@ -58,10 +74,9 @@
     border: 1px solid rgb(167, 163, 163);
     border-bottom-right-radius: 15px;
     border-bottom-left-radius: 10px;
-    input{
-      // padding: 10px;
-      width: 80%;
-    }
+    // text-align: left;
+    // margin-top: 10px;
+    text-align: left;
   }
   
   .form-btn-approval {
@@ -138,6 +153,7 @@
     width: 346px;
     position: sticky;
     top: 100px;
+    box-shadow: 0 3px 9px 0 rgba(0,0,0,.1);
   }
   .details-review-text {
     width: 80%;
@@ -371,4 +387,41 @@
   }
   .review-box {
     width: 50%;
+  }
+  .order-extension{
+    .order-extension-title{
+      font-family: 'Lato', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      letter-spacing: 0.08em;
+      padding-bottom: 20px;
+    }
+    
+    // width: 344px;
+    // height: 300px;
+    // border: 1px solid;
+  }
+  .summary-count{
+    display: flex;
+    justify-content: space-between;
+    text-decoration-line: underline;
+    color: rgb(100, 95, 95);
+    padding-bottom: 20px;
+    font-family: 'Lato', sans-serif;
+      font-weight: 500;
+      font-size: 18px;
+      // letter-spacing: 0.08em;
+  }
+  .summary-total{
+    display: flex;
+    justify-content: space-between;
+    color: black;
+    padding-bottom: 20px;
+    font-family: 'Lato', sans-serif;
+      font-weight: 800;
+      font-size: 18px;
+  }
+  .order-extension-total{
+    padding-top:20px;
+    border-top: 1px solid rgb(216, 211, 211);
   }

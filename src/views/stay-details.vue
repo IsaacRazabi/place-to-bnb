@@ -161,7 +161,7 @@
               <div class="details-reservation-Order">
                 <div class="details-reservation-check-in">
                   <p>CHECK IN</p>
-                  <p><input v-model="orderToEdit.checkIn" placeholder=""  class="textbox-n" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" /></p>
+                  <p><input v-model="orderToEdit.checkIn" placeholder="Add date"  class="textbox-n" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" /></p>
                   <div class="block">
                     <span class="demonstration"></span>
                     <!-- <el-date-picker class="el-date-picker"
@@ -176,23 +176,47 @@
                 </div>
                 <div class="details-reservation-check-out">
                   <p>CHECK OUT</p>
-                  <p><input v-model="orderToEdit.checkOut" placeholder="" class="textbox-n" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" /></p>
+                  <p><input v-model="orderToEdit.checkOut" placeholder="Add date" class="textbox-n" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" /></p>
                   </div>
-                <div class="details-reservation-guests"><p>GUESTS</p>
-                  <el-input-number v-model="orderToEdit.guests" :min="1" :max="10"></el-input-number>
+                <div class="details-reservation-guests"><span>GUESTS</span>
+                  <span class="fix-guests-number"><el-input-number  v-model="orderToEdit.guests" :min="1" :max="3"></el-input-number></span>
                 <!-- <p><input type="number" value="1"/></p> -->
-
-                  
-
                 </div>
               </div>
               <div class="form-btn-approval">
                 <button @click="reserve">Check availability</button>
               </div>
             </form>
+             <div class="order-extension">
+               <div class="order-extension-container">
+                 <div class="order-extension-title">
+                   You won't be charged yet
+                   </div>
+                   <div class="order-extension-summary">
+                      <div class="summary-count">
+                        <div>$100 x 5 nights</div>
+                        <div>$500</div>
+                      </div>
+                      <div class="summary-count">
+                        <div>Cleaning fee</div>
+                        <div>$55</div>
+                      </div>
+                      <div class="summary-count">
+                        <div>Service fee</div>
+                        <div>$27</div>
+                      </div>
+                    </div>
+                    <div class="order-extension-total">
+                      <div class="summary-total">
+                        <div>Total</div>
+                        <div>$582</div>
+                      </div>
+                    </div>
+                 </div>
+             </div>
           </div>
         </div>
-
+        
 
         </div>
 
