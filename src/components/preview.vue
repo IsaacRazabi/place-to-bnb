@@ -3,6 +3,7 @@
       <div class="card">
         <router-link  :to="'/stay/details/'+stay._id">
           <div class="card-img">
+            <span class="my-heart">♡</span>
             <img class="showImage-img" :src="showImage"/>
             <!-- <img-carusel :stay=stay></img-carusel> -->
           </div>
@@ -13,7 +14,7 @@
             <span v-if="stay.reviews[0].votes" class="voters">({{stay.reviews[0].votes}})</span>
             <!-- <p>{{stay.loc.country}}</p> -->
             <p>Entire apartment - {{stay.loc.address}}</p>
-            <p>{{stay.name}}</p>
+            <p>{{stay.name}} </p>
             <p>
               <span class="cost">
                  ${{stay.price}} 

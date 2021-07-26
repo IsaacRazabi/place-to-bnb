@@ -47,3 +47,16 @@
     width: 15px;
     height: 15px;
   }  
+  .my-heart{
+    position: relative;
+    top: 50px;
+    left: 150px;
+    font-size: 35px;
+    color: black;
+    transition: 0.5s;
+  }
+  .my-heart:hover{
+    color: white;
+    transition: 0.5s;
+  }
+  
