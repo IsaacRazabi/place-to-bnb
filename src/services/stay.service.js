@@ -71,17 +71,24 @@ function getById(stayId) {
 
 function getEmptyStay() {
   return {
-    name: "",
-    summary: "",
+    name: "Located near by the Royal Palace",
+    summary: "Fantastic duplex apartment with three bedrooms, located in the historic area of Porto, Ribeira (Cube)...",
     price: null,
     loc: { address: '' },
     type: "",
     createdAt: Date.now(),
     imgUrls: [],
     reviews: [{
-      "rate": 1,
-      "votes": 1,
-    }],
+      "id": "mtest111",
+      "txt": "Very helpful hosts. Cooked traditional...",
+      "rate": 4.9,
+      "votes": 432,
+      "by": {
+          "_id": "u102",
+          "fullname": "user2",
+          "imgUrl": "/img/img2.jpg"
+      }
+  }],
     host: {
       _id: userService.getLoggedinUser()._id,
       fullname: userService.getLoggedinUser().fullname,
@@ -89,6 +96,34 @@ function getEmptyStay() {
     }
   };
 }
+
+// function getEmptyStay() {
+//   return {
+//     name: "",
+//     summary: "",
+//     price: null,
+//     loc: { address: '' },
+//     type: "",
+//     createdAt: Date.now(),
+//     imgUrls: [],
+//     reviews: [{
+//       "id": "mtest111",
+//       "txt": "Very helpful hosts. Cooked traditional...",
+//       "rate": 5,
+//       "votes": 1,
+//       "by": {
+//           "_id": "u102",
+//           "fullname": "user2",
+//           "imgUrl": "/img/img2.jpg"
+//       }
+//   }],
+//     host: {
+//       _id: userService.getLoggedinUser()._id,
+//       fullname: userService.getLoggedinUser().fullname,
+//       imgUrl: userService.getLoggedinUser().imgUrl
+//     }
+//   };
+// }
 
 function remove(stayId) {
   return httpService.delete(`stay/${stayId}`)

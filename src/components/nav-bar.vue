@@ -14,7 +14,10 @@
       </div>
     </div>  
      </router-link>
-       <button class="search-btn" v-if="this.$route.name==='explore'" @click="showFilter" > start your search  </button>
+       <button class="search-btn" v-if="this.$route.name==='explore'" @click="showFilter" >
+          <div>start your search</div>  
+          <div><img class="red-btn2" src="@/assets/imgs/app-logo/search-red-btn.jpg" /></div>
+        </button>
 
 
       <div class="side-header">
@@ -22,10 +25,10 @@
       <nav class="nav-menu">
 
         <router-link to="/" class="home" exact><span>Home</span></router-link> 
-        <router-link to="/explore"><span>explore</span></router-link> 
-        <router-link  to="/host"><span>become a host</span></router-link>
-        <router-link  to="/office"><span>Back office</span></router-link>
-               <router-link  to="/office1"><span>Back office1</span></router-link>
+        <router-link to="/explore"><span>Explore</span></router-link> 
+        <router-link  to="/host"><span>Become a host</span></router-link>
+        <!-- <router-link  to="/office"><span>Back office</span></router-link> -->
+               <!-- <router-link  to="/office1"><span>Back office1</span></router-link> -->
 
       </nav>
 
@@ -34,28 +37,38 @@
           <img
             class="header-img"
             src="@/assets/imgs/user-login/download.png"
-          /><img
+          /><img v-if="loggedInUser"
             class="header-img"
-            src="@/assets/imgs/user-login/userGuest.a58b1fc1.jpg"
+            src="@/assets/imgs/user-login/userGuest.a58b1fc1 - red.jpg"
+          />
+          <img v-else
+            class="header-img"
+            src="@/assets/imgs/user-login/userGuest.a58b1fc1 - dark.jpg"
           />
         </span>
         <!-- </div> -->
-        <div v-bind:class="{ show: isShow }">
+        <div v-bind:class="{ show: isShow }" >
           <div v-bind:class="{ show: isShow }" class="dropdownContent">
-          <router-link to="/sign-up">Log In</router-link>
+          <div class="hello-user" v-if="loggedInUser"><a>Hello {{ loggedInUser.fullname }}</a></div>
+           <hr v-if="loggedInUser"/>
+          <span v-if="loggedInUser" @click="logout"><a>Log Out</a></span>
+          <router-link v-else to="/sign-up">Log In</router-link>
           <router-link to="/sign-up">Sign Up</router-link>
-          <router-link v-if="loggedInUser" :to="`/user/${loggedInUser._id}`">user profile</router-link>
+          <router-link v-if="loggedInUser" :to="`/user/${loggedInUser._id}`">User profile</router-link>
+          <hr/>
+          <router-link  to="/office"><span>Back office</span></router-link>
+          <router-link  to="/office1"><span>Back office1</span></router-link>
           </div>
           </div>
         </div>
         </div>
-      <section v-if="loggedInUser">
+      <!-- <section v-if="loggedInUser">
         <p>Hello {{ loggedInUser.fullname }}</p>
         <button @click="logout">Logout</button>
-      </section>
+      </section> -->
 
     </section>
-       <stayFilter v-if=isFilterShow   class="filter" @filter="filter"></stayFilter>
+       <stayFilter v-if=isFilterShow   class="filter fixing-filter" @filter="filter"></stayFilter>
 </div>
 </main>
 </template>

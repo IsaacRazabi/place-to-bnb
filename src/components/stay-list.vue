@@ -126,13 +126,16 @@ this.filterBy.amenities.Cookingbasics=false;
     priceToFilter(){return {priceStart:this.filterBy.priceStart , priceEnd:this.filterBy.priceEnd }},
     locationList() {
        const { place } = this.$route.params;
-       if (!place) return 'Places to stay near you'
+       if (!place) return 'Places to stay around the world '
        return ` places to stay in ${place} ` 
        }
   },
   components: {
     stayPreview,
     appFooter,
+  },
+  created() {
+    window.scrollTo(0, 0);
   },
 };
 // :user="user"

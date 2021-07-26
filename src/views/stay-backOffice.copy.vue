@@ -4,9 +4,9 @@
     <div class="backoffice-main-container">
       <div class="backoffice-user-details">
         <div class="backoffice-user-img">
-          <img
+          <!-- <img
             src="https://a0.muscache.com/im/users/12591733/profile_pic/1393398487/original.jpg?im_w=240"
-          />
+          /> -->
           <p>Update Photo</p>
         </div>
         <div class="backoffice-safe-badge">
@@ -22,19 +22,19 @@
             Show others you’re really you with the identity verification badge.
           </p>
         </div>
-        <div class="backoffice-btn-badge">
+        <!-- <div class="backoffice-btn-badge">
           <router-link to="/superhost">
             <button>Get the badge</button>
           </router-link>
-        </div>
+        </div> -->
       </div>
       <main class="backoffice-main">
         <div class="backoffice-main-hello">
           <h2>Hello, {{user.fullname}} !</h2>
-          <p>created on april 2018</p>
+          <!-- <p>created on april 2018</p> -->
         </div>
         <div class="backoffice-host-offer">
-          <h3>Houses you offer</h3>
+          <!-- <h3>Houses you offer</h3> -->
 
 <chat :user="user" v-if="showChat"></chat>
 
@@ -721,7 +721,7 @@
         </ul>
         </div> 
 
-      <div class="Houses-statistics">
+      <!-- <div class="Houses-statistics">
                 <h3>Houses statistics:</h3>
                 <div id="vue-container">
                   <div
@@ -729,12 +729,12 @@
                     style="height: 360px; width: 100%"
                   ></div>
                 </div>
-              </div>
+              </div> -->
 
         <div class="backoffice-btn-add">
-          <router-link to="/host">
+          <!-- <router-link to="/host">
             <button>Add a property</button>
-          </router-link>
+          </router-link> -->
         </div>
       </main>
     </div>
@@ -872,9 +872,9 @@ export default {
 
 .backoffice-main-container {
   /* width: 1024px; */
-  grid-column: 2;
-  display: flex;
-  padding-top: 50px;
+  /* grid-column: 2; */
+  /* display: flex;
+  padding-top: 50px; */
 }
 .backoffice-user-details {
   text-align: center;

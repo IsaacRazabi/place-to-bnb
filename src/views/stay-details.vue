@@ -7,9 +7,9 @@
         <h2 class="details-title">{{ stay.name }}</h2>
         <div class="details-subtitle">
           <div>
-            <img v-if="stay.reviews.rate" src="../assets/examp/red-star.jpg" alt="" srcset="" />
-            <span v-if="stay.reviews.rate"  class="rating"> {{ stay.reviews[0].rate }} </span>
-            <span v-if="stay.reviews.votes"  class="voters"
+            <img v-if="stay.reviews[0].rate" src="../assets/examp/red-star.jpg" alt="" srcset="" />
+            <span v-if="stay.reviews[0].rate"  class="rating"> {{ stay.reviews[0].rate }} </span>
+            <span v-if="stay.reviews[0].votes"  class="voters"
               >({{ stay.reviews[0].votes }} <a>reviews</a>)
             </span>
             <span>· {{ stay.loc.address }}, {{ stay.loc.country }}</span>
@@ -152,32 +152,32 @@
               </div>
               <div class="details-reservation-rating">
                 <img src="../assets/examp/red-star.jpg" alt="" srcset="" />
-                <span v-if="stay.reviews.rate" class="rating"> {{ stay.reviews[0].rate }} </span>
-                <span v-if="stay.reviews.votes"  class="voters">({{ stay.reviews[0].votes }})</span>
+                <span v-if="stay.reviews[0].rate" class="rating"> {{ stay.reviews[0].rate }} </span>
+                <span v-if="stay.reviews[0].votes"  class="voters">({{ stay.reviews[0].votes }})</span>
               </div>
             </div>
             <form>
               <div class="details-reservation-Order">
                 <div class="details-reservation-check-in">
                   <p>CHECK IN</p>
-                  <!-- <p><input placeholder="" class="textbox-n" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" /></p> -->
+                  <p><input placeholder="" class="textbox-n" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" /></p>
                   <div class="block">
                     <span class="demonstration"></span>
-                    <el-date-picker class="el-date-picker"
+                    <!-- <el-date-picker class="el-date-picker"
                     v-model="orderToEdit.dates"
                     type="datetimerange"
                     cellClassName="date-picker"
                     range-separator="To"
                     start-placeholder="Start date"
                     end-placeholder="End date">
-                    </el-date-picker>
+                    </el-date-picker> -->
                   </div>
                 </div>
                 <div class="details-reservation-check-out">
                   <p>CHECK OUT</p>
                   <p><input placeholder="" class="textbox-n" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" /></p>
                   </div>
-                <div class="details-reservation-guests"><p>GUESTS</p><p><input type="number"/></p></div>
+                <div class="details-reservation-guests"><p>GUESTS</p><p><input type="number" value="1"/></p></div>
               </div>
               <div class="form-btn-approval">
                 <button @click="reserve">Check availability</button>
