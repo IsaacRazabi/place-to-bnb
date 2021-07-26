@@ -24,7 +24,7 @@
             <main class="backoffice-main">
                 <div class="backoffice-main-hello">
                     <h2>Hello, Moshe cohen !</h2>
-                    <p>created on april 2018</p>
+                    <p>Created on April 2018</p>
                 </div>
                 <div class="backoffice-host-offer">
                     <h3>Houses you offer</h3>
@@ -37,8 +37,8 @@
                     <div class="details-subtitle">
                         <div>
                             <img src="../assets/examp/red-star.jpg" />
-                            <span  class="rating"> 4.6 </span>
-                            <span class="voters">(11} <a>reviews</a>)
+                            <span  class="rating"> 4.9 </span>
+                            <span class="voters">(432} <a>reviews</a>)
                             </span>
                          </div>
                     </div>
