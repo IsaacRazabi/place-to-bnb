@@ -180,7 +180,8 @@
                   </div>
                 <div class="details-reservation-guests"><span>GUESTS</span>
                   <!-- <span class="fix-guests-number"><el-input-number  v-model="orderToEdit.guests" :min="1" :max="3"></el-input-number></span> -->
-                <p><input type="number" value="1"/></p>
+                <!-- <p><input type="number" value="1" /></p> -->
+                <p><input placeholder="1 guest" type="text" onfocus="(this.type='number')" onblur="(this.type='text')" id="date" /></p>
                 </div>
               </div>
               <div class="form-btn-approval">
