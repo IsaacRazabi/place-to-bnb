@@ -1,6 +1,6 @@
 <template>
-<!-- <main class="nav-bar-container" v-bind:class="{ active: onTop }"> -->
-  <main class="nav-bar-container">
+<main class="nav-bar-container" v-bind:class="{ active: onTop }">
+  <!-- <main class="nav-bar-container"> -->
   <div class="nav-bar-main">
     <section class="header-container" v-bind:class="{ filterShow: isFilterShow }">
 
@@ -47,6 +47,9 @@
             src="@/assets/imgs/user-login/userGuest.a58b1fc1 - dark.jpg"
           />
            <!-- <button>💳{{massages.length }}</button> -->
+          <!-- <p >
+          {{orders}}💳
+          </p> -->
            <!-- {{orders}} -->
         </span>
         <!-- </div> -->
@@ -57,10 +60,10 @@
           <span v-if="loggedInUser" @click="logout"><a>Log Out</a></span>
           <router-link v-else to="/sign-up">Log In</router-link>
           <router-link to="/sign-up">Sign Up</router-link>
-          <router-link v-if="loggedInUser" :to="`/user/${loggedInUser._id}`">User profile</router-link>
+          <!-- <router-link v-if="loggedInUser" :to="`/user/${loggedInUser._id}`">User profile</router-link> -->
           <hr/>
-          <router-link  to="/office"><span>Back office</span></router-link>
-          <router-link  to="/office1"><span>Back office1</span></router-link>
+          <router-link  to="/office"><span>User Profile</span></router-link>
+          <router-link  to="/office1"><span>Back Office</span></router-link>
           </div>
           </div>
         </div>
@@ -85,7 +88,7 @@ export default {
     return {
       loggedInUser: this.$store.getters.loggedinUser,
       isShow: true,
-      isFilterShow:true,
+      isFilterShow:false,
       onTop: false,
        massages: [],
    orders : 0
@@ -133,43 +136,52 @@ this.isFilterShow = !this.isFilterShow
     },
     addOrder(){
 this.orders++
-    }
+    },
+    toggelTop(){
+  if (document.body.scrollTop !== 0 || document.documentElement.scrollTop !== 0) 
+{
+   this.onTop = false
+}
+else{
+   this.onTop =true
+}
+//     addMsg(msg){
+// this.massages.push(msg)
+//     }
   },
   created(){
    socketService.emit('chat topic', this.topic)
     socketService.on('chat addMsg', this.addMsg)
-       socketService.on("newOrder", this.addOrder);
+    socketService.on("newOrder", this.addOrder)
+          //  socketService.on('chat addMsg', this.addMsg)
 
-window.addEventListener("scroll", function(){
-if (document.body.scrollTop !== 0 || document.documentElement.scrollTop !== 0) 
-{
-   this.onTop = false
-   console.log(this.onTop);
-}
-// else (document.body.scrollTop === 0 || document.documentElement.scrollTop === 0) 
-// {
-//    this.onTop =true
-// }
-else{
-   this.onTop =true
-   console.log(this.onTop);
-}
-});
-
+window.addEventListener("scroll", ()=>{
+  this.toggelTop()
+})
+  }
   },
+
+  
   destroyed() {
     socketService.off('chat addMsg', this.addMsg)
     // socketService.terminate();
+       removeEventListener('scroll', this.toggelTop)
   },
-  destroy(){
-    removeEventListener('scroll')
-  }
 
 };
 </script>
 <style scoped>
 input, button, submit { border:none; background: white; } 
-.active{
-  background: red;
+/* .active{
+z-index: -1;
+} */
+
+/* .nav-bar-container{
+    background-color: white;
+    box-shadow: 0 1px 8px 0 rgba(0,0,0,.1);
 }
+
+.header-container {
+  background-color: #fff !important;
+} */
 </style>

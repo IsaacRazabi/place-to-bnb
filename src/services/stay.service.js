@@ -78,13 +78,13 @@ function getEmptyStay() {
     name: "Located near by the Royal Palace",
     summary: "Fantastic duplex apartment with three bedrooms, located in the historic area of Porto, Ribeira (Cube)...",
     price: null,
-    loc:{
-      "country": "France",
-      "countryCode": "FR",
-      "address": "Paris, France",
-      "lat": -8.61308,
-      "lng": 41.1413
-  },
+    loc: {
+      country: "France",
+      countryCode: "FR",
+      address: "Paris, France",
+      lat: -8.61308,
+      lng: 41.1413,
+    },
     type: "",
     createdAt: Date.now(),
     imgUrls: [],
@@ -95,8 +95,8 @@ function getEmptyStay() {
       "votes": 432,
       "by": {
           "_id": "u102",
-          "fullname": "user2",
-          "imgUrl": "/img/img2.jpg"
+          "fullname": "Jesica Brown",
+          "imgUrl": "../assets/examp/exam-avatar3.jpg"
       }
   }],
     host: {

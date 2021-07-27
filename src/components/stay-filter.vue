@@ -17,11 +17,11 @@
             v-model="filterBy.loc.address"
             type="text"
             placeholder="Where are you going? "
-            list="completeWords"
+            list=" filteredNames"
           />
-          <!-- <input  list="completeWords"  /> -->
-            <datalist v-if="filterBy.loc.address" id="completeWords">
-              <option  v-for="(word, idx) in completeWords"
+   
+            <datalist v-if="filterBy.loc.address" id=" filteredNames">
+              <option  v-for="(word, idx) in  filteredNames"
             :key="idx">{{ word }}</option>
             </datalist>
         </span>
@@ -98,16 +98,16 @@ export default {
       isSowen: false,
       value1: [new Date(2000, 10, 10, 10, 10), new Date(2000, 10, 11, 10, 10)],
       searchWords: stayService.loadSearchNames() || [],
-      completeWords: [],
+      filteredNames: [],
     };
   },
   computed: {},
   methods: {
     setFilter() {
       this.$emit("filter", JSON.parse(JSON.stringify(this.filterBy)));
-      this.activeAutoComplete();
       this.$router.push({ path: "/explore" });
       this.$store.dispatch("loadStayes");
+      this.activeAutoComplete();
     },
     activeAutoComplete() {
       if (this.searchWords.includes(this.filterBy.loc.address)) return;
@@ -118,10 +118,9 @@ export default {
   watch: {
     filterBy: {
       handler(newVal) {
-        const filteredNames = this.searchWords.filter((word) => {
+         this.filteredNames = this.searchWords.filter((word) => {
           return word.startsWith(newVal.loc.address)
         });
-          this.completeWords = filteredNames;
       },
       deep: true,
     },

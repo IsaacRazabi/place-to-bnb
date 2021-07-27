@@ -17,12 +17,12 @@ Please fill out the form below to start chatting with your host</div>
           <div class="field">
             <input type="text" v-model="this.user.fullname">
           </div>
-    <ul class = "chat a-clean">
-      <li class="ltr" v-for="(msg, idx) in msgs" :key="idx">
+    <ul class = "chat a-clean rtl">
+      <li  v-for="(msg, idx) in msgs" :key="idx">
         <span>{{msg.from}}:</span>{{msg.txt}}
       </li>
     </ul>
-<div class="field">
+<div class="field rtl">
             <input v-model="msg.txt" type="text" placeholder="enter your massage" >
           </div>
 <!-- <div class="field textarea"> -->
@@ -48,6 +48,9 @@ export default {
   props:{
 user :{
   type : Object
+},
+massages:{
+  type : Array
 }
   },
   data() {
@@ -55,13 +58,16 @@ user :{
       msg: {from:this.loggedInUser, txt: ''},
       msgs: [],
       topic : 'Love',
-     isChatClose  :true
+     isChatClose  :true,
+ 
     }
   },
   created() {
     // socketService.setup();
     socketService.emit('chat topic', this.topic)
     socketService.on('chat addMsg', this.addMsg)
+    console.log(this.massages,this.msgs);
+    if(!this.msgs.length) this.msgs.push(...this.massages)
     //  this.isChatClose=true
   },
   destroyed() {
@@ -70,7 +76,11 @@ user :{
   },
   methods: {
     addMsg(msg) {
+  
       this.msgs.push(msg)
+
+      
+      
     },
     sendMsg() {
       // console.log('Sending', this.msg);
@@ -291,4 +301,7 @@ form .textarea textarea:focus::placeholder{
   .ltr{
     justify-content: left;
   }
+ .rtl{
+  direction: rtl;
+ }
 </style>

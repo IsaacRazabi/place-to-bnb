@@ -25,6 +25,7 @@ import appMain from "@/components/app-main.vue";
 import appFooter from "@/components/app-footer.vue";
 import NavBar from '../components/nav-bar.vue';
 
+
 export default {
   name: "Home",
   components: {

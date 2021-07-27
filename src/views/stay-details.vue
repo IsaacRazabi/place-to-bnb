@@ -388,13 +388,50 @@
             </p>
           </div>
         </div>
-          </aside>
 
+        <div v-for="review in stay.reviews" :key="review.id" class="details-reviews-box">
+          <div class="details-reviews-user-details">
+            <div class="details-reviews-user-img">
+              <img src="../assets/examp/userGuest.a58b1fc1 - dark.jpg" />
+            </div>
+            <div class="details-reviews-user-name-n-date">
+            <router-link :to="`/user/${review.by._id}`">
+              <h5>{{review.by.fullname }}</h5>
+           </router-link>
+              <span>June 2021</span>
+            </div>
+          </div>
+          <div class="details-review-text">
+            <p>
+           {{ review.txt }}
+            </p>
+             <!-- <el-rate v-if="review.rate" v-moי3del="review.rate" :colors="colors" disabled> </el-rate> -->
+          </div>
+       </div>
+
+          </aside>
+         <h2>Where you'll be</h2>
+      <GmapMap
+  :center="{lat:48.864716, lng:2.349014}"
+  :zoom="10"
+  map-type-id="terrain"
+  style="width: 1200px; height: 500px"
+>
+  <GmapMarker
+    :key="index"
+    v-for="(m, index) in markers"
+    :position="m.position"
+    :clickable="true"
+    :draggable="true"
+    @click="center=m.position"
+  />
+</GmapMap>
+<!-- 
          <div class="flex">
         <ul class=" a-clean reviews-container ">
-          <li class="review-box" v-for="review in stay.reviews" :key="review.id">
+          <li class="review-box" v-for="review in stay.reviews" :key="review.id"> -->
 
-<div class="details-reviews-box">
+<!-- <div v-for="review in stay.reviews" :key="review.id" class="details-reviews-box">
           <div class="details-reviews-user-details">
             <div class="details-reviews-user-img">
               <img src="../assets/examp/exam-avatar6.jpg" />
@@ -412,14 +449,14 @@
             </p>
              <el-rate v-if="review.rate" v-model="review.rate" :colors="colors" disabled> </el-rate>
           </div>
-       </div>
-          </li>
+       </div> -->
+          <!-- </li>
         </ul>
-        </div>
+        </div> -->
 
       <div>
         <form v-if="loggedInUser" @submit.prevent="addReview()">
-          <h2>share your exprience</h2>
+          <h2>Share your exprience</h2>
 <div class="txt-input el-textarea"></div>
           <textarea 
             autocomplete="off"
@@ -440,29 +477,9 @@
       </div>
     </section>
     <appFooter></appFooter>
-   <!-- <maps></maps> -->
   </main>
   
 </template>
-
-      <!-- 
-<stayReview ></stayReview> -->
-     
-
-<!-- 
-            <h5 class="details-reviews-user-name-n-date">
-              {{ review.by.fullname }}
-            </h5>
-            <img class="details-reviews-user-img" src="showImage" />
-            
-            <div class="details-reviews-user-details">
-                   <span class="demonstration"></span>
-            <el-rate v-model="review.rate" :colors="colors" disabled> </el-rate>
-              <! <div>rate : {{ review.rate }}</div> -->
-              <!-- <div>votes : {{ review.votes }}</div>
-            </div>
-            <p class="details-review-text">{{ review.txt }}</p>  -->
-
 
 <script>
 import { stayService } from "../services/stay.service.js";

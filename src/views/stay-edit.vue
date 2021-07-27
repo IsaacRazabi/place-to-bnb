@@ -1,7 +1,7 @@
 
 <template>
   <main class="edit-container">
-    <navBar></navBar>
+    <navBar class="edit-navBar"></navBar>
     <main class="add-container" v-if="loggedInUser">
       <section v-if="stayToEdit">
         <form class="stay-edit" @submit.prevent="saveStay">
@@ -114,7 +114,7 @@ export default {
   methods: {
     saveStay() {
       if(!this.stayToEdit.imgUrls.length){
-     this.stayToEdit.imgUrls.push("https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large","/img/exam-home4.b4a356bc.jpg","/img/exam-home3.a51f4729.jpg") 
+     this.stayToEdit.imgUrls.push("https://a0.muscache.com/im/pictures/689fbec7-3c63-44d6-a1ef-c4336e54e314.jpg?im_w=720","/img/exam-home4.b4a356bc.jpg","/img/exam-home3.a51f4729.jpg") 
       }
       this.$store
         .dispatch({ type: "saveStay", stay: this.stayToEdit })
